@@ -1,0 +1,151 @@
+head, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    background: #EBECEF;
+
+}
+
+p, h1, h2, h3, ul, li {
+    padding: 0;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    margin: 0;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+    background: yellow;
+}
+
+.main-page-styles > div {
+    border-radius: 2px;
+}
+
+.item-content-container {
+    padding-top: 300px;
+    width: 964px;
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 14px;
+    height: 100%;
+}
+
+.item-content-container > div {
+    border: 1px solid #e0e0e0;
+
+}
+
+
+.item-header {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: #FFFFFF;
+}
+
+.item-header > div {
+    flex-basis: 50%;
+    margin: 20px 0 0 20px;
+}
+
+.item-name-view-info {
+    line-height: 24px;
+}
+
+.item-details {
+    line-height: 24px;
+    color: grey;
+}
+
+.item-price-view-info {
+}
+
+.item-content {
+    align-items: center;
+    margin-right: auto;
+    display: flex;
+    flex-basis: 70%;
+    flex-direction: column;
+    background: #FFFFFF;
+}
+
+.item-img-wrapper {
+    width: 100%;
+    height: 478px;
+    position: relative;
+}
+
+.item-img {
+    height: 100%;
+    width: 100%;
+    background: red;
+}
+
+.item-details-info > div {
+    border-top: 1px solid #e0e0e0;;
+}
+
+ul.item-parameters-list {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.author-icon-format {
+    border-radius: 50%;
+    min-width: 100px;
+    min-height: 100px;
+    width: 50%;
+    height: 30%;
+}
+
+.item-author-img {
+    background: black;
+
+}
+
+.item-author-actions {
+    width: 50%;
+    list-style-type: none;
+}
+
+
+.item-details-info > div {
+    padding: 5px;
+}
+
+.item-details-info:last-child {
+    padding-bottom: 10px;
+}
+
+.author-content-container {
+    flex-grow: 1;
+}
+
+.item-author-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 25%;
+    position: sticky;
+    background: #FFFFFF;
+}
+
+.item-author-details > div {
+    padding-bottom: 20px;
+}
+
+ul.item-author-actions-list {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+

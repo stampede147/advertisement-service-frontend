@@ -1,0 +1,153 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    background: rebeccapurple;
+    overflow: hidden;
+}
+
+.main-page-styles {
+    background: rebeccapurple;
+}
+
+.author-icon-format {
+    border-radius: 50%;
+}
+
+
+.header {
+    height: 200%;
+    width: 100%;
+    background: grey;
+    overflow: hidden;
+}
+
+a:active, /* активная/посещенная ссылка */
+a {
+    text-decoration: none;
+    color: black
+}
+
+a:hover {
+    color: red;
+}
+
+
+.header > p {
+    font-weight: bold;;
+    text-align: center;
+}
+
+.content-container {
+    padding-top: 20px;
+    margin-left: 10%;
+    background: rebeccapurple;
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-list {
+    margin-left: 10%;
+}
+
+.chat-list-header > h1 {
+    font-size: 150%;
+    color: black;
+    text-align: left;
+    padding: 0 6px 15px 0;
+    margin: 0;
+
+}
+
+
+.profile-icon {
+    width: 100px;
+    height: 100px;
+    background: black;
+    display: block;
+}
+.profile-side-bar {
+    width: 200px;
+    height: 400px;
+}
+.profile-side-bar > div {
+    padding-bottom: 1px;
+}
+
+
+.profile-author-details {
+    margin-top: 12px;
+    overflow: hidden;
+}
+.item-icon {
+    width: 55px;
+    height: 55px;
+    background: black;
+    display: block;
+    border: 0;
+}
+
+.author-icon-format {
+    width: 25px;
+    height: 25px;
+    background: darkred;
+    position: absolute;
+    top: -2px;
+    left: -3px;
+}
+
+p {
+    margin: 0;
+    white-space: nowrap;
+}
+
+div.chat-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1%;
+    background: #8d46d9;
+    opacity: 90%;
+    border-radius: 4px;
+    width: 150%;
+}
+
+div.chat-card > div {
+    display: flex;
+    padding: 5px
+}
+
+div.chat-item-root {
+    position: relative;
+}
+
+div.center-content-info {
+    padding-left: 2%;
+    font-weight: bold;
+}
+
+div.chat-message-content {
+    white-space: nowrap;
+}
+
+div.center-content-info {
+    overflow: hidden;
+}
+
+.element-bar {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.element-bar > a > p {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.profile-author-name {
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+}
