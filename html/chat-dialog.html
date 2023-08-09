@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat-dialog</title>
-    <link rel="stylesheet" type="text/css" href="../css/chat-dialog.css">
+    <link rel="stylesheet" type="text/css" href="/css/chat-dialog.css">
+    <script SRC="/js/script.js"></script>
 </head>
 <body>
 
@@ -110,19 +111,18 @@
     </div>
 
     <div class="dialog-actions">
+        <div class="actions-row">
 
-
-        <div class="user-input-message-text-container">
-            <form >
-                <textarea placeholder="send a message" rows="1">123123</textarea>
-
-            </form>
-<!--                <input id="user-input-message-text" type="text" class="user-input-message-text" title="user-input">-->
-        </div>
-        <div class="send-message-button-container">
-            <button title="send" type="submit" class="send-message-button">
-                send
-            </button>
+            <div class="user-input-message-text-container">
+                <form>
+                        <textarea class="send-message-textarea" oninput="resize(this)" placeholder="send a message" rows="1">123123</textarea>
+                </form>
+            </div>
+            <div class="send-message-button-container">
+                <button title="send" type="submit" class="send-message-button">
+                    send
+                </button>
+            </div>
         </div>
     </div>
 

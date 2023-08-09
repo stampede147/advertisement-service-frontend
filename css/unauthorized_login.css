@@ -1,0 +1,45 @@
+html, body {
+    margin: 0;
+    padding: 0;
+
+}
+
+h1, h2, h3, h4, h5 p {
+    margin: 0;
+    padding: 0;
+}
+
+
+.sign-up-wrapper {
+    height: 100vh;
+
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.sign-up-container {
+    background: whitesmoke;
+    padding: 120px 70px;
+    border-radius: 5px;
+    border: 1px solid grey;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-up-header {
+    padding: 10px;
+}
+
+.input-forms {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.input-forms > * {
+    margin-top: 11px;
+}
+
