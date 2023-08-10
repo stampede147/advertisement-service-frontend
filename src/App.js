@@ -1,5 +1,7 @@
 import './App.css';
-import Advertisement from "./components/Advertisement/Advertisement";
+import Login from "./components/Login/Login";
+import Registration from "./components/Registration/Registration";
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 let props = {
     title: "Advertisement-title",
@@ -14,10 +16,22 @@ let props = {
     },
 }
 
+const routes = [
+    {path: 'login', element: Login}
+    // { path:'', component: },
+]
+
 function App() {
     return (
         <div className="App">
-            <Advertisement advertisement={props}/>
+            <BrowserRouter>
+                <Routes>
+                    <Route path={'/login'} element={<Login registrationLink={{url: '/registration'}}/>}/>
+                    <Route path={'/registration'} element={<Registration />}/>
+                </Routes>
+            </BrowserRouter>
+            {/*<AdvertisementList advertisement={props}/>*/}
+            {/*<Advertisement advertisement={props}/>*/}
         </div>
     );
 }
