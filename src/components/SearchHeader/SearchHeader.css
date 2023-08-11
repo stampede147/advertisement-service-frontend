@@ -1,0 +1,40 @@
+.search-header {
+    width: 100%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.search-input-form {
+    width: 50%;
+    background-color: #cccccc;
+    overflow: hidden;
+    display: flex;
+    padding: 6px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.search-input-form > input {
+    flex-grow: 1;
+}
+
+.search-input-form > button {
+    width: 10%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: none;
+}
+
+.search-input-form > button:hover {
+    background-color: #ececec;
+}
+.search-input-form > button:active {
+    background-color: #d3d3d3;
+}
+
+
+.search-input-form * ~ * {
+    margin-left: 5px;
+}
