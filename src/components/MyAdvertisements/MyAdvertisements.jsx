@@ -1,14 +1,14 @@
 import React from "react";
 
-import './AdvertisementList.css'
-import AdvertisementCard from "./AdvertisementCard";
+import './MyAdvertisements.css'
+import MyAdvertisement from "./MyAdvertisement";
 
 
 const AdvertisementList = (props) => {
     let advertisementCards = props.advertisements.map(advertisement => {
         return (
             <li key={advertisement.id}>
-                <AdvertisementCard advertisement={advertisement}/>
+                <MyAdvertisement advertisement={advertisement}/>
             </li>
         )
     });

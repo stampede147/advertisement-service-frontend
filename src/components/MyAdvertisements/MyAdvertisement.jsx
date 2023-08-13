@@ -1,8 +1,8 @@
 import React from "react";
 
-import './AdvertisementCard.css'
+import './MyAdvertisement.css'
 
-const AdvertisementCard = (props => {
+const MyAdvertisement = (props => {
 
     let advertisement = props.advertisement
     return (
@@ -35,4 +35,4 @@ const AdvertisementCard = (props => {
     )
 })
 
-export default AdvertisementCard;
+export default MyAdvertisement;
