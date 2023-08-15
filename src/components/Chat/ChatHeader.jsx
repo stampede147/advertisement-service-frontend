@@ -4,6 +4,7 @@ const ChatHeader = () => {
             <div className="dialog-header">
                 <div className="advertisement-card-image-preview">
                     <div className="advertisement-card-image">
+
                     </div>
                     <div className="advertisement-card-author-image icon">
 

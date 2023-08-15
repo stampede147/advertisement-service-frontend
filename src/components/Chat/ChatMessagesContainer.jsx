@@ -1,14 +1,14 @@
-import React from "react";
-import RightAlignChatMessage from "../ChatMessage/RightAlignChatMessage";
-import LeftAlignChatMessage from "../ChatMessage/LeftAlignChatMessage";
+import ChatMessage from "../ChatMessage/ChatMessage";
+import './ChatMessagesContainer.css'
 
-const ChatMessagesContainer = (messages) => {
-    const mappedMessages = messages.map(message => {
+const ChatMessagesContainer = ({state}) => {
+    let messagesPage = state.messagesPage;
+
+    const mappedMessages = messagesPage.content.map(message => {
         return (
-            <li>message.ownerId === 1
-                ? <RightAlignChatMessage message={message}/>
-                : <LeftAlignChatMessage message={message}/>
-            </li>);
+            <div key={message.id}>
+                <ChatMessage message={message}/>
+            </div>);
     });
 
     return (

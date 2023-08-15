@@ -1,21 +1,18 @@
 .advertisement-card {
+    width: 100%;
     display: flex;
     flex-flow: row;
-    align-items: center;
-    position: relative;
-
+    padding: 10px;
 }
 
 .advertisement-card:hover {
-    background: #f7f7f5;
+    background: yellow;
     border-radius: 10px;
-
 
 }
 
 .advertisement-card > div {
-    border: 1px solid red;
-    margin: 10px 10px 10px 20px;
+    padding: 5px;
 
 }
 
@@ -24,8 +21,8 @@
 }
 
 .card-image {
-    height: 60px;
-    width: 80px;
+    height: 80px;
+    width: 100px;
 }
 
 .card-image img {
@@ -39,14 +36,12 @@
     align-items: center;
 }
 
-.card-info > ul {
-    position: relative;
-    margin-top: 0;
-    list-style-type: none;
-    padding: 0;
-    overflow: hidden;
-    overflow-wrap: break-word;
-
+ul.card-info-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    justify-content: space-around;
 }
 
 .card-actions {
@@ -55,31 +50,10 @@
     width: 100%;
     max-width: 20%;
     flex-wrap: wrap;
-    gap: 10px;
-}
-
-.profile-author-details {
-    margin-top: 12px;
-    overflow: hidden;
+    justify-content: space-around;
 }
 
 
-.element-bar {
-    padding: 5px 0 5px 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-}
 
-.element-bar > a > p {
-    font-weight: bold;
-    font-style: normal;
-}
 
-.profile-author-name {
-    font-weight: bold;
-    padding: 0;
-    margin: 0;
-    font-size: 5vh
-}
 

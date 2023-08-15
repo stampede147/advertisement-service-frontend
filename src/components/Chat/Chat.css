@@ -1,42 +1,21 @@
-.main-dialog-container {
-    height: 600px;
-    width: 730px;
+.main-chat-root {
+    width: 80%;
+    padding-right: 5%;
+    border: 1px solid grey;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
 .dialog-header {
-    width: 99%;
-    height: 99%;
     display: flex;
     align-items: center;
 
 }
-
-
-.dialog-header-content {
-    width: 100%;
-    height: 10%;
-    position: relative;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-}
-
 .advertisement-card-image {
     width: 54px;
     height: 54px;
     position: relative;
     background: green;
     border-radius: 5px;
-}
-
-.icon {
-    border-radius: 50px;
 }
 
 .advertisement-card-author-image {
@@ -52,26 +31,18 @@
 .advertisement-card-info {
     display: flex;
     flex-direction: column;
-    padding: 0 5px;
+    margin-left: 5px;
 }
 
 .advertisement-card-author-name {
-    display: flex;
     margin: 0 5px 20px 5px;
-    flex-grow: 1;
-    flex-wrap: wrap;
 }
 
 .dialog-container {
-    width: 100%;
-    height: 80%;
-
     flex-direction: column;
     align-items: flex-start;
-
     overflow-y: auto;
     overflow-x: hidden;
-
     padding: 10px;
 }
 
@@ -97,6 +68,7 @@
 }
 
 .message-container {
+    overflow: hidden;
     width: 40%;
     max-width: max-content;
     min-width: min-content;
@@ -119,6 +91,7 @@
 
 
 .message-content {
+    position: relative;
     padding: 10px;
     border-radius: 10px;
     background-color: rgba(94, 94, 255, 0.3);
