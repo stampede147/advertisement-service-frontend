@@ -1,0 +1,11 @@
+.root__cc {
+}
+
+.root-content__cc {
+    padding: 0 10%;
+}
+
+.content-container__cc {
+    display: flex;
+    flex-direction: row;
+}
