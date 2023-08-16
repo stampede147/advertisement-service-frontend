@@ -1,7 +1,7 @@
 import AdvertisementPreviewContainer from "./AdvertisementPreviewContainer";
 import SearchHeader from "../SearchHeader/SearchHeader";
 import ProfileBar from "../ProfileBar/ProfileBar";
-import GenericComponent from "../CompositeComponent/GenericComponent";
+import GenericComponent from "../GenericComponent/GenericComponent";
 import React from "react";
 
 const MyAdvertisementsPage = (props) => {

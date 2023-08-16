@@ -4,8 +4,8 @@ import './AdvertisementPreviewContainer.css'
 import AdvertisementPreview from "./AdvertisementPreview";
 
 
-const AdvertisementPreviewContainer = ({state, ...props}) => {
-    const advertisements = state.advertisements;
+const AdvertisementPreviewContainer = ({state : advertisementsPage, ...props}) => {
+    const advertisements = advertisementsPage.content;
     let advertisementCards = advertisements.map(advertisement => {
         return (
             <li key={advertisement.id}>

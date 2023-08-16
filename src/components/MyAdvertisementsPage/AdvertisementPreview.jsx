@@ -1,7 +1,7 @@
 import React from "react";
 
 import './AdvertisementPreview.css'
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const AdvertisementPreview = (props => {
     let currentPathName = window.location.pathname;
