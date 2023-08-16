@@ -1,5 +1,4 @@
 import './ProfileBar.css'
-import {Link, NavLink} from "react-router-dom";
 
 const ProfileBar = () => {
     let props = {user: {name: "aboba"}}
