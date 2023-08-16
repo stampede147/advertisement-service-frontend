@@ -1,0 +1,59 @@
+.advertisement-card {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    padding: 10px;
+}
+
+.advertisement-card:hover {
+    background: yellow;
+    border-radius: 10px;
+
+}
+
+.advertisement-card > div {
+    padding: 5px;
+
+}
+
+.advertisement-card div.card-actions {
+    margin-left: auto;
+}
+
+.card-image {
+    height: 80px;
+    width: 100px;
+}
+
+.card-image img {
+    height: inherit;
+    width: inherit;
+}
+
+.card-info {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+ul.card-info-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    justify-content: space-around;
+}
+
+.card-actions {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    max-width: 20%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+
+
+
