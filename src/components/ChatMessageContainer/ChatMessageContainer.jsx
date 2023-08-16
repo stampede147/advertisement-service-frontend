@@ -3,8 +3,6 @@ import './ChatMessageContainer.css'
 
 const ChatMessageContainer = ({state: messages}) => {
 
-    debugger
-
     const mappedMessages = messages.map(message => {
         return (
             <div key={message.id}>
