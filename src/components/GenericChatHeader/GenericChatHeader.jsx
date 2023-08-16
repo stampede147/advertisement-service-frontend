@@ -1,4 +1,5 @@
 import './GenericChatHeader.css'
+
 const GenericChatHeader = ({
                                left: Left,
                                right: Right,
