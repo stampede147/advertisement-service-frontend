@@ -1,10 +1,14 @@
 import React from "react";
 
-import './AdvertisementCard.css'
+import './AdvertisementPreview.css'
+import {Link} from "react-router-dom";
 
-const AdvertisementCard = (props => {
+const AdvertisementPreview = (props => {
+    let currentPathName = window.location.pathname;
+    const ADVERTISEMENT_UPDATE_PATH = '/profile/advertisements/:id/update'
+    console.log(currentPathName)
 
-    let advertisement = props.advertisement
+    let advertisement = props.advertisement;
     return (
         <div className="advertisement-card">
             <div className="card-image">
@@ -18,12 +22,15 @@ const AdvertisementCard = (props => {
 
                 </ul>
             </div>
-            <div className="card-actions    ">
-                <button type="button" className="card-update-btn btn">
+            <div className="card-actions">
+                <Link to={ADVERTISEMENT_UPDATE_PATH}>
+
+                    <button type="button" className="card-update-btn btn">
                     <span className="card-update-btn-text">
                         update
                     </span>
-                </button>
+                    </button>
+                </Link>
                 <button type="button" className="card-delete-btn btn">
                     <span className="card-delete-btn-text">
                         delete
@@ -35,4 +42,4 @@ const AdvertisementCard = (props => {
     )
 })
 
-export default AdvertisementCard;
+export default AdvertisementPreview;

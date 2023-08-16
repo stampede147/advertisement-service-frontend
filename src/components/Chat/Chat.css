@@ -1,0 +1,181 @@
+.main-chat-root {
+    width: 80%;
+    padding-right: 5%;
+    border: 1px solid grey;
+
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+
+}
+.advertisement-card-image {
+    width: 54px;
+    height: 54px;
+    position: relative;
+    background: green;
+    border-radius: 5px;
+}
+
+.advertisement-card-author-image {
+    width: 25px;
+    height: 25px;
+    background: black;
+    position: absolute;
+
+    margin-top: -56px;
+    margin-left: -2px;
+}
+
+.advertisement-card-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+.advertisement-card-author-name {
+    margin: 0 5px 20px 5px;
+}
+
+.dialog-container {
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+}
+
+.message-author-img {
+    border-radius: 50%;
+    min-width: 30px;
+    min-height: 30px;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+.message-date-separator {
+    width: 80%;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.message-date-separator:first-child {
+    margin-top: 3px;
+    margin-bottom: 20px;
+}
+
+.message-container {
+    overflow: hidden;
+    width: 40%;
+    max-width: max-content;
+    min-width: min-content;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.left-opponent-message {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-start;
+}
+
+.right-opponent-message {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+
+
+.message-content {
+    position: relative;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(94, 94, 255, 0.3);
+}
+
+.message-content > span {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    text-align: justify;
+}
+
+.message-time {
+    font-size: 12px;
+    padding: 0 5px;
+    margin-top: auto;
+}
+
+
+.dialog-actions {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    position: relative;
+    background: pink;
+}
+
+
+.user-input-message-text-container {
+    flex-basis: 90%;
+    max-height: 200px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.user-input-message-text-container > form {
+    width: 100%;
+}
+
+.send-message-textarea {
+    width: 100%;
+
+    height: 40px;
+    min-height: 40px;
+    max-height: 150px;
+    padding: 9px 16px;
+    border: 0;
+
+    box-sizing: border-box;
+    appearance: none;
+    outline: 0;
+    resize: none;
+
+    font-size: 16px;
+    text-align: end;
+
+
+}
+
+.send-message-button-container {
+    margin: 0 auto;
+    flex-basis: 10%;
+    padding: 9px 9px 9px 0;
+
+}
+
+.send-message-button {
+    height: 100%;
+    width: 100%;
+
+    font-size: 14px;
+    line-height: 22px;
+
+}
+
+.actions-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+

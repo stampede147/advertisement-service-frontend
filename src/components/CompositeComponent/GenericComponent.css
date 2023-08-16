@@ -1,0 +1,30 @@
+.root__cc {
+}
+
+.root-content__cc {
+    padding: 0 10%;
+
+}
+
+.header__cc {
+}
+
+
+.content-container__cc {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.left-content__cc {
+    flex-basis: 20%;
+}
+
+.right-content__cc {
+    position: relative;
+    display: flex;
+    flex-basis: 80%;
+    flex-direction: column;
+    overflow: hidden;
+}

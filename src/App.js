@@ -3,41 +3,53 @@ import Login from "./components/Login/Login";
 import Registration from "./components/Registration/Registration";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Advertisement from "./components/Advertisement/Advertisement";
-import MyAdvertisements from "./components/AdvertisementList/AdvertisementList";
 import SearchHeader from "./components/SearchHeader/SearchHeader";
-
-let props = {
-    title: "Advertisement title",
-    createdAt: "2022.12.23",
-    id: 12321,
-    price: 140,
-    description: "HELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLD".repeat(50),
-    imgSourceUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVX4e9TfOmFxxc9Veul-RLjWTnrX-FWPezbXNSHgAi&s",
-    owner: {
-        name: "Evgeniy",
-        imgSourceUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVX4e9TfOmFxxc9Veul-RLjWTnrX-FWPezbXNSHgAi&s"
-    },
-}
-
-const routes = [
-    {path: 'login', element: Login}
-    // { path:'', component: },
-]
+import Chat from "./components/Chat/Chat";
+import MyAdvertisements from "./components/MyAdvertisements/MyAdvertisements";
+import State from "./redux/state";
+import MyChats from "./components/MyChats/MyChats";
+import Chat1 from "./components/Chat/Chat1";
+import GenericChatHeader from "./components/GenericChatHeader/GenericChatHeader";
+import StubComponent from "./components/StubComponent/StubComponent";
+import AdvertisementAuthorImg from "./components/AdvertisementAuthorImg/AdvertisementAuthorImg";
+import ChatHeader1 from "./components/Chat/ChatHeader1";
 
 function App() {
+
     return (
         <div className="content">
             <BrowserRouter>
                 <Routes>
-                    <Route path={'/login'} element={<Login registrationLink={{url: '/registration'}}/>}/>
-                    <Route path={'/registration'} element={<Registration/>}/>
-                    <Route path={'/advertisement'} element={<Advertisement header = {SearchHeader} advertisement={props}/>}/>
-                    <Route path={'/advertisements'} element={<MyAdvertisements/>}/>
-                    />
+                    <Route path={'/profile/advertisements'}
+                           element={<MyAdvertisements state={State}/>}/>
+
+                    <Route path={'profile/advertisements/:id/*'}
+                           element={<Advertisement header={SearchHeader}
+                                                   advertisement={State.advertisementsPage[0]}/>}/>
+
+                    <Route path={'/profile/chats'} element={
+                        <MyChats state={State}/>
+                    }/>
+
+                    <Route path={'/profile/chat1'} element={
+                        <Chat1 left={StubComponent} right={StubComponent} state={State}/>
+                    }/>
+                    <Route path={'/profile/chat'} element={
+                        <ChatHeader1 state={State.advertisementsPage.content[0]}/>
+                    }/>
+
+
+                    <Route path={'/login'}
+                           element={<Login registrationLink={{url: '/registration'}}/>}/>
+
+                    <Route path={'/registration'}
+                           element={<Registration/>}/>
+
                 </Routes>
             </BrowserRouter>
         </div>
-    );
+    )
+        ;
 }
 
 

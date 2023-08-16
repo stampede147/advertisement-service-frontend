@@ -1,5 +1,5 @@
 .search-header {
-    width: 100%;
+    width: auto;
     display: flex;
     place-items: center;
     justify-content: center;
@@ -7,7 +7,7 @@
 }
 
 .search-input-form {
-    width: 50%;
+    width: 100%;
     background-color: #cccccc;
     overflow: hidden;
     display: flex;

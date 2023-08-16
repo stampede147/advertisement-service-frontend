@@ -1,0 +1,7 @@
+.dialog-container {
+/*    width: 100%;*/
+/*    flex-direction: column;*/
+    overflow-y: auto;
+    overflow-x: hidden;
+/*    padding: 10px;*/
+}

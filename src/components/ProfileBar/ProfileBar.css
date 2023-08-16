@@ -1,0 +1,47 @@
+
+.profile-side-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: black;
+    display: block;
+}
+
+.profile-author-details {
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.profile-author-name {
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+a:active,
+a {
+    text-decoration: none;
+    color: black
+}
+
+a:hover {
+    color: red;
+}
+
+.profile-author-name {
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+}
+

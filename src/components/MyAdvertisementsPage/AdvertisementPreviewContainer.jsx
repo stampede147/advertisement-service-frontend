@@ -1,14 +1,15 @@
 import React from "react";
 
-import './AdvertisementList.css'
-import AdvertisementCard from "./AdvertisementCard";
+import './AdvertisementPreviewContainer.css'
+import AdvertisementPreview from "./AdvertisementPreview";
 
 
-const AdvertisementList = (props) => {
-    let advertisementCards = props.advertisements.map(advertisement => {
+const AdvertisementPreviewContainer = ({state : advertisementsPage, ...props}) => {
+    const advertisements = advertisementsPage.content;
+    let advertisementCards = advertisements.map(advertisement => {
         return (
             <li key={advertisement.id}>
-                <AdvertisementCard advertisement={advertisement}/>
+                <AdvertisementPreview advertisement={advertisement}/>
             </li>
         )
     });
@@ -31,4 +32,4 @@ const AdvertisementList = (props) => {
     )
 }
 
-export default AdvertisementList;
+export default AdvertisementPreviewContainer;
