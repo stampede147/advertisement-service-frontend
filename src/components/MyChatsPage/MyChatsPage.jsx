@@ -1,4 +1,4 @@
-import GenericComponent from "../CompositeComponent/GenericComponent";
+import GenericComponent from "../GenericComponent/GenericComponent";
 import SearchHeader from "../SearchHeader/SearchHeader";
 import ProfileBar from "../ProfileBar/ProfileBar";
 import ChatsPreviewContainer from "./ChatsPreviewContainer";
