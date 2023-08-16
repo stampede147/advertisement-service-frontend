@@ -2,10 +2,13 @@
 }
 
 .root-content__cc {
+    box-sizing: border-box;
+    width: 100%;
     padding: 0 10%;
 }
 
 .content-container__cc {
     display: flex;
-    flex-direction: row;
+    align-content: flex-start;
 }
+
