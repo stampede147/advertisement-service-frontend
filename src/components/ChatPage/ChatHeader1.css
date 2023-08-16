@@ -1,0 +1,6 @@
+.chat-header-root-root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 64px;
+}
