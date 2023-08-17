@@ -1,4 +1,4 @@
-import GenericChatHeader from "../GenericChatHeader/GenericChatHeader";
+import GenericChatHeader from "../generic/GenericChatHeader/GenericChatHeader";
 import AdvertisementAuthorImg from "../AdvertisementAuthorImg/AdvertisementAuthorImg";
 import AdvertisementInfo from "../AdvertisementInfo/AdvertisementInfo";
 

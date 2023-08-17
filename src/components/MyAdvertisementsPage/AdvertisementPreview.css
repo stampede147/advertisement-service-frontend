@@ -1,22 +1,23 @@
-.advertisement-card {
+.advertisement-card-preview {
     width: 100%;
     display: flex;
     flex-flow: row;
     padding: 10px;
+    box-sizing: border-box;
 }
 
-.advertisement-card:hover {
-    background: yellow;
+.advertisement-card-preview:hover {
+    background: rgba(108, 108, 103, 0.13);
     border-radius: 10px;
 
 }
 
-.advertisement-card > div {
+.advertisement-card-preview > div {
     padding: 5px;
 
 }
 
-.advertisement-card div.card-actions {
+.advertisement-card-preview div.card-actions {
     margin-left: auto;
 }
 
@@ -54,6 +55,19 @@ ul.card-info-list {
 }
 
 
+.card-info-list > li > button {
+
+    border: 0;
+    background-color: inherit;
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-family: Arial;
+}
 
 
-
+.card-info-list > li > button:hover {
+    color: red;
+    cursor: pointer;
+}

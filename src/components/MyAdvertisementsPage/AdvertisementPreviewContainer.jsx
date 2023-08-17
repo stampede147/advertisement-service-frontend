@@ -4,8 +4,7 @@ import './AdvertisementPreviewContainer.css'
 import AdvertisementPreview from "./AdvertisementPreview";
 
 
-const AdvertisementPreviewContainer = ({state : advertisementsPage, ...props}) => {
-    const advertisements = advertisementsPage.content;
+const AdvertisementPreviewContainer = ({state: advertisements, ...props}) => {
     let advertisementCards = advertisements.map(advertisement => {
         return (
             <li key={advertisement.id}>
@@ -15,20 +14,16 @@ const AdvertisementPreviewContainer = ({state : advertisementsPage, ...props}) =
     });
 
     return (
-        <div className="main-page-styles">
-            <div className="content-container-wrapper">
-                <div className="main-content">
-                    <div className="advertisement-header">
-                        <p>Your advertisements</p>
-                    </div>
-                    <div className="card-container">
-                        <ul>
-                            {advertisementCards}
-                        </ul>
-                    </div>
+            <div className="main-content">
+                <div className="advertisement-header">
+                    <p>Your advertisements</p>
+                </div>
+                <div className="card-container">
+                    <ul>
+                        {advertisementCards}
+                    </ul>
                 </div>
             </div>
-        </div>
     )
 }
 

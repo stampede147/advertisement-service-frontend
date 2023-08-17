@@ -1,16 +1,18 @@
 
 .advertisement-content {
     margin: auto;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
 }
+
+/*.advertisement-content-wrapper {*/
+/*    padding: 0 10px 10px;*/
+/*}*/
+
 
 .advertisement-content-wrapper {
-    padding: 0 10px 10px;
-}
-
-
-.item-content-container {
-    width: 964px;
+    max-width: 964px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -25,13 +27,12 @@
 .item-right-block {
     height: 100%;
     width: 20%;
-    top: 1%;
+    top: 1px;
+    bottom: 50px;
     position: sticky;
-
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 0 auto;
 }
 
 

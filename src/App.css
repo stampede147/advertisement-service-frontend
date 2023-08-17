@@ -1,13 +1,40 @@
 
 body {
-  background-color: #f7f7f5;
-
+    background-color: #f7f7f5;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 span, p, h1, h2, h3, ul, li {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-family: inherit;
+}
 
+.price:after {
+    content: "P";
+}
+
+/**
+  Generic component configuration
+  @see GenericComponent.jsx or GenericComponent.css
+ */
+@media screen and (min-width: 1366px) {
+    .root__cc {
+        width: 1304px;
+    }
+
+    .header__cc {
+        width: calc(960px);
+    }
+
+    .left-content__cc {
+        width: 196px;
+    }
+
+    .right-content__cc {
+        width: 720px;
+        position: relative;
+        overflow: hidden;
+    }
 }

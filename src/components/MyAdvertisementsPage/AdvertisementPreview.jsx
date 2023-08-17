@@ -1,36 +1,39 @@
 import React from "react";
 
 import './AdvertisementPreview.css'
-import {Link} from "react-router-dom";
+import ImgBlock from "../common/ImgBlock";
+import {useNavigate} from "react-router-dom";
 
 const AdvertisementPreview = (props => {
-    let currentPathName = window.location.pathname;
-    const ADVERTISEMENT_UPDATE_PATH = '/profile/advertisements/:id/update'
-    console.log(currentPathName)
+
+    let navigateFunction = useNavigate();
+
+    const onButtonClick = () => {
+        navigateFunction("/advertisements/0");
+
+    }
 
     let advertisement = props.advertisement;
     return (
-        <div className="advertisement-card">
-            <div className="card-image">
-                <img src={advertisement.imgSourceUrl}/>
-            </div>
+        <div className="advertisement-card-preview">
+            <ImgBlock className="card-image" src={advertisement.imgSourceUrl}/>
             <div className="card-info">
                 <ul className="card-info-list">
-                    <li>{advertisement.title}</li>
+                    <li>
+                        <button onClick={onButtonClick}>
+                            {advertisement.title}
+                        </button>
+                    </li>
                     <li>{advertisement.price}P</li>
                     <li>{advertisement.address}</li>
-
                 </ul>
             </div>
             <div className="card-actions">
-                <Link to={ADVERTISEMENT_UPDATE_PATH}>
-
-                    <button type="button" className="card-update-btn btn">
+                <button type="button" className="card-update-btn btn">
                     <span className="card-update-btn-text">
                         update
                     </span>
-                    </button>
-                </Link>
+                </button>
                 <button type="button" className="card-delete-btn btn">
                     <span className="card-delete-btn-text">
                         delete
