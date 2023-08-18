@@ -1,41 +1,34 @@
 import './Advertisement.css'
-import AdvertisementLeftContentBlock from "../AdvertisementLeftContentBlock";
-import AdvertisementRightContentBlock from "../AdvertisementRightContentBlock";
+import React from "react";
+import ItemDetailsContent from "./LeftBlock/ItemDetailsContent";
+import ItemPrice from "./RightBlock/ItemPriceHeader";
+import ItemAuthorContent from "./RightBlock/ItemAuthorContent";
+import ItemTitle from "./LeftBlock/ItemTitle";
+import ItemHeader from "./common/ItemHeader";
 
 
-const Advertisement = ({state}) => {
+const Advertisement = ({
+                           state,
+                           left,
+                           right
+                       }) => {
 
     let advertisement = state.advertisement;
+
     return (
-        <div className='advertisement-content' onLoad={resizeHeight}>
-            <div className="advertisement-content-wrapper">
-                <AdvertisementLeftContentBlock advertisement={advertisement}/>
-                <AdvertisementRightContentBlock advertisement={advertisement}/>
+        <div className='advertisement-content-root'>
+            <div className='item-left'>
+                <ItemHeader advertisement={advertisement}
+                            header={ItemTitle}/>
+                <ItemDetailsContent advertisement={advertisement}/>
+            </div>
+            <div className='item-right'>
+                <ItemHeader advertisement={advertisement}
+                            header={ItemPrice}/>
+                <ItemAuthorContent advertisement={advertisement}/>
             </div>
         </div>
     )
 }
 
 export default Advertisement;
-
-function resizeHeight() {
-    let elements = document.getElementsByClassName('item-header');
-
-    let maxHeight = -1;
-    for (let element of elements) {
-        let offsetHeight = element.offsetHeight;
-        if (offsetHeight > maxHeight) {
-            maxHeight = offsetHeight;
-        }
-    }
-
-    if (maxHeight < 0) {
-        return;
-    }
-
-    for (let element of elements) {
-        element.style.height = maxHeight + 'px';
-    }
-
-}
-

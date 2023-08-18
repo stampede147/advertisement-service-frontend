@@ -1,16 +1,16 @@
-import GenericComponent from "../components/generic/GenericComponent/GenericComponent";
+import GenericPage from "./generic/GenericPage";
 import SearchHeader from "../components/SearchHeader/SearchHeader";
-import Content from "../components/ChatPage/Content/Content";
+import Chat from "../components/ChatPage/Content/Chat";
 import ProfileBar from "../components/ProfileBar/ProfileBar";
 import StubComponent from "../components/StubComponent/StubComponent";
 
 const ChatPage = (props) => {
 
     return(
-        <GenericComponent state={props.state}
-                          header={SearchHeader}
-                          leftContent = {ProfileBar}
-                          rightContent={Content}
+        <GenericPage state={props.state}
+                     header={SearchHeader}
+                     leftContent = {ProfileBar}
+                     rightContent={Chat}
         />
     );
 }

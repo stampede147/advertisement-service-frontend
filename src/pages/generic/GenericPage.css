@@ -9,6 +9,6 @@
 
 .content-container__cc {
     display: flex;
-    align-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
 }
-

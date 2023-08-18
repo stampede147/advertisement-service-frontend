@@ -1,7 +1,7 @@
 import React from "react";
-import './GenericComponent.css'
+import './GenericPage.css'
 
-const GenericComponent = ({
+const GenericPage = ({
                                 header: Header,
                                 leftContent: LeftContent,
                                 rightContent: RightContent,
@@ -29,4 +29,4 @@ const GenericComponent = ({
     )
 }
 
-export default GenericComponent;
+export default GenericPage;

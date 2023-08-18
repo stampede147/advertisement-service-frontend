@@ -17,24 +17,35 @@ span, p, h1, h2, h3, ul, li {
 
 /**
   Generic component configuration
-  @see GenericComponent.jsx or GenericComponent.css
+  @see GenericComponent.jsx or GenericPage.css
  */
 @media screen and (min-width: 1366px) {
     .root__cc {
         width: 1304px;
+        margin: auto;
     }
 
     .header__cc {
         width: calc(960px);
+        margin: auto;
+    }
+
+    .content-container__cc {
+        display: flex;
+        width: calc(960px + 40px + 40px);
+        flex-direction: row;
+    }
+
+    .content-container__cc > div:not(:last-child) {
     }
 
     .left-content__cc {
         width: 196px;
+        overflow: hidden;
     }
 
     .right-content__cc {
         width: 720px;
-        position: relative;
         overflow: hidden;
     }
 }

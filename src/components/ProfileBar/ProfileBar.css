@@ -1,5 +1,5 @@
-
 .profile-side-bar {
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
