@@ -1,4 +1,4 @@
-import './ItemContent.css'
+import './ItemDetailsContent.css'
 import React from "react";
 
 const ItemDetailsContent = (props) => {

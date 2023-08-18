@@ -1,3 +1,0 @@
-const LinkedButton = (props) => {
-    return
-}
