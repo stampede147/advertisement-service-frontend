@@ -1,27 +1,16 @@
 import './Chat.css'
-import ChatHeader from "./ChatHeader";
-import ChatMessagesContainer from "./ChatMessagesContainer";
+import ChatMessageList from "./ChatMessageList/ChatMessageList";
+import ChatActions from "./ChatActions/ChatActions";
+import ChatHeader from "./ChatHeader/ChatHeader";
+import React, {useEffect, useReducer, useRef, useState} from "react";
 
 const Chat = ({state}) => {
+
     return (
         <div className="main-chat-root">
-            <ChatHeader state={state}/>
-            <ChatMessagesContainer state={state}/>
-            <div className="dialog-actions">
-                <div className="actions-row">
-                    <div className="user-input-message-text-container">
-                        <form>
-                            <textarea className="send-message-textarea" placeholder="send a message" rows="1"/>
-                        </form>
-                    </div>
-                    <div className="send-message-button-container">
-                        <button title="send" type="submit" className="send-message-button">
-                            send
-                        </button>
-                    </div>
-                </div>
-            </div>
-
+            <ChatHeader state={state.chat}/>
+            <ChatMessageList state={state.messages}/>
+            <ChatActions state={state}/>
         </div>
     )
 }

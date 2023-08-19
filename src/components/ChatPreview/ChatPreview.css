@@ -1,0 +1,54 @@
+.chat-preview-root {
+    height: 10vh;
+    flex-direction: row;
+    display: flex;
+    box-shadow: 0 24px 24px -24px rgba(0, 0, 0, .11);
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.chat-preview-root .left-block-content {
+    position: relative;
+
+}
+
+.chat-preview-root .right-block-content {
+    position: relative;
+}
+
+.clickable-button {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.clickable-button:hover {
+    background-color: rgba(128, 128, 128, 0.25);
+}
+
+
+.clickable-button-area {
+    display: inline-flex;
+    place-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+}
+
+
+.clickable-button-area svg {
+    width: 24px;
+    height: 24px;
+}
+
+.back-icon {
+    width: 24px;
+    height: 24px;
+    color: currentColor;
+}

@@ -1,0 +1,5 @@
+.dialog-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+/*    padding: 10px;*/
+}

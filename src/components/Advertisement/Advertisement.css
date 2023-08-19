@@ -1,49 +1,33 @@
-
-.advertisement-content {
-    margin: auto;
-    height: 100vh;
-}
-
-.advertisement-content-wrapper {
-    padding: 0 10px 10px;
-}
-
-
-.item-content-container {
-    width: 964px;
+.advertisement-content-root {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    font-size: 14px;
-    margin: auto;
+    place-items: flex-start;
+    padding: 0 5px;
 }
-
-.item-left-block {
+.item-left {
     width: 80%;
 }
 
-.item-right-block {
-    height: 100%;
+
+.item-right {
     width: 20%;
-    top: 1%;
     position: sticky;
-
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 0 auto;
+    top: 1%;
+    margin-left: 10px;
 }
 
 
-.item-header {
-    line-height: 24px;
-}
 
-.item-details {
-    line-height: 24px;
-    color: grey;
 
-}
+
+
+
+
+
+
+
+
+
 
 
 .item-img {
