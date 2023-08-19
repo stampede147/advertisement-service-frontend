@@ -1,5 +1,5 @@
 import React  from "react";
-import "./ChatsPreviewList.css"
+import "./ChatPreviewList.css"
 import {Link} from "react-router-dom";
 import ChatPreview from "./ChatPreview";
 
