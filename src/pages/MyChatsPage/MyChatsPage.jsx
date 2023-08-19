@@ -1,4 +1,4 @@
-import GenericPage from "../generic/GenericPage";
+import GenericPage from "../GenericPage/GenericPage";
 import React  from "react";
 import SearchHeader from "../../components/SearchHeader/SearchHeader";
 import ChatPreviewList from "../../components/ChatPreview/ChatPreviewList";

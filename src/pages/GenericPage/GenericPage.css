@@ -16,7 +16,6 @@
     .root-content__cc {
         width: inherit;
         box-sizing: border-box;
-        width: 100%;
         padding: 0 10%;
     }
 
@@ -25,7 +24,8 @@
     }
 
     .root-content__cc .content-container__cc {
-        width: inherit;
+        width: calc(100% - 20%);
+        margin: auto;
     }
 
     .content-container__cc {
