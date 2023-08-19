@@ -1,7 +1,10 @@
 import React from "react";
 import './SendMessageAction.css'
 
-const SendMessageAction = () => {
+const SendMessageAction = (props) => {
+
+    let onAction = props.onAction;
+
     return (
         <>
             <div className="user-input-message-text-root">
@@ -12,9 +15,10 @@ const SendMessageAction = () => {
             </div>
 
             <div className="send-message-button-root">
-                <button form="user-input-message-form"
+                <button
+                    form="user-input-message-form"
                         title="send"
-                        type="submit"
+                        type="button"
                         className="send-message-button">
                     send
                 </button>
