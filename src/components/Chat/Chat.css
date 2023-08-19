@@ -1,0 +1,111 @@
+.main-chat-root {
+    width: 80%;
+    margin: auto;
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+
+}
+.advertisement-card-image {
+    width: 54px;
+    height: 54px;
+    position: relative;
+    background: green;
+    border-radius: 5px;
+}
+
+.advertisement-card-author-image {
+    width: 25px;
+    height: 25px;
+    background: black;
+    position: absolute;
+
+    margin-top: -56px;
+    margin-left: -2px;
+}
+
+.advertisement-card-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+.advertisement-card-author-name {
+    margin: 0 5px 20px 5px;
+}
+
+.dialog-container {
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+
+    height: calc(100vh - 244px);
+}
+
+.message-author-img {
+    border-radius: 50%;
+    min-width: 30px;
+    min-height: 30px;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+.message-date-separator {
+    width: 80%;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.message-date-separator:first-child {
+    margin-top: 3px;
+    margin-bottom: 20px;
+}
+
+.message-container {
+    overflow: hidden;
+    width: 40%;
+    max-width: max-content;
+    min-width: min-content;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.left-opponent-message {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-start;
+}
+
+.right-opponent-message {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+
+
+.message-content {
+    position: relative;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(94, 94, 255, 0.3);
+}
+
+.message-content > span {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    text-align: justify;
+}
+
+.message-time {
+    font-size: 12px;
+    padding: 0 5px;
+    margin-top: auto;
+}
+
