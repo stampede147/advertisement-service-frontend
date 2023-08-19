@@ -9,7 +9,7 @@ const ChatActions = ({state}) => {
     return (
         <div className="dialog-actions">
             <div className="actions-row">
-                <SendMessageAction/>
+                <SendMessageAction onChange={state.onChange} onAction={state.onAction}/>
             </div>
         </div>
     )
