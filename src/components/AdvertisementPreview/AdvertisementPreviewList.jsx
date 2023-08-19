@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 
 import './AdvertisementPreviewList.css'
-import AdvertisementPreview from "../AdvertisementPreview/AdvertisementPreview";
+import AdvertisementPreview from "./AdvertisementPreview";
 import ReactDOM from "react-dom/client";
 
 
