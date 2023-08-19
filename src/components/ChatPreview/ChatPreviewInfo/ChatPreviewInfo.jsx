@@ -1,24 +1,31 @@
-import './AdvertisementAuthorInfo.css'
+import React from "react";
+import './ChatPreviewInfo.css'
 
-const AdvertisementAuthorInfo = ({state: chat}) => {
+const ChatPreviewInfo = ({state: chat}) => {
 
+    let message = "Привет мой друг, как ддела?!";
     let advertisement = chat.advertisement;
 
     return (
-        <div className='chat-advertisement-author-info-root'>
-            <div className='advertisement-author-name'>
+        <div className='chat-preview-info-root'>
+            <div className='chat-advertisement-author-name'>
                 {advertisement.owner.name}
             </div>
-            <div className='advertisement-info-root'>
-                <div className='advertisement-info-title'>
+            <div className='chat-advertisement-info-root'>
+                <div className='chat-advertisement-info-title'>
                     {advertisement.title}
                 </div>
-                <div className='advertisement-info-price price'>
+                <div className='chat-advertisement-info-price price'>
                     {advertisement.price}
+                </div>
+            </div>
+            <div className='chat-message-info-root'>
+                <div className='chat-message-info-content'>
+                    {message}
                 </div>
             </div>
         </div>
     );
 }
 
-export default AdvertisementAuthorInfo;
+export default ChatPreviewInfo;

@@ -1,7 +1,7 @@
 import './Chat.css'
-import MessageContainer from "./MessageContainer/MessageContainer";
-import ChatActions from "./Actions/ChatActions";
-import ChatHeader from "../generic/GenericChatHeader/ChatHeader";
+import ChatMessageList from "./ChatMessageList/ChatMessageList";
+import ChatActions from "./ChatActions/ChatActions";
+import ChatHeader from "./ChatHeader/ChatHeader";
 import React, {useEffect, useReducer, useRef, useState} from "react";
 
 const Chat = ({state}) => {
@@ -9,7 +9,7 @@ const Chat = ({state}) => {
     return (
         <div className="main-chat-root">
             <ChatHeader state={state.chat}/>
-            <MessageContainer state={state.messages}/>
+            <ChatMessageList state={state.messages}/>
             <ChatActions state={state}/>
         </div>
     )

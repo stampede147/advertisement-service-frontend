@@ -1,4 +1,6 @@
-const Message = ({message}) => {
+import React  from "react";
+
+const ChatMessage = ({message}) => {
 
     let createdAt = message.createdAt;
 
@@ -27,4 +29,4 @@ const Message = ({message}) => {
     )
 }
 
-export default Message;
+export default ChatMessage;

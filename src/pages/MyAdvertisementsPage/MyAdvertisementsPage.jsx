@@ -1,7 +1,7 @@
-import AdvertisementPreviewList from "../components/AdvertisementPreviewList/AdvertisementPreviewList";
-import SearchHeader from "../components/SearchHeader/SearchHeader";
-import ProfileBar from "../components/ProfileBar/ProfileBar";
-import GenericPage from "./generic/GenericPage";
+import AdvertisementPreviewList from "../../components/AdvertisementPreviewList/AdvertisementPreviewList";
+import SearchHeader from "../../components/SearchHeader/SearchHeader";
+import ProfileBar from "../../components/ProfileBar/ProfileBar";
+import GenericPage from "../generic/GenericPage";
 import React from "react";
 
 const MyAdvertisementsPage = ({state}) => {

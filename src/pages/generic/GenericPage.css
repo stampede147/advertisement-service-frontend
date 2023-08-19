@@ -1,14 +1,33 @@
 .root__cc {
 }
 
-.root-content__cc {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0 10%;
-}
-
 .content-container__cc {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+}
+
+
+@media screen and (min-width: 1px) {
+    .root__cc {
+        margin: auto;
+    }
+
+    .root-content__cc {
+        width: inherit;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 10%;
+    }
+
+    .root-content__cc .header__cc {
+        width: inherit;
+    }
+
+    .root-content__cc .content-container__cc {
+        width: inherit;
+    }
+
+    .content-container__cc {
+    }
 }

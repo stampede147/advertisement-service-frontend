@@ -1,4 +1,3 @@
-import ItemTitle from "../LeftBlock/ItemTitle";
 import React, {useEffect} from "react";
 
 const ItemHeader = ({
@@ -8,11 +7,10 @@ const ItemHeader = ({
 
     useEffect(() => {
         resizeHeight('item-header-root')
-        console.log("called")
     }, []);
 
     return (
-        <div className='item-header-root'>
+        <div className='item-header-root' style={{marginBottom: '5px'}}>
             <Header advertisement={advertisement}/>
         </div>
     )
@@ -38,6 +36,7 @@ function resizeHeight(name) {
 
     for (let element of elements) {
         element.style.height = maxHeight + 'px';
+        element.style.top = maxHeight + 'px';
     }
 
 }

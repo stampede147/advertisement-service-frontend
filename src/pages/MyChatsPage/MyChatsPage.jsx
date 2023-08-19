@@ -1,7 +1,7 @@
-import GenericPage from "./generic/GenericPage";
+import GenericPage from "../generic/GenericPage";
 import React  from "react";
-import SearchHeader from "../components/SearchHeader/SearchHeader";
-import ChatPreviewList from "../components/ChatPreview/ChatPreviewList";
+import SearchHeader from "../../components/SearchHeader/SearchHeader";
+import ChatPreviewList from "../../components/ChatPreview/ChatPreviewList";
 
 const MyChats = ({state}) => {
     return (

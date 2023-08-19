@@ -1,6 +1,6 @@
-import GenericPage from "./generic/GenericPage";
-import SearchHeader from "../components/SearchHeader/SearchHeader";
-import Chat from "../components/Chat/Chat";
+import GenericPage from "../generic/GenericPage";
+import SearchHeader from "../../components/SearchHeader/SearchHeader";
+import Chat from "../../components/Chat/Chat";
 import React  from "react";
 
 const ChatPage = (props) => {

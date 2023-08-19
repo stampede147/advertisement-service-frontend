@@ -1,8 +1,7 @@
 import './ChatActions.css'
 import React, {useRef, useState} from "react";
 import state from "../../../redux/state";
-import UserInputTextArea from "./UserInputTextArea";
-import SendMessageButtonAction from "./SendMessageButtonAction";
+import SendMessageAction from "./SendMessageAction";
 
 const ChatActions = ({state}) => {
 
@@ -10,9 +9,7 @@ const ChatActions = ({state}) => {
     return (
         <div className="dialog-actions">
             <div className="actions-row">
-                
-                <UserInputTextArea/>
-                <SendMessageButtonAction/>
+                <SendMessageAction/>
             </div>
         </div>
     )

@@ -1,15 +1,16 @@
 import './App.css';
-import LoginPage from "./components/LoginPage/LoginPage";
-import RegistrationPage from "./components/RegistrationPage/RegistrationPage";
+import React  from "react";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Advertisement from "./components/Advertisement/Advertisement";
 import SearchHeader from "./components/SearchHeader/SearchHeader";
-import MyAdvertisementsPage from "./pages/MyAdvertisementsPage";
+import MyAdvertisementsPage from "./pages/MyAdvertisementsPage/MyAdvertisementsPage";
 import State from "./redux/state";
-import MyChats from "./pages/MyChatsPage";
-import ChatPage from "./pages/ChatPage";
+import MyChats from "./pages/MyChatsPage/MyChatsPage";
+import ChatPage from "./pages/ChatPage/ChatPage";
 import StateManager from "./redux/StateManager";
-import AdvertisementPage from "./pages/AdvertisementPage";
+import AdvertisementPage from "./pages/AdvertisementPage/AdvertisementPage";
 
 function App() {
 

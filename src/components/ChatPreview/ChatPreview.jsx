@@ -1,13 +1,17 @@
-import ChatHeader from "../Chat/ChatHeader/ChatHeader";
-import AdvertisementAuthorImg from "../AdvertisementAuthorImg/AdvertisementAuthorImg";
-import AdvertisementInfo from "../AdvertisementInfo/AdvertisementInfo";
-
+import React  from "react";
+import ChatAdvertisementAuthorImg from "../common/AdvertisementAuthorImg/AdvertisementAuthorImg";
+import ChatPreviewInfo from "./ChatPreviewInfo/ChatPreviewInfo";
+import './ChatPreview.css'
 const ChatPreview = ({chat}) => {
     return (
-        <ChatHeader state={chat}
-                    left={AdvertisementAuthorImg}
-                    right={AdvertisementInfo}
-        />
+        <div className='chat-preview-root'>
+            <div className='left-block-content'>
+                <ChatAdvertisementAuthorImg state={chat}/>
+            </div>
+            <div className='right-block-content'>
+                <ChatPreviewInfo state={chat}/>
+            </div>
+        </div>
     )
 }
 

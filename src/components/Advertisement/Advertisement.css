@@ -1,13 +1,19 @@
 .advertisement-content-root {
-    height: auto;
     display: flex;
     flex-direction: row;
     place-items: flex-start;
+    padding: 0 5px;
 }
 .item-left {
+    width: 80%;
 }
 
+
 .item-right {
+    width: 20%;
+    position: sticky;
+    top: 1%;
+    margin-left: 10px;
 }
 
 

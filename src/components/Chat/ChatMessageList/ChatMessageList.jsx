@@ -1,9 +1,10 @@
-import Message from "../ChatMessage/Message";
-import './MessageContainer.css'
+import React  from "react";
+import ChatMessage from "../ChatMessage/ChatMessage";
+import './ChatMessageList.css'
 import {Fragment, useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
-const MessageContainer = ({state: messages}) => {
+const ChatMessageList = ({state: messages}) => {
 
     let navigate = useNavigate();
     const scrollBlockRef = useRef(null);
@@ -20,7 +21,7 @@ const MessageContainer = ({state: messages}) => {
     const mappedMessages = messages.map(message => {
         return (
             <Fragment key={message.messageId}>
-                <Message message={message}/>
+                <ChatMessage message={message}/>
             </Fragment>
         );
     });
@@ -33,4 +34,4 @@ const MessageContainer = ({state: messages}) => {
     );
 }
 
-export default MessageContainer;
+export default ChatMessageList;

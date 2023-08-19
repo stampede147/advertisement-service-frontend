@@ -1,6 +1,6 @@
 const imgSourceUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVX4e9TfOmFxxc9Veul-RLjWTnrX-FWPezbXNSHgAi&s";
 let advertisement = {
-    title: "Advertisement title",
+    title: "Кроссовки синие",
     createdAt: "2022.12.23",
     id: 0,
     price: 140,

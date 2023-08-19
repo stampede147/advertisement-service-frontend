@@ -1,3 +1,4 @@
+import React  from "react";
 import './AdvertisementAuthorInfo.css'
 
 const AdvertisementAuthorInfo = ({state: chat}) => {

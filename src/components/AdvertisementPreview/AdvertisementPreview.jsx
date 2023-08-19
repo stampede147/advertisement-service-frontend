@@ -1,7 +1,6 @@
 import React from "react";
 
 import './AdvertisementPreview.css'
-import ImgBlock from "../common/ImgBlock";
 import {useNavigate} from "react-router-dom";
 
 const AdvertisementPreview = (props => {

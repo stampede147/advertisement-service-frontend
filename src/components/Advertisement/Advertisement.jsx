@@ -1,16 +1,14 @@
 import './Advertisement.css'
 import React from "react";
-import ItemDetailsContent from "./LeftBlock/ItemDetailsContent";
-import ItemPrice from "./RightBlock/ItemPriceHeader";
-import ItemAuthorContent from "./RightBlock/ItemAuthorContent";
-import ItemTitle from "./LeftBlock/ItemTitle";
+import ItemDetailsContent from "./ItemDetailsContent/ItemDetailsContent";
+import ItemPrice from "./ItemPriceHeader/ItemPriceHeader";
+import ItemAuthorContent from "./ItemAuthorContent/ItemAuthorContent";
+import ItemTitle from "./ItemTitle/ItemTitle";
 import ItemHeader from "./common/ItemHeader";
 
 
 const Advertisement = ({
                            state,
-                           left,
-                           right
                        }) => {
 
     let advertisement = state.advertisement;
