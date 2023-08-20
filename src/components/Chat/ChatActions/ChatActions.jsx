@@ -1,7 +1,8 @@
 import './ChatActions.css'
-import React, {useRef, useState} from "react";
+import React, {useReducer, useRef, useState} from "react";
 import state from "../../../redux/state";
 import SendMessageAction from "./SendMessageAction";
+import chatMessageReducer from "../../../reducers/chatMessageReducer";
 
 const ChatActions = ({state}) => {
 
@@ -9,7 +10,9 @@ const ChatActions = ({state}) => {
     return (
         <div className="dialog-actions">
             <div className="actions-row">
-                <SendMessageAction onChange={state.onChange} onAction={state.onAction}/>
+                <SendMessageAction body={state.newMessage.body}
+                                   onChange={state.onChange}
+                                   onAction={state.onAction}/>
             </div>
         </div>
     )

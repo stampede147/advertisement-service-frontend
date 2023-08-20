@@ -3,13 +3,13 @@ import './SendMessageAction.css'
 
 const SendMessageAction = (props) => {
 
-    let onAction = props.onAction;
 
     return (
         <>
             <div className="user-input-message-text-root">
                 <form id="user-input-message-form">
-                        <textarea value={props.val} onChange={(e) => props.onChange(e.target.value)}
+                        <textarea value={props.body}
+                                  onChange={(e) => props.onChange(e.target.value)}
                                   className="send-message-textarea"
                                   placeholder="send a message"
                                   rows="1"/>
@@ -18,7 +18,7 @@ const SendMessageAction = (props) => {
 
             <div className="send-message-button-root">
                 <button
-                    onClick={onAction}
+                    onClick={props.onAction}
                     form="user-input-message-form"
                     title="send"
                     type="button"

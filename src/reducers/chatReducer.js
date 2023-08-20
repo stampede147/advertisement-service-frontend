@@ -1,11 +1,25 @@
-function createChat(state) {
+export default function chatReducer(state, action) {
+    switch (action.type) {
+        case "add":
+            return [
+                ...state,
+            ]
+
+        case "remove" :
+            return {};
+
+    }
 
 }
 
-function deleteChat(state) {
+function createChat(chats, newChat) {
 
 }
 
-function findChats(state) {
+function deleteChat(chats, chatId) {
+
+}
+
+function findChats(chatsIds) {
 
 }
