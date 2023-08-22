@@ -3,10 +3,11 @@ import SearchHeader from "../../components/SearchHeader/SearchHeader";
 import ProfileBar from "../../components/ProfileBar/ProfileBar";
 import GenericPage from "../GenericPage/GenericPage";
 import React from "react";
+import StubComponent from "../../components/StubComponent/StubComponent";
 
 const MyAdvertisementsPage = ({state}) => {
     return (
-        <GenericPage header={SearchHeader}
+        <GenericPage header={StubComponent}
                      content={AdvertisementPreviewList}
                      state={state}
         />
