@@ -18,7 +18,7 @@ const AdvertisementPreviewList = ({state: advertisements, ...props}) => {
     return (
         <div className="main-content">
             <div className="advertisement-header">
-                <p>Your advertisements</p>
+                <p>Advertisemenets</p>
             </div>
             <div className="card-container">
                     {advertisementCards}

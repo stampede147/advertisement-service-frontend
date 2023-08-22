@@ -1,11 +1,13 @@
 import GenericPage from "../GenericPage/GenericPage";
-import React  from "react";
+import React, {useEffect} from "react";
 import SearchHeader from "../../components/SearchHeader/SearchHeader";
 import ChatPreviewList from "../../components/ChatPreview/ChatPreviewList";
+import {json} from "react-router-dom";
+import StubComponent from "../../components/StubComponent/StubComponent";
 
 const MyChats = ({state}) => {
     return (
-        <GenericPage header={SearchHeader}
+        <GenericPage header={StubComponent}
                      content={ChatPreviewList}
                      state={state}
         />

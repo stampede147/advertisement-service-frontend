@@ -3,6 +3,13 @@ import ChatAdvertisementAuthorImg from "../common/AdvertisementAuthorImg/Adverti
 import ChatPreviewInfo from "./ChatPreviewInfo/ChatPreviewInfo";
 import './ChatPreview.css'
 const ChatPreview = ({chat}) => {
+
+    findOwnerImgSourceUrl(){
+        const ownerId = chat.advertisement.userId;
+        chat.participants.
+    }
+
+
     return (
         <div className='chat-preview-root'>
             <div className='left-block-content'>

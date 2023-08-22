@@ -26,8 +26,8 @@
     .root-content__cc .content-container__cc {
         width: calc(100% - 20%);
         margin: auto;
-    }
+        place-items: center;
+        position: relative;
 
-    .content-container__cc {
     }
 }

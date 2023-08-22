@@ -1,7 +1,20 @@
+export default function chatMessageReducer(state, action) {
+    console.log('called reducer!');
+
+    switch (action.type) {
+        case 'add' :
+            return [...state, action.data]
+    }
 
 
-function createChatMessage() {
+}
 
+function createChatMessage(data) {
+    return {
+        messageId: 22,
+        senderId: 15,
+
+    }
 }
 
 
@@ -16,4 +29,5 @@ function deleteChatMessage(state) {
 
 }
 
-function findChatMessages(state) {}
+function findChatMessages(state) {
+}
