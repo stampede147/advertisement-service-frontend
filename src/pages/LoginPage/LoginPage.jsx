@@ -1,34 +1,15 @@
-import React from "react";
+import React, {useRef} from "react";
 import './LoginPage.css'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import loginApi from "../../api/loginApi";
+import GenericPage from "../GenericPage/GenericPage";
+import Login from "../../components/Login/Login";
+import StubComponent from "../../components/StubComponent/StubComponent";
 
 const LoginPage = (props) => {
 
-    function onClickButton() {
-        console.log("Button is clicked!")
-    }
-
     return (
-        <div className="sign-up-wrapper">
-            <div className="sign-up-container">
-                <div className="sign-up-header">
-                    <h1> Login</h1>
-                </div>
-                <div className="form-container">
-                    <form className="input-forms" autoComplete="off">
-                        <input type="text" placeholder="username"/>
-                        <input type="text" placeholder="password"/>
-                        <button type="button" onClick={onClickButton}>submit</button>
-                    </form>
-
-                </div>
-                <div className="footer">
-                    <span>Not registered yet?
-                        <Link to={props.registrationLink.url}>Register</Link>
-                    </span>
-                </div>
-            </div>
-        </div>
+       <GenericPage content={Login} header={StubComponent}/>
     )
 };
 

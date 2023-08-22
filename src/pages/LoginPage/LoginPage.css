@@ -1,20 +1,24 @@
-.sign-up-wrapper {
+.sign-up-wrap-root {
+
     height: 100vh;
+    width: 100%;
 
     display: flex;
-    place-items: center;
+    align-items: center;
     justify-content: center;
 }
 
-.sign-up-container {
+.sign-up-root {
+    height: min-content;
+    width: min-content;
     background: whitesmoke;
-    padding: 120px 70px;
+    padding: 120px 90px;
     border-radius: 5px;
     border: 1px solid grey;
 
     display: flex;
+    text-align: center;
     flex-direction: column;
-    align-items: center;
 }
 
 .sign-up-header {
@@ -30,4 +34,3 @@
 .input-forms > * {
     margin-top: 11px;
 }
-
