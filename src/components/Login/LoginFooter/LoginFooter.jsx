@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import React from "react";
-import PATH_NAMES from "../../constants/PATHNAMES";
+import PATH_NAMES from "../../../constants/PATHNAMES";
 
 
 export default () => {
