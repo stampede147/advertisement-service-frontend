@@ -1,4 +1,4 @@
-const imgSourceUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVX4e9TfOmFxxc9Veul-RLjWTnrX-FWPezbXNSHgAi&s";
+ const imgSourceUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVX4e9TfOmFxxc9Veul-RLjWTnrX-FWPezbXNSHgAi&s";
 let advertisement = {
     title: "Кроссовки синие",
     createdAt: "2022.12.23",
@@ -24,7 +24,7 @@ let pagedChatsJSON = '{"content":[' +
 let pagedChats = JSON.parse(pagedChatsJSON.toString());
 
 let pagedMessagesJSON = '{"content":[' +
-    '{"messageId":1,"chatId":1,"body":"string","senderId":1,"status":"CREATED","createdAt":"2023-08-15T12:01:06.317Z"},' +
+    '{"chatId":1,"body":"string","senderId":1,"status":"CREATED","createdAt":"2023-08-15T12:01:06.317Z"},' +
     '{"messageId":2,"chatId":1,"body":"string","senderId":0,"status":"CREATED","createdAt":"2023-08-15T12:01:06.317Z"},' +
     '{"messageId":3,"chatId":1,"body":"string","senderId":0,"status":"CREATED","createdAt":"2023-08-15T12:01:06.317Z"},' +
     '{"messageId":4,"chatId":1,"body":"string","senderId":0,"status":"CREATED","createdAt":"2023-08-15T12:01:06.317Z"},' +
@@ -35,6 +35,7 @@ let pagedMessagesJSON = '{"content":[' +
 let pagedMessages = JSON.parse(pagedMessagesJSON);
 
 const State = {
+    imgSourceUrl : imgSourceUrl,
     chatsPage: pagedChats,
     advertisementsPage: {
         content: [advertisement, advertisement, advertisement, advertisement]

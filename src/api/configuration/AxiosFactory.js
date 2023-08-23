@@ -18,7 +18,7 @@ import axios from "axios";
             withCredentials: true,
             mode: "cors",
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
+                "Content-Type": "application/json",
             }
         });
 
@@ -34,7 +34,7 @@ import axios from "axios";
 
         this.#instance.interceptors.response.use(response => response,
             error => {
-                if (error.status === 404) {
+                if (error.response.status === 401) {
                     window.location.pathname = '/login';
                 }
                 return error;

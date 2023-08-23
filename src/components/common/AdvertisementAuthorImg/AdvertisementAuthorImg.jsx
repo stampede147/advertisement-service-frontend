@@ -1,15 +1,16 @@
-import React  from "react";
+import React from "react";
 import './AdvertisementAuthorImg.css'
 
-const ChatAdvertisementAuthorImg = ({state: chat}) => {
-    const advertisement = chat.advertisement;
+const ChatAdvertisementAuthorImg = (props) => {
+
+    const {advertisementImg, ownerImg} = props;
     return (
         <div className='advertisement-author-block-root'>
             <div className='advertisement-image'>
-                <img src={advertisement.imgSourceUrl}/>
+                <img src={advertisementImg}/>
             </div>
             <div className='advertisement-author-image'>
-                <img src={advertisement.owner.imgSourceUrl}/>
+                <img src={ownerImg}/>
             </div>
         </div>
 
