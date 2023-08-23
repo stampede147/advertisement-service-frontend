@@ -4,15 +4,14 @@ import state from "../../../redux/state";
 import SendMessageAction from "./SendMessageAction";
 import chatMessageReducer from "../../../reducers/chatMessageReducer";
 
-const ChatActions = ({state}) => {
-
-
+const ChatActions = (actions) => {
     return (
         <div className="dialog-actions">
             <div className="actions-row">
-                <SendMessageAction body={state.newMessage.body}
-                                   onChange={state.onChange}
-                                   onAction={state.onAction}/>
+                <SendMessageAction body={actions.sendMessageAction.newMessage.body}
+                                   onChange={actions.sendMessageAction.onChange}
+                                   onClick={actions.sendMessageAction.onClick}
+                />
             </div>
         </div>
     )

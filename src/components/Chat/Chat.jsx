@@ -2,44 +2,79 @@ import './Chat.css'
 import ChatMessageList from "./ChatMessageList/ChatMessageList";
 import ChatActions from "./ChatActions/ChatActions";
 import ChatHeader from "./ChatHeader/ChatHeader";
-import React, {useEffect, useReducer, useRef, useState} from "react";
+import React, {useEffect, useReducer, useState} from "react";
 import chatMessageReducer from "../../reducers/chatMessageReducer";
+import State from "../../redux/state";
+import * as chatMessageApi from "../../api/chatMessageApi";
 
-const Chat = ({state}) => {
+const Chat = ({state: chat, ...props}) => {
 
-    const [messages, dispatch] = useReducer(chatMessageReducer, state.messages)
+    const [messages, setMessages] = useState([])
+
+    const [states, dispatch] = useReducer(chatMessageReducer, messages)
+
     const [body, setBody] = useState("")
 
-    state.newMessage = {
-        messageId: messages.length + 1,
+    useEffect(() => {
+        const fetchData = async () => {
+            let messagesPage = await chatMessageApi.getChatMessages(chat.id)
+
+            if (!messagesPage.content) {
+                messagesPage.content = []
+            }
+
+            messagesPage.content.reverse()
+
+            setMessages(messagesPage.content)
+
+            dispatch({type: 'replace_state', data: messagesPage.content})
+        }
+
+        fetchData();
+    }, [states.length]);
+
+    let func = {}
+
+    func.newMessage = {
+        chatId: chat.id,
         body: body,
         senderId: 1,
-        createdAt: Date.now()
+        createdAt: Date.now(),
+        status: "CREATED"
     }
 
-    state.onChange = (e) => {
-        setBody(e)
-        console.log(e)
 
+    func.onChange = (e) => {
+        setBody(e.trim())
     }
+    func.onChange = func.onChange.bind(Chat);
 
-    state.onAction = () => {
+    func.onClick = () => {
+        if (body === "") {
+            return
+        }
+
         dispatch({
             type: "add",
-            data: state.newMessage
+            data: func.newMessage
         });
 
+        setMessages([...messages])
+        chatMessageApi.sendChatMessage(func.newMessage.chatId, func.newMessage.body, func.newMessage.senderId)
         setBody("");
-        console.log(state.newMessage)
-        console.log(`array length is ${messages.length}`)
-
     }
+    func.onClick = func.onClick.bind(Chat);
+
 
     return (
         <div className="main-chat-root">
-            <ChatHeader state={state.chat}/>
+            <ChatHeader chat={chat}/>
             <ChatMessageList state={messages}/>
-            <ChatActions state={state}/>
+            <ChatActions sendMessageAction={{
+                onClick: func.onClick,
+                onChange: func.onChange,
+                newMessage: func.newMessage
+            }}/>
         </div>
     )
 }
