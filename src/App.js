@@ -1,13 +1,14 @@
 import './App.css';
-import React  from "react";
+import React, {useEffect} from "react";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import MyAdvertisementsPage from "./pages/MyAdvertisementsPage/MyAdvertisementsPage";
 import State from "./redux/state";
-import MyChats from "./pages/MyChatsPage/MyChatsPage";
+import MyChatsPage from "./pages/MyChatsPage/MyChatsPage";
 import ChatPage from "./pages/ChatPage/ChatPage";
 import AdvertisementPage from "./pages/AdvertisementPage/AdvertisementPage";
+import * as chatApi from './api/chatApi'
 
 function App() {
 
@@ -23,18 +24,12 @@ function App() {
 
                     {/*+*/}
                     <Route path={'/profile/chats'} element={
-                        <MyChats state={State}/>
+                        <MyChatsPage/>
                     }/>
 
                     {/*+*/}
                     <Route path={'/profile/chats/:id'} element={
-                        <ChatPage state={
-                            {
-                                chat: State.chatsPage.content[0],
-                                messages: State.messagesPage.content
-                            }
-
-                        }/>}
+                        <ChatPage/>}
                     />
 
                     {/*+*/}
@@ -47,6 +42,8 @@ function App() {
                     <Route path={'/registration'}
                            element={<RegistrationPage/>}/>
 
+                    <Route path={"/"}
+                           element={null}/>
                 </Routes>
             </BrowserRouter>
         </div>

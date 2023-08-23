@@ -1,11 +1,16 @@
-import React  from "react";
+import React from "react";
 import './ChatHeader.css'
 import ChatAdvertisementAuthorImg from "../../common/AdvertisementAuthorImg/AdvertisementAuthorImg";
 import AdvertisementAuthorInfo from "../AdvertisementAuthorInfo/AdvertisementAuthorInfo";
 import {useNavigate} from "react-router-dom";
 import BackIcon from "../../common/BackIcon/BackIcon";
+import BackButton from "../../common/BackButton/BackButton";
+import State from "../../../redux/state";
 
-const ChatHeader = ({state}) => {
+const ChatHeader = (props) => {
+
+    const ownerDetails = props.chat.participants
+        .filter(participant => participant.id === props.chat.advertisement.userId)[0];
 
     let navigateFunction = useNavigate();
 
@@ -13,22 +18,23 @@ const ChatHeader = ({state}) => {
         navigateFunction(-1);
     }
 
+
     return (
         <div className='chat-header-root'>
             <div className='chat-button-back'>
-            <span className='clickable-button' role={"button"} onClick={onClickButton}>
-                <span className='clickable-button-area'>
-                    <BackIcon/>
-                </span>
-            </span>
+                <BackButton onClickButton={onClickButton}/>
             </div>
 
             <div className='left-block-content'>
-                <ChatAdvertisementAuthorImg state={state}/>
+                <ChatAdvertisementAuthorImg advertisementImg={State.imgSourceUrl}
+                                            ownerImg={State.imgSourceUrl}/>
             </div>
 
             <div className='right-block-content'>
-                <AdvertisementAuthorInfo state={state}/>
+                <AdvertisementAuthorInfo authorName={ownerDetails.firstName}
+                                         title={props.chat.advertisement.title}
+                                         price={props.chat.advertisement.price}
+                />
             </div>
 
         </div>

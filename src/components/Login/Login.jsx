@@ -4,7 +4,7 @@ import LoginHeader from "./LoginHeader/LoginHeader";
 import LoginFormBody from "./LoginFormBody/LoginFormBody";
 import LoginFooter from "./LoginFooter/LoginFooter";
 import loginApi from "../../api/loginApi";
-import PATH_NAMES from "../constants/PATHNAMES";
+import PATH_NAMES from "../../constants/PATHNAMES";
 
 
 export default () => {

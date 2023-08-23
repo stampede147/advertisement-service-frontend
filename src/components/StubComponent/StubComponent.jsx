@@ -1,5 +1,6 @@
+import React from "react";
 const StubComponent = () => {
-    return <></>;
+    return (<></>);
 }
 
 export default StubComponent;

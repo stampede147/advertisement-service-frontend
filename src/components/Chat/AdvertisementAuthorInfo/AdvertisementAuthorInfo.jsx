@@ -1,21 +1,19 @@
 import React  from "react";
 import './AdvertisementAuthorInfo.css'
 
-const AdvertisementAuthorInfo = ({state: chat}) => {
-
-    let advertisement = chat.advertisement;
+const AdvertisementAuthorInfo = (props) => {
 
     return (
         <div className='chat-advertisement-author-info-root'>
             <div className='advertisement-author-name'>
-                {advertisement.owner.name}
+                {props.authorName}
             </div>
             <div className='advertisement-info-root'>
                 <div className='advertisement-info-title'>
-                    {advertisement.title}
+                    {props.title}
                 </div>
                 <div className='advertisement-info-price price'>
-                    {advertisement.price}
+                    {props.price}
                 </div>
             </div>
         </div>

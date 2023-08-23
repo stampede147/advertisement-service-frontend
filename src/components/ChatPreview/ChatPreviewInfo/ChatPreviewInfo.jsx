@@ -1,27 +1,24 @@
 import React from "react";
 import './ChatPreviewInfo.css'
 
-const ChatPreviewInfo = ({state: chat}) => {
-
-    let message = "Привет мой друг, как ддела?!";
-    let advertisement = chat.advertisement;
+const ChatPreviewInfo = (chat) => {
 
     return (
         <div className='chat-preview-info-root'>
             <div className='chat-advertisement-author-name'>
-                {advertisement.owner.name}
+                {chat.authorName}
             </div>
             <div className='chat-advertisement-info-root'>
                 <div className='chat-advertisement-info-title'>
-                    {advertisement.title}
+                    {chat.title}
                 </div>
                 <div className='chat-advertisement-info-price price'>
-                    {advertisement.price}
+                    {chat.price}
                 </div>
             </div>
             <div className='chat-message-info-root'>
                 <div className='chat-message-info-content'>
-                    {message}
+                    {chat.message}
                 </div>
             </div>
         </div>
