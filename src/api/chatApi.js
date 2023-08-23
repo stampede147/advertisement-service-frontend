@@ -1,7 +1,7 @@
 import httpRequest from "./configuration/httpRequest";
 import axiosFactory from "./configuration/AxiosFactory";
 
-const API_URL = "http://localhost:8080/api/v1/chats";
+const API_PATHNAME = "/chats";
 
 export function createChat(body) {
     let options = {
@@ -12,7 +12,7 @@ export function createChat(body) {
         mode: 'cors',
         body: JSON.stringify(body),
     }
-    fetch(API_URL, options)
+    fetch(API_PATHNAME, options)
         .then(resp => resp.headers)
         .then(headers => {
             console.log(headers)
@@ -28,7 +28,7 @@ export function deleteChat(chatId) {
         }),
         mode: 'cors',
     }
-    return fetch(API_URL + '/' + chatId, options)
+    return fetch(API_PATHNAME + '/' + chatId, options)
         .then(resp => resp.status);
 
 }
@@ -49,5 +49,5 @@ export function getChat(chatId) {
         mode: 'cors',
     }
 
-    fetch(API_URL + '/' + chatId)
+    fetch(API_PATHNAME + '/' + chatId)
 }
