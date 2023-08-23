@@ -1,14 +1,14 @@
 import AxiosFactory from "./configuration/AxiosFactory";
 
 
-const API_URL = 'http://localhost:8080/api/v1/authentications/jwt'
+const API_PATHNAME = '/authentications/jwt'
 
 async function loginApi(body) {
 
 
     let axios = AxiosFactory.getInstance();
 
-    return axios.post(API_URL, body)
+    return axios.post(API_PATHNAME, body)
         .then(response => {
             return response.status > 200
                 && response.status < 400;
