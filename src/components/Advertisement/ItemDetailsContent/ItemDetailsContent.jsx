@@ -1,5 +1,6 @@
 import './ItemDetailsContent.css'
 import React from "react";
+import State from "../../../redux/state";
 
 const ItemDetailsContent = (props) => {
 
@@ -7,7 +8,7 @@ const ItemDetailsContent = (props) => {
     return (
         <div className="item-content">
             <div className='item-img'>
-                <img className='item-img' src={advertisement.imgSourceUrl}/>
+                <img className='item-img' src={State.imgSourceUrl}/>
             </div>
             <div className="item-description">
                 <span>

@@ -1,6 +1,7 @@
 import './ItemAuthorContent.css'
 
 import React from "react";
+import State from "../../../redux/state";
 
 const ItemAuthorContent = (props) => {
 
@@ -9,7 +10,7 @@ const ItemAuthorContent = (props) => {
         <div className="author-content-root">
             <div className="item-author-details">
                 <div className="author-icon-format">
-                    <img src={advertisement.owner.imgSourceUrl}/>
+                    <img src={State.imgSourceUrl}/>
                 </div>
                 <div className='item-author-name'>
                     <span>{advertisement.owner.name}</span>
