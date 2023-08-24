@@ -1,16 +1,33 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 
 import './AdvertisementPreviewList.css'
 import AdvertisementPreview from "./AdvertisementPreview";
-import ReactDOM from "react-dom/client";
+import * as advertisementApi from "../../api/advertisementApi";
+import {useNavigate} from "react-router-dom";
+import PATHNAMES from "../../constants/PATHNAMES";
 
 
-const AdvertisementPreviewList = ({state: advertisements, ...props}) => {
+const AdvertisementPreviewList = ({state: advertisements1, ...props}) => {
 
-    let advertisementCards = advertisements.map(advertisement => {
+    const [advertisements, setAdvertisements] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const advertisementPage = await advertisementApi.getPage(1);
+            setAdvertisements(advertisementPage.content)
+        }
+
+        fetchData()
+    }, []);
+
+
+    let advertisementPreviewList = advertisements.map(advertisement => {
         return (
             <React.Fragment key={advertisement.id}>
-                <AdvertisementPreview advertisement={advertisement}/>
+                <AdvertisementPreview
+                    onClickRedirect={() => navigate(PATHNAMES.ADVERTISEMENTS + '/' + advertisement.id)}
+                    advertisement={advertisement}/>
             </React.Fragment>
         )
     });
@@ -21,7 +38,7 @@ const AdvertisementPreviewList = ({state: advertisements, ...props}) => {
                 <p>Advertisemenets</p>
             </div>
             <div className="card-container">
-                    {advertisementCards}
+                {advertisementPreviewList}
             </div>
         </div>
     )
