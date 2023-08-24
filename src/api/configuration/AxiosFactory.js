@@ -1,6 +1,7 @@
 import axios from "axios";
+import HttpRequest from "./httpRequest";
 
- class AxiosFactory {
+class AxiosFactory {
 
     static #instance = null;
 
@@ -17,9 +18,13 @@ import axios from "axios";
             baseURL: "http://localhost:8080/api/v1",
             withCredentials: true,
             mode: "cors",
-            headers: {
-                "Content-Type": "application/json",
+        });
+
+        this.#instance.interceptors.request.use(req => {
+            if (req.method === HttpRequest.POST) {
+                req.headers = {...req.headers, 'Content-Type': 'application/json'};
             }
+            return req;
         });
 
         this.#instance.interceptors.request.use(req => {
@@ -34,6 +39,7 @@ import axios from "axios";
 
         this.#instance.interceptors.response.use(response => response,
             error => {
+                console.log(error)
                 if (error.response.status === 401) {
                     window.location.pathname = '/login';
                 }
@@ -46,8 +52,7 @@ import axios from "axios";
 
 export default AxiosFactory;
 
-function getCookie(name)
-{
+function getCookie(name) {
     let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];
 }

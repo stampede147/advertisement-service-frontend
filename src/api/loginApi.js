@@ -2,11 +2,9 @@ import AxiosFactory from "./configuration/AxiosFactory";
 
 
 const API_PATHNAME = '/authentications/jwt'
+const axios = AxiosFactory.getInstance();
 
-async function loginApi(body) {
-
-
-    let axios = AxiosFactory.getInstance();
+async function login(body) {
 
     return axios.post(API_PATHNAME, body)
         .then(response => {
@@ -19,4 +17,4 @@ async function loginApi(body) {
         })
 }
 
-export default loginApi;
+export default login;
