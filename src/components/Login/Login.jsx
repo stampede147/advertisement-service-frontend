@@ -3,7 +3,7 @@ import React, {useRef} from "react";
 import LoginHeader from "./LoginHeader/LoginHeader";
 import LoginFormBody from "./LoginFormBody/LoginFormBody";
 import LoginFooter from "./LoginFooter/LoginFooter";
-import loginApi from "../../api/loginApi";
+import authenticationApi from "../../api/loginApi";
 import PATH_NAMES from "../../constants/PATHNAMES";
 
 
@@ -19,7 +19,7 @@ export default () => {
         }
 
         try {
-            const result = await loginApi({
+            const result = await authenticationApi({
                 "username": usernameRef.current.value,
                 "password": passwordRef.current.value,
             });
@@ -29,6 +29,7 @@ export default () => {
             }
 
         } finally {
+            localStorage.setItem("username", usernameRef.current.value);
             usernameRef.current.value = "";
             passwordRef.current.value = "";
         }
