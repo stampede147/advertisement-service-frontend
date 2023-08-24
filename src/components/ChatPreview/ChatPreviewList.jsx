@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./ChatPreviewList.css"
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import ChatPreview from "./ChatPreview";
 import {getChatsByUserId} from "../../api/chatApi";
 import {wait} from "@testing-library/user-event/dist/utils";
@@ -11,6 +11,9 @@ import PATHNAMES from "../../constants/PATHNAMES";
 const ChatPreviewList = () => {
 
     const [chatPreviews, setChatPreviews] = useState([])
+
+    let location = useLocation();
+    console.log(location.state);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,7 +32,7 @@ const ChatPreviewList = () => {
             <Link key={chat.id}
                   className='chat-preview-link'
                   state={chat}
-                  to={PATHNAMES.REDIRECT_TO_CHAT + chat.id}>
+                  to={PATHNAMES.CHATS + '/' + chat.id}>
                 <ChatPreview chat={chat}/>
             </Link>
         )
