@@ -21,9 +21,9 @@ const Chat = ({state: chat, ...props}) => {
 
             if (!messagesPage.content) {
                 messagesPage.content = []
+            } else {
+                messagesPage.content.reverse()
             }
-
-            messagesPage.content.reverse()
 
             setMessages(messagesPage.content)
 
@@ -45,11 +45,13 @@ const Chat = ({state: chat, ...props}) => {
 
 
     func.onChange = (e) => {
-        setBody(e.trim())
+        setBody(e)
     }
+    // !!!
     func.onChange = func.onChange.bind(Chat);
 
     func.onClick = () => {
+        body.trim();
         if (body === "") {
             return
         }
@@ -63,6 +65,7 @@ const Chat = ({state: chat, ...props}) => {
         chatMessageApi.sendChatMessage(func.newMessage.chatId, func.newMessage.body, func.newMessage.senderId)
         setBody("");
     }
+    // !!!
     func.onClick = func.onClick.bind(Chat);
 
 
