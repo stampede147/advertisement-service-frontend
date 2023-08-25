@@ -3,26 +3,19 @@ import "./ChatPreviewList.css"
 import {Link, useLocation} from "react-router-dom";
 import ChatPreview from "./ChatPreview";
 import {getChatsByUserId} from "../../api/chatApi";
-import {wait} from "@testing-library/user-event/dist/utils";
-import {get} from "axios";
-import State from "../../redux/state";
 import PATHNAMES from "../../constants/PATHNAMES";
 
 const ChatPreviewList = () => {
 
     const [chatPreviews, setChatPreviews] = useState([])
 
-    let location = useLocation();
-    console.log(location.state);
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await getChatsByUserId(1);
-
             let content = response.content;
             setChatPreviews([...content])
         }
-
         fetchData().catch(console.error)
 
     }, []);
