@@ -1,15 +1,48 @@
 import AdvertisementPreviewList from "../../components/AdvertisementPreview/AdvertisementPreviewList";
-import SearchHeader from "../../components/SearchHeader/SearchHeader";
-import ProfileBar from "../../components/ProfileBar/ProfileBar";
 import GenericPage from "../GenericPage/GenericPage";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import StubComponent from "../../components/StubComponent/StubComponent";
+import {useNavigate} from "react-router-dom";
+import * as advertisementApi from "../../api/advertisementApi";
+import advertisement from "../../components/Advertisement/Advertisement";
+import PATHNAMES from "../../constants/PATHNAMES";
+import IndexContainer from "../../container/IndexContainer/IndexContainer";
+import ProfileBar from "../../components/ProfileBar/ProfileBar";
 
-const MyAdvertisementsPage = ({state}) => {
+const MyAdvertisementsPage = () => {
+
+    const [loading, setLoading] = useState(true);
+    const [advertisements, setAdvertisements] = useState([]);
+    const navigate = useNavigate();
+
+    const state = {};
+    state.advertisements = advertisements;
+    state.onClickRedirect = (advertisementId) => {
+        navigate(PATHNAMES.ADVERTISEMENTS + '/' + advertisementId);
+    };
+    state.onClickRedirect = state.onClickRedirect.bind(MyAdvertisementsPage);
+
+    useEffect(() => {
+        advertisementApi.getPageByUserId(1)
+            .then(resp => {
+                setLoading(false);
+                setAdvertisements(resp.content);
+            });
+    }, []);
+
+
+    if (loading) {
+        return <StubComponent/>
+    }
+
     return (
         <GenericPage header={StubComponent}
-                     content={AdvertisementPreviewList}
-                     state={state}
+                     content={() => {
+                         return <IndexContainer {...state}
+                                                navbar={ProfileBar}
+                                                content={AdvertisementPreviewList}
+                         />
+                     }}
         />
     )
 }
