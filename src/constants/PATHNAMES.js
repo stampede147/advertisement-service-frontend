@@ -1,7 +1,7 @@
 export default {
     REGISTER: "/registration",
     LOGIN: "/login",
-    ADVERTISEMENTS: "/profile/advertisements",
+    ADVERTISEMENTS: "/advertisements",
+    ADVERTISEMENT_EDIT: `${window.location}/edit`,
     CHATS: "/profile/chats",
-    REDIRECT_TO_CHAT:"/profile/chats/"
 }
