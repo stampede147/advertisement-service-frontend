@@ -6,8 +6,11 @@ import React, {useEffect, useReducer, useState} from "react";
 import chatMessageReducer from "../../reducers/chatMessageReducer";
 import State from "../../redux/state";
 import * as chatMessageApi from "../../api/chatMessageApi";
+import {useLocation} from "react-router-dom";
 
-const Chat = ({state: chat, ...props}) => {
+const Chat = ({state: chat1, ...props}) => {
+
+    let chat = useLocation().state;
 
     const [messages, setMessages] = useState([])
 
