@@ -6,6 +6,7 @@ const GenericPage = ({
                          content: Content,
                          state
                      }) => {
+
     return (
         <div className='root__cc'>
             <div className='root-content__cc'>
