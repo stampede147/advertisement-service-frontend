@@ -14,7 +14,7 @@ export function deleteById(advertisementId) {
     return axios.delete(`${API_PATHNAME}/${advertisementId}`);
 }
 
-export function getPage(userId, page = 0) {
+export function getPageByUserId(userId, page = 0) {
     return axios.get(`${API_PATHNAME}?userId=${userId}&page=${page}`)
         .then(resp => resp.data);
 }
