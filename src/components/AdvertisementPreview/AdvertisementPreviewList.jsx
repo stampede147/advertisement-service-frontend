@@ -7,27 +7,16 @@ import {useNavigate} from "react-router-dom";
 import PATHNAMES from "../../constants/PATHNAMES";
 
 
-const AdvertisementPreviewList = ({state: advertisements1, ...props}) => {
-
-    const [advertisements, setAdvertisements] = useState([]);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const advertisementPage = await advertisementApi.getPage(1);
-            setAdvertisements(advertisementPage.content)
-        }
-
-        fetchData()
-    }, []);
+const AdvertisementPreviewList = ({state, ...props}) => {
 
 
+    const advertisements = state.advertisements;
+    const onClickRedirect = state.onClickRedirect;
+    debugger
     let advertisementPreviewList = advertisements.map(advertisement => {
         return (
             <React.Fragment key={advertisement.id}>
-                <AdvertisementPreview
-                    onClickRedirect={() => navigate(PATHNAMES.ADVERTISEMENTS + '/' + advertisement.id)}
-                    advertisement={advertisement}/>
+                <AdvertisementPreview advertisement={advertisement} onClickRedirect={onClickRedirect}/>
             </React.Fragment>
         )
     });
@@ -35,7 +24,7 @@ const AdvertisementPreviewList = ({state: advertisements1, ...props}) => {
     return (
         <div className="main-content">
             <div className="advertisement-header">
-                <p>Advertisemenets</p>
+                <p>Advertisements</p>
             </div>
             <div className="card-container">
                 {advertisementPreviewList}

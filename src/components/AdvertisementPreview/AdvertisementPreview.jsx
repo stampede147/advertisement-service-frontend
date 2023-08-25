@@ -4,8 +4,9 @@ import './AdvertisementPreview.css'
 import {Link, useNavigate} from "react-router-dom";
 import PATHNAMES from "../../constants/PATHNAMES";
 
-const AdvertisementPreview = (props => {
+const AdvertisementPreview = props => {
 
+    debugger
     const advertisement = props.advertisement;
     const address = advertisement.address;
 
@@ -17,7 +18,7 @@ const AdvertisementPreview = (props => {
             <div className="card-info">
                 <ul className="card-info-list">
                     <li>
-                        <button onClick={props.onClickRedirect()}>
+                        <button onClick={() => props.onClickRedirect(props.advertisement.id)}>
                             {advertisement.title}
                         </button>
                     </li>
@@ -42,6 +43,6 @@ const AdvertisementPreview = (props => {
         </div>
 
     )
-})
+}
 
 export default AdvertisementPreview;
