@@ -1,13 +1,14 @@
 import React from "react";
+import './IndexContainer.css'
 
-export default ({navbar: Navbar, content: Content}) => {
+export default ({navbar: Navbar, content: Content, ...props}) => {
     return (
-        <div className={'generic-container-root'}>
-            <div className={'left-block-root'}>
-                <Navbar/>
+        <div className={'index-container-root'}>
+            <div className={'index-left-block'}>
+                <Navbar state={props}/>
             </div>
-            <div className={'right-content-root'}>
-                <Content/>
+            <div className={'index-right-block'}>
+                <Content state={props}/>
             </div>
         </div>
 

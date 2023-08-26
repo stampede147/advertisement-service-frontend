@@ -12,7 +12,7 @@ const AdvertisementPreviewList = ({state, ...props}) => {
 
     const advertisements = state.advertisements;
     const onClickRedirect = state.onClickRedirect;
-    debugger
+
     let advertisementPreviewList = advertisements.map(advertisement => {
         return (
             <React.Fragment key={advertisement.id}>

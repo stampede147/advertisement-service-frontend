@@ -16,34 +16,20 @@ function App() {
         <div className="content">
             <BrowserRouter>
                 <Routes>
-                    <Route path={'/profile/advertisements'}
-                           element={<MyAdvertisementsPage state={State.advertisementsPage.content}/>}/>
+                    <Route path={'/profile/advertisements'} element={<MyAdvertisementsPage/>}/>
 
-                    <Route path={'profile/advertisements/:id'}
-                           element={<AdvertisementPage state={{advertisement: State.advertisementsPage.content[0]}}/>}/>
+                    <Route path={'/advertisements/:id'} element={<AdvertisementPage/>}/>
 
-                    {/*+*/}
-                    <Route path={'/profile/chats'} element={
-                        <MyChatsPage/>
-                    }/>
+                    <Route path={'/profile/chats'} element={<MyChatsPage/>}/>
 
-                    {/*+*/}
-                    <Route path={'/profile/chats/:id'} element={
-                        <ChatPage/>}
-                    />
+                    <Route path={'/profile/chats/:id'} element={<ChatPage/>}/>
 
-                    {/*+*/}
                     <Route path={'/login'}
-                           element={<LoginPage registrationLink={
-                               {url: '/registration'}
-                           }/>}/>
+                           element={<LoginPage/>}/>
 
-                    {/*+*/}
                     <Route path={'/registration'}
                            element={<RegistrationPage/>}/>
 
-                    <Route path={"/"}
-                           element={null}/>
                 </Routes>
             </BrowserRouter>
         </div>

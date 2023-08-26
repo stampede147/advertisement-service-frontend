@@ -5,21 +5,11 @@ import ChatPreview from "./ChatPreview";
 import {getChatsByUserId} from "../../api/chatApi";
 import PATHNAMES from "../../constants/PATHNAMES";
 
-const ChatPreviewList = () => {
+const ChatPreviewList = ({state, ...props}) => {
 
-    const [chatPreviews, setChatPreviews] = useState([])
+    const {chatPreviews} = state;
 
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await getChatsByUserId(1);
-            let content = response.content;
-            setChatPreviews([...content])
-        }
-        fetchData().catch(console.error)
-
-    }, []);
-
+    debugger
     const mappedChats = chatPreviews.map(chat => {
         return (
             <Link key={chat.id}
