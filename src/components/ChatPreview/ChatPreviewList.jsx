@@ -1,25 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import "./ChatPreviewList.css"
-import {Link, useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
 import ChatPreview from "./ChatPreview";
-import {getChatsByUserId} from "../../api/chatApi";
 import PATHNAMES from "../../constants/PATHNAMES";
+import StubComponent from "../StubComponent/StubComponent";
 
 const ChatPreviewList = ({state, ...props}) => {
 
     const {chatPreviews} = state;
 
-    debugger
-    const mappedChats = chatPreviews.map(chat => {
-        return (
-            <Link key={chat.id}
-                  className='chat-preview-link'
-                  state={chat}
-                  to={PATHNAMES.CHATS + '/' + chat.id}>
-                <ChatPreview chat={chat}/>
-            </Link>
-        )
-    })
+    if (state.loading) {
+        return <StubComponent/>
+    }
+
 
     return (
         <div className="chat-preview-list-root">
@@ -27,7 +20,16 @@ const ChatPreviewList = ({state, ...props}) => {
                 <h1>Messages</h1>
             </div>
             <div className="chat-preview-list-content">
-                {mappedChats}
+                {chatPreviews.map(chat => {
+                    return (
+                        <Link key={chat.id}
+                              className='chat-preview-link'
+                              state={chat}
+                              to={PATHNAMES.PROFILE_CHATS + '/' + chat.id}>
+                            <ChatPreview chat={chat}/>
+                        </Link>
+                    )
+                })}
             </div>
 
         </div>

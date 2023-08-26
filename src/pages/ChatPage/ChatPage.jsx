@@ -1,4 +1,4 @@
-import GenericPage from "../GenericPage/GenericPage";
+import SinglePageWrapper from "../SinglePageWrapper/SinglePageWrapper";
 import SearchHeader from "../../components/SearchHeader/SearchHeader";
 import Chat from "../../components/Chat/Chat";
 import React from "react";
@@ -10,9 +10,9 @@ import ProfileBar from "../../components/ProfileBar/ProfileBar";
 const ChatPage = () => {
 
     return (
-        <GenericPage state={null}
-                     header={StubComponent}
-                     content={() => <IndexContainer navbar={ProfileBar} content={Chat}/>}
+        <SinglePageWrapper state={null}
+                           header={StubComponent}
+                           content={() => <IndexContainer navbar={ProfileBar} content={Chat}/>}
         />
     );
 }

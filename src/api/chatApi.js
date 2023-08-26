@@ -1,24 +1,14 @@
 import httpRequest from "./configuration/httpRequest";
 import axiosFactory from "./configuration/AxiosFactory";
 
+const axios = axiosFactory.getInstance();
+
 const API_PATHNAME = "/chats";
 
 export function createChat(body) {
-    let options = {
-        method: httpRequest.POST,
-        headers: new Headers({
-            "Content-Type": 'application/json',
-        }),
-        mode: 'cors',
-        body: JSON.stringify(body),
-    }
-    fetch(API_PATHNAME, options)
-        .then(resp => resp.headers)
-        .then(headers => {
-            console.log(headers)
-        });
-
+    axios.post(API_PATHNAME, body)  ;
 }
+
 
 export function deleteChat(chatId) {
     let options = {
@@ -35,7 +25,6 @@ export function deleteChat(chatId) {
 
 export function getChatsByUserId(userId) {
 
-    const axios = axiosFactory.getInstance();
     return axios.get(`chats?userId=${userId}`, {})
         .then(resp => resp.data);
 }

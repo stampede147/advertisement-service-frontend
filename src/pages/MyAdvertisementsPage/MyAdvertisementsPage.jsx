@@ -1,5 +1,5 @@
 import AdvertisementPreviewList from "../../components/AdvertisementPreview/AdvertisementPreviewList";
-import GenericPage from "../GenericPage/GenericPage";
+import SinglePageWrapper from "../SinglePageWrapper/SinglePageWrapper";
 import React, {useEffect, useState} from "react";
 import StubComponent from "../../components/StubComponent/StubComponent";
 import {useNavigate} from "react-router-dom";
@@ -15,13 +15,6 @@ const MyAdvertisementsPage = () => {
     const [advertisements, setAdvertisements] = useState([]);
     const navigate = useNavigate();
 
-    const state = {};
-    state.advertisements = advertisements;
-    state.onClickRedirect = (advertisementId) => {
-        navigate(PATHNAMES.ADVERTISEMENTS + '/' + advertisementId);
-    };
-    state.onClickRedirect = state.onClickRedirect.bind(MyAdvertisementsPage);
-
     useEffect(() => {
         advertisementApi.getPageByUserId(1)
             .then(resp => {
@@ -31,18 +24,22 @@ const MyAdvertisementsPage = () => {
     }, []);
 
 
-    if (loading) {
-        return <StubComponent/>
-    }
+    const state = {};
+    state.advertisements = advertisements;
+    state.onClickRedirect = (advertisementId) => {
+        navigate(PATHNAMES.ADVERTISEMENTS + '/' + advertisementId);
+    };
+    state.onClickRedirect = state.onClickRedirect.bind(MyAdvertisementsPage);
 
     return (
-        <GenericPage header={StubComponent}
-                     content={() => {
-                         return <IndexContainer {...state}
-                                                navbar={ProfileBar}
-                                                content={AdvertisementPreviewList}
-                         />
-                     }}
+        <SinglePageWrapper
+            header={StubComponent}
+            content={() => {
+                return <IndexContainer {...state}
+                                       navbar={ProfileBar}
+                                       content={AdvertisementPreviewList}
+                />
+            }}
         />
     )
 }

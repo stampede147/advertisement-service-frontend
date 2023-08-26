@@ -25,7 +25,7 @@ export default () => {
             });
 
             if (result) {
-                window.location.pathname = PATH_NAMES.CHATS;
+                window.location.pathname = PATH_NAMES.PROFILE_CHATS;
             }
 
         } finally {

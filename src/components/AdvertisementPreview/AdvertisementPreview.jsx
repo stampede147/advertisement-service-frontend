@@ -6,7 +6,7 @@ import PATHNAMES from "../../constants/PATHNAMES";
 
 const AdvertisementPreview = props => {
 
-    debugger
+
     const advertisement = props.advertisement;
     const address = advertisement.address;
 

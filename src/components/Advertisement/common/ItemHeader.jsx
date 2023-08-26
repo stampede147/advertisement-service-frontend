@@ -1,42 +1,13 @@
-import React, {useEffect} from "react";
+import React, {forwardRef, useEffect, useRef} from "react";
 
-const ItemHeader = ({
-                        advertisement,
-                        header: Header
-                    }) => {
+const ItemHeader = forwardRef(function (props, ref) {
 
-    useEffect(() => {
-        resizeHeight('item-header-root')
-    }, []);
-
+    const {header: Header, ...otherProps} = props;
     return (
-        <div className='item-header-root' style={{marginBottom: '5px'}}>
-            <Header advertisement={advertisement}/>
+        <div ref={ref} className='item-header-root' style={{marginBottom: '5px'}}>
+            <Header advertisement={props.advertisement}/>
         </div>
-    )
-
-}
+    );
+});
 
 export default ItemHeader;
-
-function resizeHeight(name) {
-    let elements = document.getElementsByClassName(name);
-
-    let maxHeight = -1;
-    for (let element of elements) {
-        let offsetHeight = element.offsetHeight;
-        if (offsetHeight > maxHeight) {
-            maxHeight = offsetHeight;
-        }
-    }
-
-    if (maxHeight < 0) {
-        return;
-    }
-
-    for (let element of elements) {
-        element.style.height = maxHeight + 'px';
-        element.style.top = maxHeight + 'px';
-    }
-
-}

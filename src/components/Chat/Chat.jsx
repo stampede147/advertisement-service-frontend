@@ -4,7 +4,7 @@ import ChatActions from "./ChatActions/ChatActions";
 import ChatHeader from "./ChatHeader/ChatHeader";
 import React, {useEffect, useReducer, useState} from "react";
 import chatMessageReducer from "../../reducers/chatMessageReducer";
-import State from "../../redux/state";
+import State from "../../constants/state";
 import * as chatMessageApi from "../../api/chatMessageApi";
 import {useLocation} from "react-router-dom";
 
@@ -19,21 +19,14 @@ const Chat = ({state: chat1, ...props}) => {
     const [body, setBody] = useState("")
 
     useEffect(() => {
-        const fetchData = async () => {
-            let messagesPage = await chatMessageApi.getChatMessages(chat.id)
 
-            if (!messagesPage.content) {
-                messagesPage.content = []
-            } else {
-                messagesPage.content.reverse()
-            }
-
-            setMessages(messagesPage.content)
-
-            dispatch({type: 'replace_state', data: messagesPage.content})
-        }
-
-        fetchData();
+        chatMessageApi.getChatMessages(chat.id)
+            .then(resp => {
+                const input = resp.content == null ? [] : resp.content;
+                input.reverse();
+                setMessages(resp.content == null ? [] : [...input])
+                dispatch({type: 'replace_state', data: input})
+            })
     }, [states.length]);
 
     let func = {}

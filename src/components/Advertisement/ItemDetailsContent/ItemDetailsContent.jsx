@@ -1,6 +1,6 @@
 import './ItemDetailsContent.css'
 import React from "react";
-import State from "../../../redux/state";
+import State from "../../../constants/state";
 
 const ItemDetailsContent = (props) => {
 

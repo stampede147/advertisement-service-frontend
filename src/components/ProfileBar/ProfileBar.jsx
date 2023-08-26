@@ -1,8 +1,15 @@
 import React, {useEffect} from "react";
 import './ProfileBar.css'
-import State from "../../redux/state";
+import State from "../../constants/state";
+import {Link, NavLink} from "react-router-dom";
+import PATHNAMES from "../../constants/PATHNAMES";
+import StubComponent from "../StubComponent/StubComponent";
 
-const ProfileBar = () => {
+const ProfileBar = (props) => {
+
+    if (props.loading) {
+        return <StubComponent/>
+    }
 
     return (
         <div className="profile-side-bar">
@@ -22,20 +29,15 @@ const ProfileBar = () => {
                 </div>
             </div>
             <ul className="profile-side-bar-navigation-list">
-                <li className="main-profile-page element-bar">
-                    <a href="#">
-                        <p>my page</p>
-                    </a>
+                <li className="element-bar" >
+                    <NavLink activeClassName={"asdasd"} to={PATHNAMES.PROFILE_ADVERTISEMENTS}>
+                        <span> my advertisements</span>
+                    </NavLink>
                 </li>
-                <li className="main-profile-advertisements element-bar">
-                    <a href="#">
-                        <p>my advertisements</p>
-                    </a>
-                </li>
-                <li className="main-profile-messages element-bar">
-                    <a href="#">
-                        <p>my messages</p>
-                    </a>
+                <li className="element-bar">
+                    <Link to={PATHNAMES.PROFILE_CHATS}>
+                        <span> my chats</span>
+                    </Link>
                 </li>
             </ul>
 
