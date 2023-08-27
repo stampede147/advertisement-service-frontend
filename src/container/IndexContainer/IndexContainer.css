@@ -1,0 +1,16 @@
+.index-container-root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+}
+
+.index-left-block {
+    width: 250px;
+    margin-right: 20px;
+}
+
+.index-right-block {
+    width: 100%;
+}

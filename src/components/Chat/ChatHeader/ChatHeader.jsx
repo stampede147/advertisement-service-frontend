@@ -5,7 +5,7 @@ import AdvertisementAuthorInfo from "../AdvertisementAuthorInfo/AdvertisementAut
 import {useNavigate} from "react-router-dom";
 import BackIcon from "../../common/BackIcon/BackIcon";
 import BackButton from "../../common/BackButton/BackButton";
-import State from "../../../redux/state";
+import State from "../../../constants/state";
 
 const ChatHeader = (props) => {
 

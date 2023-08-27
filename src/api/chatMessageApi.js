@@ -1,10 +1,12 @@
 import axiosFactory from "./configuration/AxiosFactory";
 import chat from "../components/Chat/Chat";
+import PATHNAMES from "../constants/PATHNAMES";
 
 const API_PATHNAME = "/chat-messages"
 
+const axios = axiosFactory.getInstance();
+
 export function getChatMessages(chatId) {
-    const axios = axiosFactory.getInstance();
     const body = {};
     return axios.get(`${API_PATHNAME}?chatId=${chatId}`, body)
         .then(resp => resp.data)
@@ -12,9 +14,7 @@ export function getChatMessages(chatId) {
 
 }
 
-
 export function sendChatMessage(chatId, body, senderId){
-    const axios = axiosFactory.getInstance();
     const responseBody = {
         chatId: chatId,
         body: body,
@@ -22,4 +22,10 @@ export function sendChatMessage(chatId, body, senderId){
         status: "CREATED"
     }
     return axios.post(`${API_PATHNAME}`, responseBody)
+}
+
+export function getLastChatMessageByChatIds(chatIds){
+    return axios.get(`${API_PATHNAME}?chatIds=${chatIds}`)
+        .then(resp => resp.data)
+
 }

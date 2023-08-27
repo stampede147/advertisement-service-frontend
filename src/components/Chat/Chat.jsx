@@ -4,10 +4,13 @@ import ChatActions from "./ChatActions/ChatActions";
 import ChatHeader from "./ChatHeader/ChatHeader";
 import React, {useEffect, useReducer, useState} from "react";
 import chatMessageReducer from "../../reducers/chatMessageReducer";
-import State from "../../redux/state";
+import State from "../../constants/state";
 import * as chatMessageApi from "../../api/chatMessageApi";
+import {useLocation} from "react-router-dom";
 
-const Chat = ({state: chat, ...props}) => {
+const Chat = ({state: chat1, ...props}) => {
+
+    let chat = useLocation().state;
 
     const [messages, setMessages] = useState([])
 
@@ -16,22 +19,14 @@ const Chat = ({state: chat, ...props}) => {
     const [body, setBody] = useState("")
 
     useEffect(() => {
-        const fetchData = async () => {
-            let messagesPage = await chatMessageApi.getChatMessages(chat.id)
-
-            if (!messagesPage.content) {
-                messagesPage.content = []
-            }
-
-            messagesPage.content.reverse()
-
-            setMessages(messagesPage.content)
-
-            dispatch({type: 'replace_state', data: messagesPage.content})
-        }
-
-        fetchData();
-    }, [states.length]);
+        chatMessageApi.getChatMessages(chat.id)
+            .then(resp => {
+                const input = resp.content == null ? [] : resp.content;
+                input.reverse();
+                setMessages(resp.content == null ? [] : [...input])
+                dispatch({type: 'replace_state', data: input})
+            })
+    }, [states.length, messages.length]);
 
     let func = {}
 
@@ -45,11 +40,13 @@ const Chat = ({state: chat, ...props}) => {
 
 
     func.onChange = (e) => {
-        setBody(e.trim())
+        setBody(e)
     }
+    // !!!
     func.onChange = func.onChange.bind(Chat);
 
     func.onClick = () => {
+        body.trim();
         if (body === "") {
             return
         }
@@ -63,6 +60,7 @@ const Chat = ({state: chat, ...props}) => {
         chatMessageApi.sendChatMessage(func.newMessage.chatId, func.newMessage.body, func.newMessage.senderId)
         setBody("");
     }
+    // !!!
     func.onClick = func.onClick.bind(Chat);
 
 

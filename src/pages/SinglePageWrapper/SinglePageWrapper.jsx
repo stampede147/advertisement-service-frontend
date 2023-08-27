@@ -1,11 +1,12 @@
 import React from "react";
-import './GenericPage.css'
+import './SinglePageWrapper.css'
 
-const GenericPage = ({
+const SinglePageWrapper = ({
                          header: Header,
                          content: Content,
                          state
                      }) => {
+
     return (
         <div className='root__cc'>
             <div className='root-content__cc'>
@@ -21,4 +22,4 @@ const GenericPage = ({
     )
 }
 
-export default GenericPage;
+export default SinglePageWrapper;

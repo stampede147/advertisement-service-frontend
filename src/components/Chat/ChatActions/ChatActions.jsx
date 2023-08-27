@@ -1,6 +1,6 @@
 import './ChatActions.css'
 import React, {useReducer, useRef, useState} from "react";
-import state from "../../../redux/state";
+import state from "../../../constants/state";
 import SendMessageAction from "./SendMessageAction";
 import chatMessageReducer from "../../../reducers/chatMessageReducer";
 

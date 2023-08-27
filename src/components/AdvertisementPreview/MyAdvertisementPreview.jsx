@@ -1,18 +1,15 @@
 import React from "react";
 
 import './AdvertisementPreview.css'
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import PATHNAMES from "../../constants/PATHNAMES";
 
-const AdvertisementPreview = (props => {
+const MyAdvertisementPreview = props => {
 
-    let navigateFunction = useNavigate();
 
-    const onButtonClick = () => {
-        navigateFunction("/advertisements/0");
+    const advertisement = props.advertisement;
+    const address = advertisement.address;
 
-    }
-
-    let advertisement = props.advertisement;
     return (
         <div className="advertisement-card-preview">
             <div className="card-image">
@@ -21,19 +18,21 @@ const AdvertisementPreview = (props => {
             <div className="card-info">
                 <ul className="card-info-list">
                     <li>
-                        <button onClick={onButtonClick}>
+                        <button onClick={() => props.onClickRedirect(props.advertisement.id)}>
                             {advertisement.title}
                         </button>
                     </li>
                     <li>{advertisement.price}P</li>
-                    <li>{advertisement.address}</li>
+                    <li>{`${address.city}, st. ${address.street}, ${address.houseNumber}`}</li>
                 </ul>
             </div>
             <div className="card-actions">
                 <button type="button" className="card-update-btn btn">
-                    <span className="card-update-btn-text">
-                        update
-                    </span>
+                    <Link to={PATHNAMES.ADVERTISEMENT_EDIT}>
+                       <span className="card-update-btn-text">
+                          edit
+                      </span>
+                    </Link>
                 </button>
                 <button type="button" className="card-delete-btn btn">
                     <span className="card-delete-btn-text">
@@ -44,6 +43,6 @@ const AdvertisementPreview = (props => {
         </div>
 
     )
-})
+}
 
-export default AdvertisementPreview;
+export default MyAdvertisementPreview;
