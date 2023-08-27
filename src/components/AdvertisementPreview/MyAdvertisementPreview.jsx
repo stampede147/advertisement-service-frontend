@@ -4,7 +4,7 @@ import './AdvertisementPreview.css'
 import {Link, useNavigate} from "react-router-dom";
 import PATHNAMES from "../../constants/PATHNAMES";
 
-const AdvertisementPreview = props => {
+const MyAdvertisementPreview = props => {
 
 
     const advertisement = props.advertisement;
@@ -30,7 +30,7 @@ const AdvertisementPreview = props => {
                 <button type="button" className="card-update-btn btn">
                     <Link to={PATHNAMES.ADVERTISEMENT_EDIT}>
                        <span className="card-update-btn-text">
-                          update
+                          edit
                       </span>
                     </Link>
                 </button>
@@ -45,4 +45,4 @@ const AdvertisementPreview = props => {
     )
 }
 
-export default AdvertisementPreview;
+export default MyAdvertisementPreview;

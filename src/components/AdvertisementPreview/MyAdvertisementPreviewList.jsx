@@ -1,10 +1,10 @@
 import React from "react";
 
 import './AdvertisementPreviewList.css'
-import AdvertisementPreview from "./AdvertisementPreview";
+import MyAdvertisementPreview from "./MyAdvertisementPreview";
 
 
-const AdvertisementPreviewList = ({state, ...props}) => {
+const MyAdvertisementPreviewList = ({state, ...props}) => {
 
 
     const advertisements = state.advertisements;
@@ -13,13 +13,13 @@ const AdvertisementPreviewList = ({state, ...props}) => {
     return (
         <div className="main-content">
             <div className="advertisement-header">
-                <p>Advertisements</p>
+                <p>My Advertisements</p>
             </div>
             <div className="card-container">
                 {advertisements.map(advertisement => {
                     return (
                         <React.Fragment key={advertisement.id}>
-                            <AdvertisementPreview advertisement={advertisement} onClickRedirect={onClickRedirect}/>
+                            <MyAdvertisementPreview advertisement={advertisement} onClickRedirect={onClickRedirect}/>
                         </React.Fragment>
                     )
                 })}
@@ -28,4 +28,4 @@ const AdvertisementPreviewList = ({state, ...props}) => {
     )
 }
 
-export default AdvertisementPreviewList;
+export default MyAdvertisementPreviewList;
