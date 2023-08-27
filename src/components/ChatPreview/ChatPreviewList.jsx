@@ -14,26 +14,26 @@ const ChatPreviewList = ({state, ...props}) => {
     }
 
 
-    return (
-        <div className="chat-preview-list-root">
+    return (<div className="chat-preview-list-root">
             <div className="chat-preview-list-header">
                 <h1>Messages</h1>
             </div>
             <div className="chat-preview-list-content">
-                {chatPreviews.map(chat => {
-                    return (
-                        <Link key={chat.id}
-                              className='chat-preview-link'
-                              state={chat}
-                              to={PATHNAMES.PROFILE_CHATS + '/' + chat.id}>
-                            <ChatPreview chat={chat}/>
-                        </Link>
-                    )
-                })}
+                {chatPreviews.length === 0 ? <div style={{textAlign:"center"}}>
+                        "No chats created yet...
+                    </div>
+
+                    : chatPreviews.map(chat => {
+                        return (<Link key={chat.id}
+                                      className='chat-preview-link'
+                                      state={chat}
+                                      to={PATHNAMES.PROFILE_CHATS + '/' + chat.id}>
+                                <ChatPreview chat={chat}/>
+                            </Link>)
+                    })}
             </div>
 
-        </div>
-    )
+        </div>)
 }
 
 export default ChatPreviewList;
