@@ -35,13 +35,13 @@ const AdvertisementPage = () => {
     state.advertisement = advertisement;
     state.user = user;
     state.loading = loading;
+
     if (loading) {
         return <StubComponent/>
     }
+
     return <SinglePageWrapper header={SearchHeader}
-                              content={() => {
-                                  return <SingleContainer content={Advertisement} {...state}/>
-                              }}
+                              content={() => <SingleContainer content={Advertisement} {...state}/>}
                               state={state}/>
 }
 
