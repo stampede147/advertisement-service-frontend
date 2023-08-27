@@ -10,6 +10,8 @@ import * as chatApi from "../../api/chatApi";
 import {getLastChatMessageByChatIds} from "../../api/chatMessageApi";
 import * as chatMessageApi from "../../api/chatMessageApi";
 import chatPreview from "../../components/ChatPreview/ChatPreview";
+import LOCALSTORAGE_KEYS from "../../constants/LOCALSTORAGE_KEYS";
+import * as userApi from "../../api/userApi";
 
 const MyChatsPage = ({state}) => {
 
@@ -18,18 +20,33 @@ const MyChatsPage = ({state}) => {
 
 
     useEffect(() => {
-        chatApi.getChatsByUserId(1)
-            .then(chatsResp => chatMessageApi.getLastChatMessageByChatIds(chatsResp.content.map(chatPreview => chatPreview.id))
-                .then(messagesResp => {
-                    setLoading(false);
-                    const map = new Map();
-                    messagesResp.forEach(message => map.set(message.chatId, message));
-                    for (const chat of chatsResp.content) {
-                        chat.lastMessage = map.get(chat.id);
-                    }
-                    setChatPreviews(chatsResp.content);
+
+        async function fetchData() {
+            const user = await userApi.getUserByUsername(localStorage.getItem(LOCALSTORAGE_KEYS.USERNAME_KEY));
+
+            const chats = await chatApi.getChatsByUserId(user.id);
+            chats.content = chats.content ? chats.content
+                : [];
+
+            if (chats.content.length !== 0) {
+                const messages = await chatMessageApi.getLastChatMessageByChatIds(chats.content.map(chat => chat.id));
+
+                const map = new Map();
+                messages.forEach(message => map.set(message.chatId, message));
+
+                chats.content.map(chat => {
+                    chat.lastMessage = map.get(chat.id)
+                    return chat;
                 })
-            );
+            }
+
+            setLoading(false);
+
+            setChatPreviews(chats.content)
+
+        }
+
+        fetchData();
     }, []);
 
     state = {}
