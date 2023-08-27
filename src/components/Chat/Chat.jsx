@@ -19,7 +19,6 @@ const Chat = ({state: chat1, ...props}) => {
     const [body, setBody] = useState("")
 
     useEffect(() => {
-
         chatMessageApi.getChatMessages(chat.id)
             .then(resp => {
                 const input = resp.content == null ? [] : resp.content;
@@ -27,7 +26,7 @@ const Chat = ({state: chat1, ...props}) => {
                 setMessages(resp.content == null ? [] : [...input])
                 dispatch({type: 'replace_state', data: input})
             })
-    }, [states.length]);
+    }, [states.length, messages.length]);
 
     let func = {}
 
