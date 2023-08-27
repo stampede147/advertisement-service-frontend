@@ -23,10 +23,13 @@ const Advertisement = ({state, ...props}) => {
     const advertisement = state.advertisement;
     const user = state.user;
 
+
     if (props.loading) {
         return <StubComponent/>
     }
 
+    console.log(advertisement)
+    console.log(user)
     return (
         <div className='advertisement-content-root'>
             <div className='item-left'>
@@ -42,9 +45,11 @@ const Advertisement = ({state, ...props}) => {
                             header={ItemPrice}/>
                 <ItemAuthorContent
                     advertisementId={advertisement.id}
-                    userId={user.id}
+                    advertisementOwnerId={advertisement.userId}
+                    userRequesterId={user.id}
                     authorImage={State.imgSourceUrl}
                     authorName={user.firstName}
+                    isActionPanelEnabled={state.isActionPanelEnabled}
                 />
             </div>
         </div>

@@ -3,23 +3,19 @@ import './ItemAuthorContent.css'
 import React from "react";
 import {createChat} from "../../../api/chatApi";
 import * as chatApi from "../../../api/chatApi";
+import StubComponent from "../../StubComponent/StubComponent";
 
 const ItemAuthorContent = (props) => {
 
     const onSendMessageButton = () => {
 
         chatApi.createChat({
-            "advertisementId": props.advertisementId,
-            "userId": props.userId,
+                "advertisementId": props.advertisementId,
+                "userId": props.userRequesterId,
             }
         );
         console.log("sender")
-
-        //create chat, get link from response api
-        //redirect to chat
-
     }
-
 
 
     const advertisement = props.advertisement;
@@ -33,11 +29,14 @@ const ItemAuthorContent = (props) => {
                     <span>{props.authorName}</span>
                 </div>
 
-                <div className="item-author-actions">
-                    <button onClick={onSendMessageButton}>
-                        Send a message
-                    </button>
-                </div>
+                {props.advertisementOwnerId !== props.userRequesterId
+                    ? <div className="item-author-actions">
+                        <button onClick={onSendMessageButton}>
+                            Send a message
+                        </button>
+                    </div>
+                    : <StubComponent/>
+                }
             </div>
         </div>
     );
