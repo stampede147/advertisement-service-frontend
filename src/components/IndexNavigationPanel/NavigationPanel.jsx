@@ -3,41 +3,18 @@ import {Link} from "react-router-dom";
 import PATHNAMES from "../../constants/PATHNAMES";
 import './NavigationPanel.css'
 import State from "../../constants/state";
+import DropdownMenu from "../common/DropdownMenu/DropdownMenu";
+import DropdownMenuContainer from "./NavigableLinksMenuContainer/DropdownMenuContainer";
 
-export default () => {
+export default ({state, ...props}) => {
 
     const user = {}
     user.firstName = "Eugeniy";
 
-    const [visibleDropdownMenu, setvisibleDropdownMenu] = useState(0)
+    const [visibleDropdownMenu, setVisibleDropdownMenu] = useState(false)
 
 
-    const entriesHolder = [entry]
-    const entry = [
-        {
-            title: 'Chats',
-            link: PATHNAMES.PROFILE_CHATS
-        },
-        {
-            title: 'Advertisements',
-            link: PATHNAMES.ADVERTISEMENTS
-        }
-    ];
-
-    function DropdownMenu({entries, ...props}) {
-        const mapped = entries.map(entry => <Link  className={'index-dropdown-link'} to={entry.link}>{entry.title}</Link>)
-        return <div className={'dropdown-menu-popup'}>
-            <ul className={'menu-block-list'}>
-                <div className={'menu-block'}>
-                    {mapped}
-                </div>
-            </ul>
-        </div>
-    }
-
-
-    const onMouseEvent = () => setvisibleDropdownMenu(!visibleDropdownMenu);
-
+    const onMouseEvent = () => setVisibleDropdownMenu(!visibleDropdownMenu);
     return (
         <div className={'index-nav-panel-root'}>
             <div className={'index-inner'}>
@@ -55,7 +32,7 @@ export default () => {
                         </div>
                         <span>{user.firstName}</span>
                     </Link>
-                    {<DropdownMenu entries={entry}/>}
+                    {visibleDropdownMenu && <DropdownMenuContainer/>}
                 </div>
 
                 <div className={'index-add-button-wrapper'}>

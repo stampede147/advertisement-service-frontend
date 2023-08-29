@@ -1,5 +1,5 @@
 .advertisement-card-preview {
-    width: 100%;
+    width: 840px;
     display: flex;
     flex-flow: row;
     padding: 10px;
@@ -7,19 +7,16 @@
 }
 
 .advertisement-card-preview:hover {
-    background: rgba(108, 108, 103, 0.13);
+    /*background: rgba(108, 108, 103, 0.13);*/
     border-radius: 10px;
 
 }
 
-.advertisement-card-preview > div {
-    padding: 5px;
-
-}
 
 .advertisement-card-preview div.card-actions {
     margin-left: auto;
 }
+
 
 .card-image {
     height: 80px;
@@ -32,6 +29,7 @@
 }
 
 .card-info {
+    margin-left: 6px;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -45,25 +43,30 @@ ul.card-info-list {
     justify-content: space-around;
 }
 
-.card-actions {
-    display: flex;
-    flex-flow: column;
-    width: 100%;
-    max-width: 20%;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.adv-actions-dropdown {
+    position: relative;
+    margin-left: auto;
 }
 
+.adv-actions-dropdown > button {
+    background-color: inherit;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid rgba(128, 128, 128, 0.55);
+}
+
+.adv-actions-dropdown > button svg {
+    width: 15px;
+    height: 15px;
+}
 
 .card-info-list > li > button {
-
     border: 0;
     background-color: inherit;
     font-size: inherit;
     padding: 0;
     margin: 0;
     text-align: left;
-    font-family: Arial;
 }
 
 

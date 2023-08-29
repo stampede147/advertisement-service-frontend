@@ -86,7 +86,7 @@ drop down menu
     font-size: 14px;
     line-height: 20px;
 
-    min-width: 260px;
+    min-width: 240px;
     max-height: calc(100dvh - 44px);
     overflow-y: auto;
     scrollbar-width: none;
@@ -97,6 +97,7 @@ drop down menu
     flex-direction: column;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    border-radius: 4px;
 }
 
 .menu-block-list {
@@ -113,7 +114,11 @@ drop down menu
     flex-direction: column;
 }
 
-.menu-block > a {
+.menu-block:not(:last-child) {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+.menu-block > a:not(:first-child) {
     margin-top: 6px;
 }
 
