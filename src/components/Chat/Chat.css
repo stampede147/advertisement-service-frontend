@@ -68,11 +68,11 @@
 
 .message-container {
     overflow: hidden;
-    width: 40%;
+    width: 50%;
     max-width: max-content;
-    min-width: min-content;
     border-radius: 10px;
     margin-bottom: 10px;
+    word-break: break-all;
 }
 
 .left-opponent-message {

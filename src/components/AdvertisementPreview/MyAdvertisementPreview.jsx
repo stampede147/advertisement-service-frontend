@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 
 import './AdvertisementPreview.css'
-import {Link, useNavigate} from "react-router-dom";
-import PATHNAMES from "../../constants/PATHNAMES";
+import OptionsMenuContainer from "./OptionsMenuContainer/OptionsMenuContainer";
 
 const MyAdvertisementPreview = props => {
 
+    const [visible, setVisible] = useState(false)
 
     const advertisement = props.advertisement;
     const address = advertisement.address;
@@ -26,19 +26,18 @@ const MyAdvertisementPreview = props => {
                     <li>{`${address.city}, st. ${address.street}, ${address.houseNumber}`}</li>
                 </ul>
             </div>
-            <div className="card-actions">
-                <button type="button" className="card-update-btn btn">
-                    <Link to={PATHNAMES.ADVERTISEMENT_EDIT}>
-                       <span className="card-update-btn-text">
-                          edit
-                      </span>
-                    </Link>
+
+            <div className="adv-actions-dropdown">
+                <button onClick={() => setVisible(!visible)}>
+                    <svg role="img" aria-hidden="true" data-icon="more"
+                         viewBox="0 0 24 24"
+                         name="more"
+                         className="desktop-14a6q5n">
+                        <path d="M17 12c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2zm-3 0c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm-9-2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z">
+                        </path>
+                    </svg>
                 </button>
-                <button type="button" className="card-delete-btn btn">
-                    <span className="card-delete-btn-text">
-                        delete
-                    </span>
-                </button>
+                {visible && <OptionsMenuContainer advertisement={advertisement}/>}
             </div>
         </div>
 
