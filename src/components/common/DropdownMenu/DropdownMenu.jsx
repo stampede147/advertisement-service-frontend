@@ -4,7 +4,6 @@ import React from "react";
 function DropdownMenu({groups, ...props}) {
 
 
-    debugger
     function mapGroups(groups) {
         return groups.map(group =>
             <div className={"menu-block"}>

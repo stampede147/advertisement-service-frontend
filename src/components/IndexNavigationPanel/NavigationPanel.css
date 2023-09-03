@@ -10,6 +10,7 @@
     width: 1316px;
     display: flex;
     justify-content: flex-end;
+    margin: auto;
 }
 
 .index-nav-link {

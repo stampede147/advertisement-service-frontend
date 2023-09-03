@@ -10,7 +10,6 @@
 
 @media screen and (min-width: 1360px) {
     .root__cc {
-        margin: auto;
         height: 100%;
     }
 
@@ -20,10 +19,11 @@
     }
 
     .root-content__cc .header__cc {
-        width: inherit;
+        width: 100vw;
     }
 
     .root-content__cc .content-container__cc {
+        margin: auto;
         width: 1340px;
         place-items: center;
         position: relative;
