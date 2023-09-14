@@ -2,7 +2,7 @@ import AxiosFactory from "./configuration/AxiosFactory";
 
 const axios = AxiosFactory.getInstance();
 
-const API_PATHNAME = '/advertisements'
+const API_PATHNAME = '/user/advertisements'
 
 export function create(request) {
 
@@ -14,8 +14,8 @@ export function deleteById(advertisementId) {
     return axios.delete(`${API_PATHNAME}/${advertisementId}`);
 }
 
-export function getPageByUserId(userId, page = 0) {
-    return axios.get(`${API_PATHNAME}?userId=${userId}&page=${page}`)
+export function getAdvertisementsPage(page = 0) {
+    return axios.get(`${API_PATHNAME}?page=${page}`)
         .then(resp => resp.data);
 }
 

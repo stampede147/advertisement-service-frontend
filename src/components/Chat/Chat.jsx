@@ -33,9 +33,6 @@ const Chat = ({state: chat1, ...props}) => {
     func.newMessage = {
         chatId: chat.id,
         body: body,
-        senderId: 1,
-        createdAt: Date.now(),
-        status: "CREATED"
     }
 
 

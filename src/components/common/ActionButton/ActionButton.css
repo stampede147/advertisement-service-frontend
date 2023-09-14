@@ -1,9 +1,43 @@
 .action-button-root {
-    border: 0;
-    background-color: inherit;
-    font-size: inherit;
-    padding: 0;
+    border: none;
     margin: 0;
-    text-align: left;
+    padding: 0;
+    width: auto;
+    overflow: visible;
 
+    background: transparent;
+
+    color: inherit;
+    font: inherit;
+
+    line-height: normal;
+
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    -webkit-appearance: none;
+
+    position: relative;
+
+}
+
+.action-button-root button {
+    width: 100% ;
+    display: flex;
+    padding: 15px 19px 17px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    align-self: stretch;
+    border: unset;
+    border-radius: 16px;
+    background: inherit;
+
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+.action-button-root button:hover {
+    cursor: pointer;
 }

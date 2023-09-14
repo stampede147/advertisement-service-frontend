@@ -1,18 +1,19 @@
 import React from "react";
-import './EditStep.css'
+import './Step.css'
 import FieldSet from "../FieldSet/FieldSet";
 
-export default (fieldsets) => {
+export default (props) => {
     // const mapped
+
+    const {title, fields} = props;
+
+    const mappedFields = fields.map(field => <FieldSet field={field}/>);
     return (
         <div className={'edit-group-root'}>
             <div className={'group-title-font group-title-text-size'}>
-                <h4>TITLE</h4>
+                <h4>{title}</h4>
             </div>
-            <FieldSet/>
-            <FieldSet/>
-            <FieldSet/>
-            <FieldSet/>
+            {mappedFields}
         </div>
 
     );

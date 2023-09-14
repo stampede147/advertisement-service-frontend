@@ -9,9 +9,6 @@ import State from "../../../constants/state";
 
 const ChatHeader = (props) => {
 
-    const ownerDetails = props.chat.participants
-        .filter(participant => participant.id === props.chat.advertisement.userId)[0];
-
     let navigateFunction = useNavigate();
 
     let onClickButton = () => {
@@ -31,7 +28,7 @@ const ChatHeader = (props) => {
             </div>
 
             <div className='right-block-content'>
-                <AdvertisementAuthorInfo authorName={ownerDetails.firstName}
+                <AdvertisementAuthorInfo authorName={props.chat.advertisement.seller.firstName}
                                          title={props.chat.advertisement.title}
                                          price={props.chat.advertisement.price}
                 />

@@ -1,14 +1,12 @@
 import MyAdvertisementPreviewList from "../../components/AdvertisementPreview/MyAdvertisementPreviewList";
 import SinglePageWrapper from "../SinglePageWrapper/SinglePageWrapper";
 import React, {useEffect, useState} from "react";
-import StubComponent from "../../components/StubComponent/StubComponent";
 import {useNavigate} from "react-router-dom";
-import * as advertisementApi from "../../api/advertisementApi";
+import * as advertisementApi from "../../api/userAdvertisementApi";
 import PATHNAMES from "../../constants/PATHNAMES";
 import IndexContainer from "../../container/IndexContainer/IndexContainer";
 import ProfileBar from "../../components/ProfileBar/ProfileBar";
 import * as useApi from "../../api/userApi";
-import LOCALSTORAGE_KEYS from "../../constants/LOCALSTORAGE_KEYS";
 import NavigationPanel from "../../components/IndexNavigationPanel/NavigationPanel";
 
  export default () => {
@@ -20,13 +18,13 @@ import NavigationPanel from "../../components/IndexNavigationPanel/NavigationPan
     useEffect(() => {
 
         async function fetchData() {
-
-            const user = await useApi.getUserByUsername(localStorage.getItem(LOCALSTORAGE_KEYS.USERNAME_KEY));
-            const advertisements = await advertisementApi.getPageByUserId(user.id)
+            const user = await useApi.getUserDetails();
+            const advertisements = await advertisementApi.getAdvertisementsPage(user.id)
 
             setAdvertisements(advertisements.content == null ? [] : advertisements.content)
             setLoading(false);
         }
+
         fetchData();
     }, []);
 

@@ -1,12 +1,12 @@
 import React from "react";
 import './LabelColumn.css'
 
-export default () => {
+export default ({label}) => {
     return (
         <div className={'column-root column-width'}>
             <label className={'column-lable'}>
                 <span className={'column-lable-span'}>
-                    Label
+                    {label}
                 </span>
             </label>
         </div>

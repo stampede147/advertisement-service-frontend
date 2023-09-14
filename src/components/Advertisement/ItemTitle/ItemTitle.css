@@ -1,13 +1,6 @@
 .item-title-name {
     font-weight: bold;
+
+    padding: 5px 0;
 }
 
-.item-title-created-at {
-    font-size: 14px;
-
-}
-
-.item-title-id {
-    font-size: 14px;
-
-}

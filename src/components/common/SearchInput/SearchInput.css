@@ -1,0 +1,35 @@
+
+.index-search-input-root {
+    height: 20px;
+    background-color: #F2F1F0;
+    border-radius: 12px;
+    padding: 11px 10px 13px 16px;
+    box-sizing: content-box;
+
+}
+
+.index-search-input-inner {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    place-items: center;
+}
+
+.content-placing-center {
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+}
+
+.index-search-separator:not(:first-child) {
+    margin-left: 6px;
+}
+
+.index-search-right {
+    width: 100%;
+}
+
+.index-search-right input {
+    all: unset;
+    width: 100%;
+}

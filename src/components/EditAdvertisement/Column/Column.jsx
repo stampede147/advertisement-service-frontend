@@ -4,11 +4,10 @@ import TextareaColumn from "../TextareaColumn/TextareaColumn";
 
 export default (columnData) => {
 
-    function getColumnByType(columnData)
-    {
+    function getColumnByType(columnData) {
         switch (columnData.type) {
             case "label": {
-                return <LabelColumn/>;
+                return <LabelColumn label={columnData.label}/>;
             }
             case "textarea": {
                 return <TextareaColumn/>;
@@ -17,8 +16,8 @@ export default (columnData) => {
     }
 
     return (
-        <div className={'column-root column-width'}>
+        <>
             {getColumnByType(columnData)}
-        </div>
+        </>
     );
 }

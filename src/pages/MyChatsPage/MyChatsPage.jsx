@@ -4,7 +4,7 @@ import ChatPreviewList from "../../components/ChatPreview/ChatPreviewList";
 import StubComponent from "../../components/StubComponent/StubComponent";
 import ProfileBar from "../../components/ProfileBar/ProfileBar";
 import IndexContainer from "../../container/IndexContainer/IndexContainer";
-import {getChatsByUserId} from "../../api/chatApi";
+import {getChats} from "../../api/chatApi";
 import chat from "../../components/Chat/Chat";
 import * as chatApi from "../../api/chatApi";
 import {getLastChatMessageByChatIds} from "../../api/chatMessageApi";
@@ -12,6 +12,7 @@ import * as chatMessageApi from "../../api/chatMessageApi";
 import chatPreview from "../../components/ChatPreview/ChatPreview";
 import LOCALSTORAGE_KEYS from "../../constants/LOCALSTORAGE_KEYS";
 import * as userApi from "../../api/userApi";
+import NavigationPanel from "../../components/IndexNavigationPanel/NavigationPanel";
 
 const MyChatsPage = ({state}) => {
 
@@ -22,10 +23,11 @@ const MyChatsPage = ({state}) => {
     useEffect(() => {
 
         async function fetchData() {
-            const user = await userApi.getUserByUsername(localStorage.getItem(LOCALSTORAGE_KEYS.USERNAME_KEY));
+            const user = await userApi.getUserDetails();
 
-            const chats = await chatApi.getChatsByUserId(user.id);
-            chats.content = chats.content ? chats.content
+            const chats = await chatApi.getChats(user.id);
+            chats.content = chats.content
+                ? chats.content
                 : [];
 
             if (chats.content.length !== 0) {
@@ -54,7 +56,7 @@ const MyChatsPage = ({state}) => {
     state.chatPreviews = chatPreviews;
 
     return (
-        <SinglePageWrapper header={StubComponent}
+        <SinglePageWrapper header={NavigationPanel}
                            content={() => {
                                return <IndexContainer
                                    {...state}

@@ -23,7 +23,7 @@ const MyAdvertisementPreview = props => {
                         </button>
                     </li>
                     <li>{advertisement.price}P</li>
-                    <li>{`${address.city}, st. ${address.street}, ${address.houseNumber}`}</li>
+                    <li>{`${advertisement.location.city}, ${advertisement.location.street}`}</li>
                 </ul>
             </div>
 

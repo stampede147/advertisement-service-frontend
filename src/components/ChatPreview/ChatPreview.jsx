@@ -9,10 +9,11 @@ const ChatPreview = ({chat}) => {
 
     const advertisement = chat.advertisement;
     const ownerId = advertisement.userId;
-    const ownerDetails = chat.participants.filter(participant => participant.id === ownerId)[0];
+
     if (!chat.lastMessage) {
         chat.lastMessage = {}
     }
+
     console.log(chat)
     return (
         <div className='chat-preview-root'>
@@ -20,9 +21,9 @@ const ChatPreview = ({chat}) => {
                 <ChatAdvertisementAuthorImg advertisementImg={State.imgSourceUrl} ownerImg={State.imgSourceUrl}/>
             </div>
             <div className='right-block-content'>
-                <ChatPreviewInfo authorName={ownerDetails.firstName}
-                                 title={advertisement.title}
-                                 price={advertisement.price}
+                <ChatPreviewInfo authorName={chat.advertisement.firstName}
+                                 title={chat.advertisement.title}
+                                 price={chat.advertisement.price}
                                  message={chat.lastMessage.body}/>
             </div>
         </div>

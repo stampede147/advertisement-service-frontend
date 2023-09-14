@@ -3,8 +3,10 @@ import {Link} from "react-router-dom";
 import PATHNAMES from "../../constants/PATHNAMES";
 import './NavigationPanel.css'
 import State from "../../constants/state";
-import DropdownMenu from "../common/DropdownMenu/DropdownMenu";
 import DropdownMenuContainer from "./NavigableLinksMenuContainer/DropdownMenuContainer";
+import ChatIcon from './icons/chatIcon.svg'
+import PlusIcon from './icons/plusIcon.svg'
+import SearchInput from "../common/SearchInput/SearchInput";
 
 export default ({state, ...props}) => {
 
@@ -14,34 +16,55 @@ export default ({state, ...props}) => {
     const [visibleDropdownMenu, setVisibleDropdownMenu] = useState(false)
 
 
-    const onMouseEvent = () => setVisibleDropdownMenu(!visibleDropdownMenu);
+    function ImagedPseudoButton(params) {
+        return <Link className={'index-nav-link'} to={params.to}>
+            <div className={'index-block-container'}>
+                <img className={'index-block-img'}
+                     src={params.src}
+                     alt={params.alt}/>
+            </div>
+        </Link>
+    }
+
+
+    let onMouseEnter = () => setVisibleDropdownMenu(!visibleDropdownMenu);
     return (
         <div className={'index-nav-panel-root'}>
             <div className={'index-inner'}>
-                <Link className={'index-nav-link index-profile'}
-                      to={PATHNAMES.PROFILE_ADVERTISEMENTS}>
-                    <p>Мои объявления</p>
-                </Link>
-                <div onMouseEnter={onMouseEvent}
-                     onMouseLeave={onMouseEvent}
-                     className={'index-user-nav index-nav-dropdown'}>
-                    <Link className={'index-nav-link'}
-                          to={PATHNAMES.PROFILE_ADVERTISEMENTS}>
-                        <div className={'nav-user-img'}>
-                            <img className={'nav-user-avatar'} src={State.imgSourceUrl}/>
+
+
+                <div className={'index-input-block-left'}>
+                    <SearchInput/>
+                </div>
+
+                <div className={'index-images-group-right'}>
+
+                    <div className={'index-chat-wrapper'}>
+                        <ImagedPseudoButton link={PATHNAMES.PROFILE_CHATS}
+                                            src={ChatIcon}
+                                            alt={"profile chats"}
+                        />
+                    </div>
+
+                    <div className={'index-user-nav index-nav-dropdown'}
+                         onMouseEnter={onMouseEnter}
+                         onMouseLeave={onMouseEnter}>
+                        <div className={'user-image-avatar'}>
+                            <ImagedPseudoButton to={PATHNAMES.PROFILE_ADVERTISEMENTS}
+                                                src={State.imgSourceUrl}
+                                                alt={"user image"}/>
                         </div>
-                        <span>{user.firstName}</span>
-                    </Link>
-                    {visibleDropdownMenu && <DropdownMenuContainer/>}
+                        {visibleDropdownMenu && <DropdownMenuContainer/>}
+                    </div>
+
+                    <div className={'index-add-button-wrapper'}>
+                        <ImagedPseudoButton link={PATHNAMES.CREATE_ADVERTISEMENT}
+                                            src={PlusIcon}
+                                            a={"add advertisement"}
+                        />
+                    </div>
+
                 </div>
-
-                <div className={'index-add-button-wrapper'}>
-                    <Link className={'button-ofr index-nav-link'} to={PATHNAMES.CREATE_ADVERTISEMENT}>
-                        <span className={"index-add-button-content"}>Создать объявление</span>
-                    </Link>
-
-                </div>
-
             </div>
         </div>
     );

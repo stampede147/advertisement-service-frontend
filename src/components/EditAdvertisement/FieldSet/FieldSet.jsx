@@ -2,10 +2,22 @@ import React from "react";
 import Column from "../Column/Column";
 import './FieldSet.css'
 
-export default () => {
+export default (fieldset) => {
 
-    const typ={type:"label"}
-    const typ1={type:"textarea"}
+
+    const {field} = fieldset;
+
+    console.log(field)
+
+
+    const typ = {
+        label: field.label,
+        type: "label"
+    }
+    const typ1 = {
+
+        type: "textarea"
+    }
     return (
         <div className={'fieldset-fieldset fieldset-size'}>
             <Column {...typ}/>

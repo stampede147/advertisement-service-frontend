@@ -3,30 +3,26 @@ import axiosFactory from "./configuration/AxiosFactory";
 
 const axios = axiosFactory.getInstance();
 
-const API_PATHNAME = "/chats";
+const API_PATHNAME = "/user/chats";
 
 export function createChat(body) {
     axios.post(API_PATHNAME, body)  ;
+}
+
+export function getChats(){
+    return axios.get(API_PATHNAME).then(resp => resp.data);
 }
 
 
 export function deleteChat(chatId) {
     let options = {
         method: httpRequest.DELETE,
-        headers: new Headers({
-            "Content-Type": 'application/json',
-        }),
         mode: 'cors',
     }
+
     return fetch(API_PATHNAME + '/' + chatId, options)
         .then(resp => resp.status);
 
-}
-
-export function getChatsByUserId(userId) {
-
-    return axios.get(`chats?userId=${userId}`, {})
-        .then(resp => resp.data);
 }
 
 export function getChat(chatId) {
