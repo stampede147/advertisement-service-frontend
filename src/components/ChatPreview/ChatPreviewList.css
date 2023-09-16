@@ -1,13 +1,14 @@
 .chat-preview-list-root {
-    width: 100%;
     height: 100%;
-    margin: 0 auto;
+    margin-right: auto;
+    min-width: 720px;
+    width: 50%;
 }
 
-.chat-preview-list-header > h1 {
+.chat-preview-list-header h1 {
     color: black;
     text-align: left;
-    margin-bottom: 15px;
+    padding: 0 21px 19px;
 }
 
 a {
@@ -19,7 +20,11 @@ a {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 5px;
+    padding: 23px 19px 21px 20px;
+}
+
+.chat-preview-link:hover {
+    border-radius: 20px;
 }
 
 .chat-preview-link:hover {

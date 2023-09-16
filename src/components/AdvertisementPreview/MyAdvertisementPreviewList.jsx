@@ -2,30 +2,25 @@ import React from "react";
 
 import './AdvertisementPreviewList.css'
 import MyAdvertisementPreview from "./MyAdvertisementPreview";
+import SemiComponent from "../SemiComponent/SemiComponent";
+import {get} from "axios";
 
 
-const MyAdvertisementPreviewList = ({state, ...props}) => {
+const MyAdvertisementPreviewList = (props) => {
 
-
-    const advertisements = state.advertisements;
-    const onClickRedirect = state.onClickRedirect;
+    const {advertisements, onClickRedirect} = props;
 
     return (
-        <div className="main-content">
-            <div className="advertisement-header">
-                <p>My Advertisements</p>
-            </div>
-            <div className="card-container">
-                {advertisements.map(advertisement => {
-                    return (
-                        <React.Fragment key={advertisement.id}>
-                            <MyAdvertisementPreview advertisement={advertisement} onClickRedirect={onClickRedirect}/>
-                        </React.Fragment>
-                    )
-                })}
-            </div>
-        </div>
-    )
+        <>
+            {
+                advertisements.map(advertisement =>
+                    <React.Fragment key={advertisement.id}>
+                        <MyAdvertisementPreview advertisement={advertisement} onClickRedirect={onClickRedirect}/>
+                    </React.Fragment>)
+            }
+        </>
+    );
+
 }
 
 export default MyAdvertisementPreviewList;

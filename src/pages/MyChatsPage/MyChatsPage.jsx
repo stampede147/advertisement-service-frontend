@@ -13,6 +13,8 @@ import chatPreview from "../../components/ChatPreview/ChatPreview";
 import LOCALSTORAGE_KEYS from "../../constants/LOCALSTORAGE_KEYS";
 import * as userApi from "../../api/userApi";
 import NavigationPanel from "../../components/IndexNavigationPanel/NavigationPanel";
+import SemiComponent from "../../components/SemiComponent/SemiComponent";
+import MyAdvertisementPreviewList from "../../components/AdvertisementPreview/MyAdvertisementPreviewList";
 
 const MyChatsPage = ({state}) => {
 
@@ -56,15 +58,17 @@ const MyChatsPage = ({state}) => {
     state.chatPreviews = chatPreviews;
 
     return (
-        <SinglePageWrapper header={NavigationPanel}
-                           content={() => {
-                               return <IndexContainer
-                                   {...state}
-                                   navbar={ProfileBar}
-                                   content={ChatPreviewList}/>
-                           }}
-                           state={state}
-
+        <SinglePageWrapper
+            header={NavigationPanel}
+            content={() => <IndexContainer
+                navbar={ProfileBar}
+                content={() =>
+                    <SemiComponent title={"My messages"}
+                                   content={ChatPreviewList}
+                                   {...state}/>
+                }
+            />
+            }
         />
     )
 }

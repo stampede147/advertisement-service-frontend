@@ -6,12 +6,13 @@ import StubComponent from "../../components/StubComponent/StubComponent";
 import {useLocation, useNavigate} from "react-router-dom";
 import IndexContainer from "../../container/IndexContainer/IndexContainer";
 import ProfileBar from "../../components/ProfileBar/ProfileBar";
+import NavigationPanel from "../../components/IndexNavigationPanel/NavigationPanel";
 
 const ChatPage = () => {
 
     return (
         <SinglePageWrapper state={null}
-                           header={StubComponent}
+                           header={() => <NavigationPanel/>}
                            content={() => <IndexContainer navbar={ProfileBar} content={Chat}/>}
         />
     );

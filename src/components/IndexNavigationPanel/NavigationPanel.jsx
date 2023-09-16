@@ -32,15 +32,13 @@ export default ({state, ...props}) => {
         <div className={'index-nav-panel-root'}>
             <div className={'index-inner'}>
 
-
                 <div className={'index-input-block-left'}>
                     <SearchInput/>
                 </div>
 
                 <div className={'index-images-group-right'}>
-
                     <div className={'index-chat-wrapper'}>
-                        <ImagedPseudoButton link={PATHNAMES.PROFILE_CHATS}
+                        <ImagedPseudoButton to={"/profile/chats"}
                                             src={ChatIcon}
                                             alt={"profile chats"}
                         />

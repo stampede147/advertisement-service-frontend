@@ -8,8 +8,9 @@ import IndexContainer from "../../container/IndexContainer/IndexContainer";
 import ProfileBar from "../../components/ProfileBar/ProfileBar";
 import * as useApi from "../../api/userApi";
 import NavigationPanel from "../../components/IndexNavigationPanel/NavigationPanel";
+import SemiComponent from "../../components/SemiComponent/SemiComponent";
 
- export default () => {
+export default () => {
 
     const [loading, setLoading] = useState(true);
     const [advertisements, setAdvertisements] = useState([]);
@@ -25,7 +26,7 @@ import NavigationPanel from "../../components/IndexNavigationPanel/NavigationPan
             setLoading(false);
         }
 
-        fetchData();
+        fetchData()
     }, []);
 
 
@@ -34,14 +35,16 @@ import NavigationPanel from "../../components/IndexNavigationPanel/NavigationPan
     state.onClickRedirect = (advertisementId) => {
         navigate(PATHNAMES.ADVERTISEMENTS + '/' + advertisementId);
     };
-    state.onClickRedirect = state.onClickRedirect.bind(this);
 
     return (
         <SinglePageWrapper
             header={NavigationPanel}
-            content={() => <IndexContainer {...state}
-                                           navbar={ProfileBar}
-                                           content={MyAdvertisementPreviewList}
+            content={() => <IndexContainer
+                navbar={ProfileBar}
+                content={() => <SemiComponent title={"My advertisements"}
+                                              content={MyAdvertisementPreviewList}
+                                              {...state}/>
+                }
             />
             }
         />

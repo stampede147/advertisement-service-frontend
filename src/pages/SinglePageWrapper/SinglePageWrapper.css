@@ -12,24 +12,20 @@
     .root__cc {
         background: #F2F4F6;
         min-height: 100vh;
-        height: 100%;
     }
 
     .root-content__cc {
         width: inherit;
-        box-sizing: border-box;
     }
 
     .root-content__cc .header__cc {
-        width: 100vw;
+        width: 100%;
     }
 
     .root-content__cc .content-container__cc {
         margin: auto;
         width: 1340px;
-        place-items: center;
         position: relative;
-        flex-direction: row;
 
     }
 }

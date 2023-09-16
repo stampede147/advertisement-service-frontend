@@ -5,35 +5,28 @@ import ChatPreview from "./ChatPreview";
 import PATHNAMES from "../../constants/PATHNAMES";
 import StubComponent from "../StubComponent/StubComponent";
 
-const ChatPreviewList = ({state, ...props}) => {
+const ChatPreviewList = (props) => {
 
-    const {chatPreviews} = state;
+    const {chatPreviews, loading} = props;
 
-    if (state.loading) {
+    if (loading) {
         return <StubComponent/>
     }
-
-
-    return (<div className="chat-preview-list-root">
-            <div className="chat-preview-list-header">
-                <h1>Messages</h1>
-            </div>
-            <div className="chat-preview-list-content">
-                {chatPreviews.length === 0 ? <div style={{textAlign:"center"}}>
-                        "No chats created yet...
-                    </div>
-
-                    : chatPreviews.map(chat => {
-                        return (<Link key={chat.id}
-                                      className='chat-preview-link'
-                                      state={chat}
-                                      to={PATHNAMES.PROFILE_CHATS + '/' + chat.id}>
-                                <ChatPreview chat={chat}/>
-                            </Link>)
-                    })}
-            </div>
-
-        </div>)
+    return (
+        <>
+            {chatPreviews.length === 0
+                ? <div style={{textAlign: "center"}}>
+                    "No chats created yet...
+                </div>
+                : chatPreviews.map(chat =>
+                    <Link key={chat.id}
+                          className='chat-preview-link'
+                          state={chat}
+                          to={PATHNAMES.PROFILE_CHATS + '/' + chat.id}>
+                        <ChatPreview chat={chat}/>
+                    </Link>)
+            }
+        </>);
 }
 
 export default ChatPreviewList;

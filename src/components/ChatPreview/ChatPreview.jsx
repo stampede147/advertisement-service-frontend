@@ -1,9 +1,8 @@
-import React, {useEffect} from "react";
+import React from "react";
 import ChatAdvertisementAuthorImg from "../common/AdvertisementAuthorImg/AdvertisementAuthorImg";
 import ChatPreviewInfo from "./ChatPreviewInfo/ChatPreviewInfo";
 import './ChatPreview.css'
 import State from "../../constants/state";
-import chatPreviewInfo from "./ChatPreviewInfo/ChatPreviewInfo";
 
 const ChatPreview = ({chat}) => {
 
@@ -21,7 +20,7 @@ const ChatPreview = ({chat}) => {
                 <ChatAdvertisementAuthorImg advertisementImg={State.imgSourceUrl} ownerImg={State.imgSourceUrl}/>
             </div>
             <div className='right-block-content'>
-                <ChatPreviewInfo authorName={chat.advertisement.firstName}
+                <ChatPreviewInfo authorName={chat.advertisement.seller.firstName}
                                  title={chat.advertisement.title}
                                  price={chat.advertisement.price}
                                  message={chat.lastMessage.body}/>

@@ -2,7 +2,7 @@ import axiosFactory from "./configuration/AxiosFactory";
 import chat from "../components/Chat/Chat";
 import PATHNAMES from "../constants/PATHNAMES";
 
-const API_PATHNAME = "/chat-messages"
+const API_PATHNAME = `/user/messages`
 
 const axios = axiosFactory.getInstance();
 
@@ -18,8 +18,6 @@ export function sendChatMessage(chatId, body, senderId){
     const responseBody = {
         chatId: chatId,
         body: body,
-        senderId: senderId,
-        status: "CREATED"
     }
     return axios.post(`${API_PATHNAME}`, responseBody)
 }

@@ -30,29 +30,25 @@ const Advertisement = ({state, ...props}) => {
 
     const advertisement = state.advertisement;
     const user = state.user;
-    const onSendMessageButton = () => {
 
+    const createChatAction = () => {
         chatApi.createChat({
-                "advertisementId": props.advertisementId,
-                "userId": props.userRequesterId,
+                "advertisementId": advertisement.id,
             }
         );
-        console.log("sender")
     }
-
     const SendMessageButton = () => {
         return (
             true
                 ? <div className={"send-message-button-wrapper"}>
                     <div className={'send-message-button-bcolor'}>
-
-                        <ActionButton onClick={onSendMessageButton} text={"send message"}/>
+                        <ActionButton onClick={() => createChatAction()} text={"send message"}/>
                     </div>
                 </div>
                 : <StubComponent/>);
     }
 
-    const Block = (params) => {
+    const  Block = (params) => {
         return (
             <div className={'item-details-content-root'}>
                 <div className={'item-details-content-title'}>
@@ -60,7 +56,6 @@ const Advertisement = ({state, ...props}) => {
                 </div>
                 <div className={'item-details-content-content'}>
                     <span>{params.content}</span>
-
                 </div>
             </div>
         );

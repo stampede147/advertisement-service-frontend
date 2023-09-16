@@ -12,7 +12,7 @@ export default () => {
         },
         {
             title: 'Advertisements',
-            link: PATHNAMES.ADVERTISEMENTS
+            link: PATHNAMES.PROFILE_ADVERTISEMENTS
         }
     ],
         [

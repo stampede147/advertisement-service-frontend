@@ -21,12 +21,15 @@ const Chat = ({state: chat1, ...props}) => {
     useEffect(() => {
         chatMessageApi.getChatMessages(chat.id)
             .then(resp => {
+
                 const input = resp.content == null ? [] : resp.content;
                 input.reverse();
-                setMessages(resp.content == null ? [] : [...input])
+
+                setMessages([...input])
+
                 dispatch({type: 'replace_state', data: input})
             })
-    }, [states.length, messages.length]);
+    }, [states.length]);
 
     let func = {}
 
@@ -43,7 +46,6 @@ const Chat = ({state: chat1, ...props}) => {
     func.onChange = func.onChange.bind(Chat);
 
     func.onClick = () => {
-        body.trim();
         if (body === "") {
             return
         }
@@ -54,7 +56,7 @@ const Chat = ({state: chat1, ...props}) => {
         });
 
         setMessages([...messages])
-        chatMessageApi.sendChatMessage(func.newMessage.chatId, func.newMessage.body, func.newMessage.senderId)
+        chatMessageApi.sendChatMessage(func.newMessage.chatId, func.newMessage.body)
         setBody("");
     }
     // !!!

@@ -37,7 +37,9 @@ const AdvertisementPage = () => {
     }
 
     return <SinglePageWrapper header={NavigationPanel}
-                              content={() => <SingleContainer content={Advertisement} {...state}/>}
+                              content={() =>
+                                  <SingleContainer content={Advertisement}
+                                                   {...state}/>}
                               state={state}/>
 }
 
