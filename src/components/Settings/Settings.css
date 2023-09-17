@@ -1,0 +1,65 @@
+.content-settings-root {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    min-width: 760px;
+    width: 50%;
+
+
+}
+
+.content-entry-root {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 23px 19px 21px 20px;
+}
+
+.content-entry-root:not(:first-child) {
+    margin-top: 10px;
+}
+
+.content-entry-title {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+/*NameBlock*/
+.title-paragraph-key {
+    color: rgb(92, 92, 92);
+}
+
+.title-paragraph-value {
+    margin-left: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.content-user-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-user-name-style {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-user-name-style:not(:first-child) {
+    margin-top: 10px;
+}
+
+
+/*delete block*/
+.delete-profile-block-style {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.delete-profile-block-title {
+    width: 50%;
+    text-align: justify;
+    word-break: break-word;
+}

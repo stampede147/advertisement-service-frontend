@@ -1,15 +1,13 @@
 .advertisement-card-preview {
+    padding: 23px 19px 21px 20px;
     width: 840px;
     display: flex;
     flex-flow: row;
-    padding: 10px;
     box-sizing: border-box;
 }
 
 .advertisement-card-preview:hover {
-    /*background: rgba(108, 108, 103, 0.13);*/
     border-radius: 10px;
-
 }
 
 

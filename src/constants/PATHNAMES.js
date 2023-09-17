@@ -8,5 +8,7 @@ export default {
     CREATE_ADVERTISEMENT: "/advertisement/create",
     EDIT_ADVERTISEMENT: "/advertisement/edit",
     LOGOUT: "/logout",
+    PROFILE_SETTINGS: "/profile/settings",
+    PROFILE_DELETE: "/profile/settings/delete",
 
 }

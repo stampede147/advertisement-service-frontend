@@ -9,6 +9,7 @@ import ChatPage from "./pages/ChatPage/ChatPage";
 import AdvertisementPage from "./pages/AdvertisementPage/AdvertisementPage";
 import PATHNAMES from "./constants/PATHNAMES";
 import EditAdvertisement from "./components/EditAdvertisement/EditAdvertisement";
+import SettingsPage from "./pages/SettingsPage/SettingsPage";
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
                     <Route path={PATHNAMES.EDIT_ADVERTISEMENT} element={<EditAdvertisement/>}/>
 
                     <Route path={'/profile/advertisements'} element={<MyAdvertisementsPage/>}/>
+
+                    <Route path={'/profile/settings'} element={<SettingsPage/>}/>
 
                     <Route path={'/advertisements/:advertisementId'} element={<AdvertisementPage/>}/>
 

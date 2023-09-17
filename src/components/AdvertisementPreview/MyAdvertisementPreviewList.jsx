@@ -2,8 +2,6 @@ import React from "react";
 
 import './AdvertisementPreviewList.css'
 import MyAdvertisementPreview from "./MyAdvertisementPreview";
-import SemiComponent from "../SemiComponent/SemiComponent";
-import {get} from "axios";
 
 
 const MyAdvertisementPreviewList = (props) => {

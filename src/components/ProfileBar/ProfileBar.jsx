@@ -4,6 +4,7 @@ import State from "../../constants/state";
 import {Link, NavLink} from "react-router-dom";
 import PATHNAMES from "../../constants/PATHNAMES";
 import StubComponent from "../StubComponent/StubComponent";
+import SettingsPage from "../../pages/SettingsPage/SettingsPage";
 
 const ProfileBar = (props) => {
 
@@ -28,19 +29,27 @@ const ProfileBar = (props) => {
                     </a>
                 </div>
             </div>
-            <ul className="profile-side-bar-navigation-list">
-                <li className="element-bar" >
-                    <NavLink activeClassName={"asdasd"} to={PATHNAMES.PROFILE_ADVERTISEMENTS}>
-                        <span> my advertisements</span>
-                    </NavLink>
-                </li>
-                <li className="element-bar">
-                    <Link to={PATHNAMES.PROFILE_CHATS}>
-                        <span> my chats</span>
-                    </Link>
-                </li>
-            </ul>
-
+            <div className="profile-side-bar-navigation-list">
+                <ul>
+                    <li className="element-bar">
+                        <NavLink activeClassName={"asdasd"} to={PATHNAMES.PROFILE_ADVERTISEMENTS}>
+                            <span>My advertisements</span>
+                        </NavLink>
+                    </li>
+                    <li className="element-bar">
+                        <Link to={PATHNAMES.PROFILE_CHATS}>
+                            <span>My chats</span>
+                        </Link>
+                    </li>
+                </ul>
+                <ul className={'profile-side-bar-details-list'}>
+                    <li className={"element-bar"}>
+                        <Link to={PATHNAMES.PROFILE_SETTINGS}>
+                            <span>Settings</span>
+                        </Link>
+                    </li>
+                </ul>
+            </div>
         </div>
     )
 }
