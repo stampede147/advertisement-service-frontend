@@ -7,9 +7,6 @@ export default (fieldset) => {
 
     const {field} = fieldset;
 
-    console.log(field)
-
-
     const typ = {
         label: field.label,
         type: "label"

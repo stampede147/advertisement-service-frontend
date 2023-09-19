@@ -1,0 +1,53 @@
+
+/* TextTableCategoryRow */
+.text-table-category {
+    padding: 4px 10px;
+    cursor: pointer;
+    color: black;
+}
+
+.text-table-category:not(.text-table-category_active):hover {
+    background: #d9f3ff;;
+}
+
+.text-table-category-size {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.text-table-category_active {
+    background-color: #0af;
+    color: #fff;
+}
+
+/**/
+
+
+/*TextTableColumn*/
+
+.text-table-column {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+
+}
+/**/
+
+/* TextTableColumn */
+.text-table-column-title {
+    color: #999999;
+    padding: 12px 10px 10px;
+}
+.text-table-column-title-size {
+    font-size: 13px;
+    line-height: 18px;
+}
+/**/
+
+
+/* TextTable */
+.text-table-row-root {
+    display: flex;
+    flex-direction: row;
+}
+/**/

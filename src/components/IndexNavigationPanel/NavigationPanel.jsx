@@ -10,11 +10,11 @@ import SearchInput from "../common/SearchInput/SearchInput";
 
 export default ({state, ...props}) => {
 
-    const user = {}
-    user.firstName = "Eugeniy";
-
     const [visibleDropdownMenu, setVisibleDropdownMenu] = useState(false)
 
+    const {showAddButton = true} = props;
+    const user = {}
+    user.firstName = "Eugeniy";
 
     function ImagedPseudoButton(params) {
         return <Link className={'index-nav-link'} to={params.to}>
@@ -25,7 +25,6 @@ export default ({state, ...props}) => {
             </div>
         </Link>
     }
-
 
     let onMouseEnter = () => setVisibleDropdownMenu(!visibleDropdownMenu);
     return (
@@ -55,12 +54,14 @@ export default ({state, ...props}) => {
                         {visibleDropdownMenu && <DropdownMenuContainer/>}
                     </div>
 
-                    <div className={'index-add-button-wrapper'}>
-                        <ImagedPseudoButton link={PATHNAMES.CREATE_ADVERTISEMENT}
-                                            src={PlusIcon}
-                                            a={"add advertisement"}
-                        />
-                    </div>
+                    {showAddButton
+                        && <div className={'index-add-button-wrapper'}>
+                            <ImagedPseudoButton to={PATHNAMES.CREATE_ADVERTISEMENT}
+                                                src={PlusIcon}
+                                                a={"add advertisement"}
+                            />
+                        </div>
+                    }
 
                 </div>
             </div>
