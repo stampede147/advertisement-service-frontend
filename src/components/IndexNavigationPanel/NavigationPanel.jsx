@@ -8,11 +8,13 @@ import ChatIcon from './icons/chatIcon.svg'
 import PlusIcon from './icons/plusIcon.svg'
 import SearchInput from "../common/SearchInput/SearchInput";
 
-export default ({state, ...props}) => {
+export default (props) => {
 
     const [visibleDropdownMenu, setVisibleDropdownMenu] = useState(false)
 
-    const {showAddButton = true} = props;
+    const {showAddButton: isAddButtonActive = true, isSearchActive = true} = props;
+
+
     const user = {}
     user.firstName = "Eugeniy";
 
@@ -31,9 +33,10 @@ export default ({state, ...props}) => {
         <div className={'index-nav-panel-root'}>
             <div className={'index-inner'}>
 
-                <div className={'index-input-block-left'}>
+                {isSearchActive && <div className={'index-input-block-left'}>
                     <SearchInput/>
                 </div>
+                }
 
                 <div className={'index-images-group-right'}>
                     <div className={'index-chat-wrapper'}>
@@ -54,7 +57,7 @@ export default ({state, ...props}) => {
                         {visibleDropdownMenu && <DropdownMenuContainer/>}
                     </div>
 
-                    {showAddButton
+                    {isAddButtonActive
                         && <div className={'index-add-button-wrapper'}>
                             <ImagedPseudoButton to={PATHNAMES.CREATE_ADVERTISEMENT}
                                                 src={PlusIcon}

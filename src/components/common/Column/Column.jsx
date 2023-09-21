@@ -12,6 +12,11 @@ export default (columnData) => {
             case "textarea": {
                 return <TextareaColumn/>;
             }
+            case "input": {
+                return <div className={"input-column-root"}>
+                    <input className={"input-entry"} defaultValue={""}/>
+                </div>
+            }
         }
     }
 

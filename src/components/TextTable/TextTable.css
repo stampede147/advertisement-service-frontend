@@ -1,0 +1,4 @@
+.text-table-row-root {
+    display: flex;
+    flex-direction: row;
+}

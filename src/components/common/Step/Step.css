@@ -1,3 +1,10 @@
+.edit-group-header-header {
+    display: flex;
+    flex-direction: row;
+
+    padding: 15px 0;
+}
+
 .group-title-font {
     font-weight: bold;
 }
@@ -6,4 +13,32 @@
     font-size: 25px;
     line-height: 30px;
     margin: 0;
+}
+
+
+.group-title-key {
+    flex-grow: 1;
+    min-height: 1px;
+    box-sizing: border-box;
+
+    flex-basis: 25%;
+    max-width: 25%;
+}
+
+.group-title-value {
+    flex-grow: 1;
+    min-height: 1px;
+    box-sizing: border-box;
+    flex-basis: 75%;
+    max-width: 75%;
+}
+
+.group-title-value-color {
+    color: #009CF0;;
+}
+
+.group-title-value:hover {
+    cursor: pointer;
+    transition-duration: 50ms;
+    color: rgba(211, 49, 49, 0.9);
 }

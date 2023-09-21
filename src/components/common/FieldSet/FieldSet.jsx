@@ -13,7 +13,7 @@ export default (fieldset) => {
     }
     const typ1 = {
 
-        type: "textarea"
+        type: "input"
     }
     return (
         <div className={'fieldset-fieldset fieldset-size'}>

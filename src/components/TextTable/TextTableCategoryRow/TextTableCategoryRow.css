@@ -1,0 +1,19 @@
+.text-table-category {
+    padding: 4px 10px;
+    cursor: pointer;
+    color: black;
+}
+
+.text-table-category:not(.text-table-category_active):hover {
+    background: #d9f3ff;;
+}
+
+.text-table-category-size {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.text-table-category_active {
+    background-color: #0af;
+    color: #fff;
+}

@@ -1,0 +1,17 @@
+.text-table-column {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    padding-bottom: 10px;
+
+}
+
+.text-table-column-title {
+    color: #999999;
+    padding: 12px 10px 10px;
+}
+
+.text-table-column-title-size {
+    font-size: 13px;
+    line-height: 18px;
+}
