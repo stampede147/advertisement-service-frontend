@@ -1,0 +1,37 @@
+.input-input-price {
+    font-family: inherit;
+    font-size: inherit;
+    text-align: inherit;
+    background-color: transparent;
+    color: inherit;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    flex-shrink: 1;
+    display: inline-flex;
+    align-self: stretch;
+    vertical-align: middle;
+    min-width: 0;
+}
+
+
+/*disable arrows in chromium based browsers */
+.input-price-format::-webkit-outer-spin-button,
+.input-price-format::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*disable arrows in firefox based browsers */
+.input-price-format {
+    -moz-appearance: textfield;
+    margin: 0;
+}
+
+.input-price-after {
+    margin-left: 5px;
+}

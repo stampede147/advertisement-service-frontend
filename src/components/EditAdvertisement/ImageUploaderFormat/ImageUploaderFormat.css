@@ -1,0 +1,13 @@
+.images-block-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.input-input-imageUploader {
+    display: block;
+    cursor: pointer;
+    opacity: 0;
+    width: 100%;
+}
+
