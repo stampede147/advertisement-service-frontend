@@ -1,5 +1,5 @@
 # Frontend application
-> Depends on application [Advertisement service backend](https://github.com/stampede147/advertisement-service-backend)
+> Depends on API of [Advertisement service backend](https://github.com/stampede147/advertisement-service-backend)
 
 # Functionality
 
