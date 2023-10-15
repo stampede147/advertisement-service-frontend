@@ -1,5 +1,4 @@
 .advertisement-content-root {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -51,6 +50,11 @@ ul.item-parameters-list {
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+}
+
+.author-icon-format img {
+    width: inherit;
+    height: inherit;
 }
 
 .item-author-details {

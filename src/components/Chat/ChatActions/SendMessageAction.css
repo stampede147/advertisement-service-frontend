@@ -8,11 +8,17 @@
     padding: 10px;
 }
 
-.user-input-message-text-root  form {
+.form-textarea-block {
+    border-color: black;
+    border-radius: 24px;
+}
+
+.user-input-message-text-root form {
     width: 100%
 }
 
 .send-message-textarea {
+    border-radius: 12px;
     width: 100%;
     height: 40px;
     min-height: 40px;

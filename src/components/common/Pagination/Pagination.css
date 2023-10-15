@@ -1,0 +1,23 @@
+.pagination-root {
+    width: 100%;
+}
+
+.navigation-page-list {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.page-item {
+    padding: 10px 15px;
+    background-color: white;
+}
+
+.page-item:hover {
+    transition: 0.15s;
+    background-color: rgba(128, 128, 128, 0.15);
+}
+
+.page-item-active {
+    font-weight: bold;
+}

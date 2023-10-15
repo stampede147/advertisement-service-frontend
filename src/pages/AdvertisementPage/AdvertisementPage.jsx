@@ -8,39 +8,35 @@ import StubComponent from "../../components/StubComponent/StubComponent";
 import SingleContainer from "../../container/SingleContainer/SingleContainer";
 import NavigationPanel from "../../components/IndexNavigationPanel/NavigationPanel";
 import {getAdvertisementById} from "../../api/advertisementsApi";
+import FooterPanel from "../../components/FooterPanel/FooterPanel";
 
 
 const AdvertisementPage = () => {
 
     const params = useParams();
     const [loading, setLoading] = useState(true)
-    const [advertisement, setAdvertisement] = useState(null)
-    const [user, setUser] = useState(null)
+    const [advertisement, setAdvertisement] = useState({})
+    const [userDetails, setUserDetails] = useState({})
 
 
     useEffect(() => {
-        Promise.all(Array.of(getAdvertisementById(params.advertisementId), userApi.getUserDetails()))
-            .then(resp => {
-                setAdvertisement(resp[0]);
-                setUser(resp[1]);
+        Promise.all([getAdvertisementById(params.advertisementId), userApi.getUserDetails()])
+            .then(data => {
+                setAdvertisement(data[0]);
+                setUserDetails(data[1]);
                 setLoading(false);
             })
+
     }, []);
 
-    const state = {}
-    state.advertisement = advertisement;
-    state.user = user;
-    state.loading = loading;
-
     if (loading) {
-        return <StubComponent/>
+        return <StubComponent/>;
     }
 
-    return <SinglePageWrapper header={NavigationPanel}
-                              content={() =>
-                                  <SingleContainer content={Advertisement}
-                                                   {...state}/>}
-                              state={state}/>
+    return <SinglePageWrapper header={<NavigationPanel user={userDetails}/>}
+                              content={<SingleContainer content={<Advertisement advertisement={advertisement}/>}/>}
+                              footer={<FooterPanel/>}
+    />
 }
 
 export default AdvertisementPage;

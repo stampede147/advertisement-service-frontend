@@ -1,0 +1,58 @@
+.recent-advertisements-root {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: white;
+    padding: 16px 19px 21px 20px;
+}
+
+.recent-advertisements-root img {
+    height: 75px;
+}
+
+.item-recent-root {
+    overflow: hidden;
+    display: flex;
+    flex-grow: 1;
+    word-break: break-all;
+    position: relative;
+}
+
+.item-recent-root:hover .item-details-title {
+    color: red;
+}
+
+.item-recent-root:not(:first-child) {
+    margin-top: 15px;
+}
+
+.item-recent-root .item-recent-img {
+    height: 60px;
+    width: 80px;
+    min-width: 80px;
+}
+.item-recent-root .item-recent-img img{
+    height: 100%;
+    width: 100%;
+}
+
+.item-recent-root .item-details {
+}
+
+
+.item-details:not(:first-child){
+    margin-left: 10px;
+}
+
+.item-recent-root .item-details .item-details-title {
+    display: -webkit-box;
+    word-break: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-recent-root ul.item-details li:not(:last-child) {
+    margin-bottom: 4px;
+
+}

@@ -6,20 +6,27 @@ import React, {useEffect, useReducer, useState} from "react";
 import chatMessageReducer from "../../reducers/chatMessageReducer";
 import State from "../../constants/state";
 import * as chatMessageApi from "../../api/chatMessageApi";
-import {useLocation} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
+import * as chatApi from "../../api/chatApi";
+import StubComponent from "../StubComponent/StubComponent";
 
-const Chat = ({state: chat1, ...props}) => {
+const Chat = (props) => {
 
-    let chat = useLocation().state;
+    let params = useParams()
 
     const [messages, setMessages] = useState([])
+    const [chat, setChat] = useState(null);
 
     const [states, dispatch] = useReducer(chatMessageReducer, messages)
 
     const [body, setBody] = useState("")
 
     useEffect(() => {
-        chatMessageApi.getChatMessages(chat.id)
+
+        chatApi.getChat(params.chatId)
+            .then(chat => setChat(chat));
+
+        chatMessageApi.getChatMessages(params.chatId)
             .then(resp => {
 
                 const input = resp.content == null ? [] : resp.content;
@@ -29,49 +36,49 @@ const Chat = ({state: chat1, ...props}) => {
 
                 dispatch({type: 'replace_state', data: input})
             })
+
     }, [states.length]);
 
-    let func = {}
-
-    func.newMessage = {
-        chatId: chat.id,
+    const newMessage = {
+        chatId: params,
         body: body,
     }
 
-
-    func.onChange = (e) => {
+    const onChange = (e) => {
         setBody(e)
     }
-    // !!!
-    func.onChange = func.onChange.bind(Chat);
 
-    func.onClick = () => {
+    const onClick = () => {
         if (body === "") {
             return
         }
 
         dispatch({
             type: "add",
-            data: func.newMessage
+            data: newMessage
         });
 
         setMessages([...messages])
-        chatMessageApi.sendChatMessage(func.newMessage.chatId, func.newMessage.body)
+        chatMessageApi.sendChatMessage(params.chatId, newMessage.body)
         setBody("");
     }
-    // !!!
-    func.onClick = func.onClick.bind(Chat);
+
+    if (!chat){
+        return <StubComponent/>
+    }
 
 
+    let advertisement = chat.advertisement;
+    let seller = advertisement.seller;
     return (
         <div className="main-chat-root">
-            <ChatHeader chat={chat}/>
+            <ChatHeader title={advertisement.title}
+                        price={advertisement.price}
+                        advertisementImage={advertisement.images[0].link}
+                        firstName={seller.firstName}
+                        sellerImage={seller.image && seller.image.link}/>
             <ChatMessageList state={messages}/>
-            <ChatActions sendMessageAction={{
-                onClick: func.onClick,
-                onChange: func.onChange,
-                newMessage: func.newMessage
-            }}/>
+            <ChatActions onClick={onClick} onChange={onChange} body={newMessage.body}/>
         </div>
     )
 }

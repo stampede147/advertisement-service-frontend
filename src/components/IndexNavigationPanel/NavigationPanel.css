@@ -1,5 +1,5 @@
 .index-nav-panel-root {
-    height: 68px;
+    height: 62px;
     box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.04);
     line-height: 1.5;
     font-size: 13px;
@@ -8,27 +8,39 @@
 }
 
 
-
 .index-inner {
+    height: 40px;
     width: 1256px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: auto;
     place-items: center;
+    position: relative;
+}
 
+
+
+.index-inner-space {
+    height: 100%;
+}
+.index-inner-space:not(:last-child){
+    margin-right: 10px;
 }
 
 .index-input-block-left {
-    width: 100%;
+    position: relative;
+    min-width: 100px;
 }
 
 
-.index-images-group-right {
-    margin-left: 72px;
+.index-group-right {
+    height: 100%;
+    /*margin-left: 72px;*/
     display: flex;
     flex-direction: row;
     position: relative;
     place-items: center;
+
 }
 
 .index-nav-link {
@@ -40,6 +52,11 @@
     white-space: nowrap;
 }
 
+.index-group-nav {
+    display: flex;
+    height: inherit;
+}
+
 .index-profile {
     display: flex;
     align-self: center;
@@ -47,22 +64,48 @@
 }
 
 .index-block-img {
+    display: flex;
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
 
-.index-user-nav {
+.link-wrapper {
     display: flex;
-    min-width: 20px;
-    max-width: 180px;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
+
+.index-block-div {
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    display: flex;
+    color: inherit;
+    background-color: inherit;
+}
+
 
 .index-nav-dropdown {
     position: relative;
-    padding: 1px 24px;
+
+    max-width: 180px;
+    padding: 6px 12px;
 }
 
+.create-text-color-style {
+    font-size: 14px;
+    color: white;
+    background-color: #00aaff;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    place-items: center;
+    padding: 0 8px;
+}
 
 .button-ofr-img {
     width: 100%;
@@ -89,13 +132,13 @@ drop down menu
     top: 100%;
     background-color: #ffffff;
     box-shadow: 0 5px 17px rgba(0, 0, 0, .15);
-    z-index: 1001;
+    z-index: 111;
 
     font-size: 14px;
     line-height: 20px;
 
     min-width: 240px;
-    max-height: calc(100dvh - 44px);
+    max-height: calc(100vh - 44px);
     overflow-y: auto;
     scrollbar-width: none;
 }
@@ -128,4 +171,14 @@ drop down menu
 
 .menu-block > a:not(:first-child) {
     margin-top: 6px;
+}
+
+
+.index-inner-brand-style {
+    border-radius: 12px;
+    background-color: rgba(152, 149, 149, 0.85);
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    place-items: center;
 }

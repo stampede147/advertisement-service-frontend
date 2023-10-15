@@ -9,12 +9,15 @@ import State from "../../../constants/state";
 
 const ChatHeader = (props) => {
 
-    let navigateFunction = useNavigate();
+    const navigateFunction = useNavigate();
+
+    const {title, price, advertisementImage} = props
+
+    const {firstName, sellerImage} = props
 
     let onClickButton = () => {
         navigateFunction(-1);
     }
-
 
     return (
         <div className='chat-header-root'>
@@ -23,14 +26,20 @@ const ChatHeader = (props) => {
             </div>
 
             <div className='left-block-content'>
-                <ChatAdvertisementAuthorImg advertisementImg={State.imgSourceUrl}
-                                            ownerImg={State.imgSourceUrl}/>
+                <div className='advertisement-author-block-root'>
+                    <div className='advertisement-image'>
+                        <img src={advertisementImage} alt={"item image"}/>
+                    </div>
+                    <div className='advertisement-author-image'>
+                        <img src={sellerImage} alt={"author image"}/>
+                    </div>
+                </div>
             </div>
 
             <div className='right-block-content'>
-                <AdvertisementAuthorInfo authorName={props.chat.advertisement.seller.firstName}
-                                         title={props.chat.advertisement.title}
-                                         price={props.chat.advertisement.price}
+                <AdvertisementAuthorInfo authorName={firstName}
+                                         title={title}
+                                         price={price}
                 />
             </div>
 

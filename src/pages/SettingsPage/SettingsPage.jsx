@@ -8,38 +8,38 @@ import {useNavigate} from "react-router-dom";
 import Settings from "../../components/Settings/Settings";
 import * as userApi from "../../api/userApi";
 import StubComponent from "../../components/StubComponent/StubComponent";
+import FooterPanel from "../../components/FooterPanel/FooterPanel";
 
 
 export default () => {
 
     const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState();
+    const [userDetails, setUserDetails] = useState();
     const navigate = useNavigate();
 
     useEffect(() => {
         userApi.getUserDetails()
-            .then(resp => {
-                setUser(resp.data)
+            .then(userDetails => {
+                setUserDetails(userDetails)
                 setLoading(!loading);
             })
     }, [])
 
-    if (loading){
+    if (loading) {
         return <StubComponent/>
     }
     return (
         <SinglePageWrapper
-            header={NavigationPanel}
-            content={() => <IndexContainer
-                navbar={ProfileBar}
-                content={() =>
-                    <SemiComponent title={"Settings"}
-                                   content={Settings}
-                                   user={user}
-                    />
-                }
+            header={<NavigationPanel user={userDetails}/>}
+            content={<IndexContainer
+                navbar={<ProfileBar userDetails={userDetails}/>}
+                content={<SemiComponent
+                    title={"Settings"}
+                    content={<Settings user={userDetails}/>}
+                />}
             />
             }
+            footer={<FooterPanel/>}
         />
     )
 }

@@ -6,7 +6,7 @@ const axios = axiosFactory.getInstance();
 const API_PATHNAME = "/user/chats";
 
 export function createChat(body) {
-    axios.post(API_PATHNAME, body)  ;
+    return axios.post(API_PATHNAME, body)  ;
 }
 
 export function getChats(){
@@ -26,13 +26,6 @@ export function deleteChat(chatId) {
 }
 
 export function getChat(chatId) {
-    let options = {
-        method: httpRequest.GET,
-        headers: new Headers({
-            "Content-Type": 'application/json',
-        }),
-        mode: 'cors',
-    }
-
-    fetch(API_PATHNAME + '/' + chatId)
+    return axios.get(API_PATHNAME.concat("/").concat(chatId))
+        .then(resp => resp.data)
 }

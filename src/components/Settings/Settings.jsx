@@ -1,15 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './Settings.css'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import PATHNAMES from "../../constants/PATHNAMES";
+import * as advertisementApi from "../../api/userAdvertisementApi";
+import * as useApi from "../../api/userApi";
+import StubComponent from "../StubComponent/StubComponent";
 
-export default (props) => {
+export default () => {
 
-    const {user} = props;
+    const [userDetails, setUserDetails] = useState();
+    const [loading, setLoading] = useState(true);
 
-    const onClickChange = () => {
+    useEffect(() => {
+        useApi.getUserDetails()
+            .then(resp => {
+                console.log(resp)
+                setUserDetails(resp)
+                setLoading(false)
+            })
 
-    }
+    }, [])
 
     const SettingsBlock = ({title, content: Content, ...props}) => {
         return (
@@ -38,6 +48,7 @@ export default (props) => {
                     </div>
                 </div>);
         }
+
         return <SettingsBlock
             title={"Контактная информация"}
             content={NameBlockContent}
@@ -63,9 +74,13 @@ export default (props) => {
                               content={DeleteBlockContent}/>
     }
 
+    if (loading){
+        return <StubComponent/>
+    }
+
     return (
         <div className={'content-settings-root'}>
-            <NameBlock firstName={user.firstName} lastName={user.lastName}/>
+            <NameBlock firstName={userDetails.firstName} lastName={userDetails.lastName}/>
             <DeleteBlock/>
 
         </div>

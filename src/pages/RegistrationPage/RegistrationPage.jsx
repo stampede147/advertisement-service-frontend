@@ -1,10 +1,23 @@
-import React from "react";
+import React, {useRef} from "react";
 import './RegistrationPage.css'
+import * as usersApi from "../../api/usersApi";
+import {resolvePath, useNavigate} from "react-router-dom";
+import PATHNAMES from "../../constants/PATHNAMES";
 
 const RegistrationPage = (props) => {
 
+    let navigateFunction = useNavigate();
+
+    const body = {};
+
     function onClickButton() {
-        console.log('button is clicked!')
+        usersApi.createUser(body)
+            .then(completed => completed && navigateFunction(PATHNAMES.LOGIN));
+    }
+
+    const onChange = (e) => {
+        let inputTarget = e.target;
+        body[inputTarget.id] = inputTarget.value;
     }
 
     return (
@@ -16,12 +29,22 @@ const RegistrationPage = (props) => {
                 <div className="form-container">
                     <form className="input-forms">
                         <div className="security-parameters">
-                            <input type="text" placeholder="username"/>
-                            <input type="password" placeholder="password"/>
+                            <label for={"username"}>
+                                <input id={"username"} type="text" placeholder="username" onChange={e => onChange(e)}/>
+                            </label>
+                            <label for={"password"}>
+                                <input id={"password"} type="password" placeholder="password"
+                                       onChange={e => onChange(e)}/>
+                            </label>
                         </div>
                         <div className="personal-parameters">
-                            <input type="text" placeholder="First name"/>
-                            <input type="text" placeholder="Surname"/>
+                            <label for={"firstName"}>
+                                <input id={"firstName"} type="text" placeholder="First name"
+                                       onChange={e => onChange(e)}/>
+                            </label>
+                            <label for={"surname"}>
+                                <input id="lastName" type="text" placeholder="Surname" onChange={e => onChange(e)}/>
+                            </label>
                         </div>
                         <div className="submit-btn">
                             <button type="button" onClick={onClickButton}>

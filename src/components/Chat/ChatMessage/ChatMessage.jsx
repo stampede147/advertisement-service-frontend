@@ -1,16 +1,16 @@
-import React  from "react";
+import React from "react";
 
 const ChatMessage = ({message}) => {
 
     let createdAt = message.createdAt;
 
-    let formattedTime = new Date(createdAt).toLocaleTimeString()
+    let formattedTime = new Date(message.createdAt).toLocaleTimeString()
         .substring(0,5);
 
     return (
-        <div className={message.senderId === 0
-            ? "left-opponent-message"
-            : "right-opponent-message"}>
+        <div className={message.senderId == localStorage.getItem("USER_ID")
+            ? "right-opponent-message"
+            : "left-opponent-message"}>
             <div className='message-container'>
                 <div>
                     <div className="message-author-img">

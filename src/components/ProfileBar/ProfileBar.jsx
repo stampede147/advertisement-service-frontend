@@ -1,38 +1,32 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import './ProfileBar.css'
-import State from "../../constants/state";
 import {Link, NavLink} from "react-router-dom";
 import PATHNAMES from "../../constants/PATHNAMES";
 import StubComponent from "../StubComponent/StubComponent";
-import SettingsPage from "../../pages/SettingsPage/SettingsPage";
+import * as useApi from "../../api/userApi";
 
 const ProfileBar = (props) => {
 
-    if (props.loading) {
-        return <StubComponent/>
-    }
+    const {userDetails} = props;
 
     return (
         <div className="profile-side-bar">
             <div className="profile-side-bar-header">
                 <div className="profile-icon">
-                    <img src={State.imgSourceUrl}/>
+                    <img src={userDetails &&
+                        userDetails.image &&
+                        userDetails.image.link}/>
                 </div>
                 <div className="profile-author-name">
                         <span className="author-name-text">
-                            EUGENIY
+                            {userDetails.name}
                         </span>
-                </div>
-                <div className="profile-reviews">
-                    <a href="#">
-                        <p>0 reviews!</p>
-                    </a>
                 </div>
             </div>
             <div className="profile-side-bar-navigation-list">
                 <ul>
                     <li className="element-bar">
-                        <NavLink activeClassName={"asdasd"} to={PATHNAMES.PROFILE_ADVERTISEMENTS}>
+                        <NavLink to={PATHNAMES.PROFILE_ADVERTISEMENTS}>
                             <span>My advertisements</span>
                         </NavLink>
                     </li>

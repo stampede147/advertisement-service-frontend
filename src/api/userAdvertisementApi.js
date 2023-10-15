@@ -4,9 +4,9 @@ const axios = AxiosFactory.getInstance();
 
 const API_PATHNAME = '/user/advertisements'
 
-export function create(request) {
+export function create(requestBody) {
 
-    return axios.post(API_PATHNAME, request)
+    return axios.post(API_PATHNAME, requestBody)
         .then(resp => resp.data);
 }
 
@@ -21,5 +21,10 @@ export function getAdvertisementsPage(page = 0) {
 
 export function getOne(advertisementId) {
     return axios.get(`${API_PATHNAME}/${advertisementId}`)
+        .then(resp => resp.data);
+}
+
+export function postViewedAdvertisements() {
+    return axios.post(`${API_PATHNAME}/viewed`)
         .then(resp => resp.data);
 }

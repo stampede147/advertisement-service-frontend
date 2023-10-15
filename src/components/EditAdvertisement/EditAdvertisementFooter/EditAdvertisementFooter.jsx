@@ -5,7 +5,6 @@ import '../EditAdvertisement.css'
 
 export default (props) => {
 
-    console.log("EditAdvertisementFOoter");
 
     const {onPublishButtonClick} = props;
 

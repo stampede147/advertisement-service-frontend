@@ -1,56 +1,62 @@
-import React, {useCallback, useState} from "react";
+import React, {useState} from "react";
 import './EditAdvertisement.css'
 import SingleContainer from "../../container/SingleContainer/SingleContainer";
 import EditAdvertisementContent from "./EdtiAdvertisementContent/EditAdvertisementContent";
 import EditAdvertisementHeader from "./EditAdvertisementHeader/EditAdvertisementHeader";
 import EditAdvertisementFooter from "./EditAdvertisementFooter/EditAdvertisementFooter";
-import StubComponent from "../StubComponent/StubComponent";
 import * as userAdvertisementApi from '../../api/userAdvertisementApi'
-import ProfileBar from "../ProfileBar/ProfileBar";
+import * as imageApi from "../../api/imageApi";
+import {redirect, useNavigate} from "react-router-dom";
+import PATHNAMES from "../../constants/PATHNAMES";
 
 
 const EditAdvertisement = (props) => {
 
+    const [selectedCategories, setSelectedCategories] = useState([props.navigation]);
 
-    const [selectedCategories, setSelectedCategories] = useState([props.categoryNode]);
+    const navigate = useNavigate();
+
     const [showDropdownMenu, setShowDropdownMenu] = useState(true);
+
     const [responseBody, setResponseBody] = useState({})
 
-    const selectCategory = (categoryNode) => {
-        if (categoryNode.children.length === 0) {
-            setShowDropdownMenu(false);
-            responseBody.categoryId = categoryNode.id
+    const selectCategory = (navigationNode) => {
+        if (!navigationNode.children) {
+
+            responseBody.categoryId = navigationNode.id
             setResponseBody(responseBody);
+
+            setShowDropdownMenu(false);
 
         }
 
         // if selected now category the same that selected before
-        if (categoryNode.id === selectedCategories.at(-1).id) {
+        if (navigationNode.id === selectedCategories.at(-1).id) {
             return;
         }
 
         // if selected now category is the child of last selected category
-        if (categoryNode.parentId === selectedCategories.at(-1).id) {
-            categoryNode.isSelected = true;
-            setSelectedCategories([...selectedCategories, categoryNode])
+        if (navigationNode.parentId === selectedCategories.at(-1).id) {
+            navigationNode.isSelected = true;
+            setSelectedCategories([...selectedCategories, navigationNode])
             return;
         }
 
         // if selected now category and the last selected category have the same parent category
-        if (categoryNode.parentId === selectedCategories.at(-1).parentId) {
+        if (navigationNode.parentId === selectedCategories.at(-1).parentId) {
 
             selectedCategories.pop().isSelected = null;
-            categoryNode.isSelected = true;
-            setSelectedCategories([...selectedCategories, categoryNode])
+            navigationNode.isSelected = true;
+            setSelectedCategories([...selectedCategories, navigationNode])
             return;
         }
 
-        let index = selectedCategories.findIndex(selected => selected.parentId === categoryNode.parentId);
+        let index = selectedCategories.findIndex(selected => selected.parentId === navigationNode.parentId);
         for (let i = index; i < selectedCategories.length; i++) {
             selectedCategories[i].isSelected = false;
         }
-        categoryNode.isSelected = true;
-        setSelectedCategories([...selectedCategories.slice(0, index), categoryNode]);
+        navigationNode.isSelected = true;
+        setSelectedCategories([...selectedCategories.slice(0, index), navigationNode]);
     };
 
     const onHeaderClick = () => {
@@ -58,18 +64,33 @@ const EditAdvertisement = (props) => {
     }
 
     const onPublishButtonClick = () => {
-        userAdvertisementApi.create(responseBody);
+        userAdvertisementApi.create(responseBody)
+            .then(setTimeout(resp => navigate(PATHNAMES.PROFILE_ADVERTISEMENTS)), 5000)
     }
 
     const onChangeFieldValue = (field) => {
-        console.log(responseBody)
         const target = field.target
+
+        if (target.id === "images") {
+            let formData = new FormData();
+            formData.append("image", target.files[0]);
+
+            imageApi.saveImage(formData)
+                .then(resp => {
+                    if (responseBody[target.id] === undefined) {
+                        responseBody[target.id] = [];
+                    }
+
+                    responseBody[target.id] = [...responseBody[target.id], resp.id];
+                });
+
+            return;
+        }
+
         responseBody[target.id] = target.value;
     }
 
-    const EditComponent = () => {
-
-        return <div className={'index-edit-ad-root'}>
+    return <div className={'index-edit-ad-root'}>
 
             <div className={'edit-group-header index-edit-elem'}>
                 <EditAdvertisementHeader onClick={onHeaderClick}
@@ -79,18 +100,15 @@ const EditAdvertisement = (props) => {
             </div>
 
             <div className={'edit-group-content index-edit-elem'}>
-                {!showDropdownMenu && <EditAdvertisementContent onChangeFieldValue={onChangeFieldValue}/>}
+                {!showDropdownMenu && <EditAdvertisementContent navigation={selectedCategories.at(-1).navigation}
+                                                                onChangeFieldValue={onChangeFieldValue}/>}
             </div>
 
             <div className={'edit-group-footer index-edit-elem'}>
                 {!showDropdownMenu && <EditAdvertisementFooter onPublishButtonClick={onPublishButtonClick}/>}
             </div>
 
-        </div>
-    }
-
-    return <SingleContainer content={EditComponent}/>;
-
+        </div>;
 };
 
 

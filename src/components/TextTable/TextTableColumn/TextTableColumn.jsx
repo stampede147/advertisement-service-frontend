@@ -6,14 +6,13 @@ export default (props) => {
 
     const {categoryNode, onClick} = props;
 
-    return <div className={'text-table-column'}>
+    return <div key={categoryNode.id} className={'text-table-column'}>
         <div className={'text-table-column-title text-table-column-title-size'}>
             {categoryNode.title}
         </div>
-        {categoryNode.children.map(categoryChildren => {
-            return <TextTableCategoryRow title={categoryChildren.title}
-                                         onClick={() => onClick(categoryChildren)}
-                                         isSelected={categoryChildren.isSelected}/>
-        })}
+        {categoryNode.children.map(categoryChildren => <TextTableCategoryRow id={categoryChildren.id}
+                                                                             title={categoryChildren.title}
+                                                                             onClick={() => onClick(categoryChildren)}
+                                                                             isSelected={categoryChildren.isSelected}/>)}
     </div>
 }

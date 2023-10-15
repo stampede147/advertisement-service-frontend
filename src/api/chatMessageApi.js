@@ -8,7 +8,7 @@ const axios = axiosFactory.getInstance();
 
 export function getChatMessages(chatId) {
     const body = {};
-    return axios.get(`${API_PATHNAME}?chatId=${chatId}`, body)
+    return axios.get(`${API_PATHNAME}?chatId=${chatId}`, chatId)
         .then(resp => resp.data)
         .catch(resp => resp);
 

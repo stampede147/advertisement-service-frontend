@@ -4,13 +4,16 @@ import state from "../../../constants/state";
 import SendMessageAction from "./SendMessageAction";
 import chatMessageReducer from "../../../reducers/chatMessageReducer";
 
-const ChatActions = (actions) => {
+const ChatActions = (props) => {
+
+    const {onChange, onClick, body} = props;
+
     return (
         <div className="dialog-actions">
             <div className="actions-row">
-                <SendMessageAction body={actions.sendMessageAction.newMessage.body}
-                                   onChange={actions.sendMessageAction.onChange}
-                                   onClick={actions.sendMessageAction.onClick}
+                <SendMessageAction body={body}
+                                   onChange={onChange}
+                                   onClick={onClick}
                 />
             </div>
         </div>

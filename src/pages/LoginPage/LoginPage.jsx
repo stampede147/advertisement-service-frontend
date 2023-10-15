@@ -9,7 +9,8 @@ import StubComponent from "../../components/StubComponent/StubComponent";
 const LoginPage = (props) => {
 
     return (
-       <SinglePageWrapper content={Login} header={StubComponent}/>
+       <SinglePageWrapper content={<Login/>}
+                          header={<StubComponent/>}/>
     )
 };
 

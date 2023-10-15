@@ -2,44 +2,61 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import PATHNAMES from "../../constants/PATHNAMES";
 import './NavigationPanel.css'
-import State from "../../constants/state";
 import DropdownMenuContainer from "./NavigableLinksMenuContainer/DropdownMenuContainer";
 import ChatIcon from './icons/chatIcon.svg'
-import PlusIcon from './icons/plusIcon.svg'
 import SearchInput from "../common/SearchInput/SearchInput";
 
-export default (props) => {
+
+const NavigationalPanel = (props) => {
 
     const [visibleDropdownMenu, setVisibleDropdownMenu] = useState(false)
 
-    const {showAddButton: isAddButtonActive = true, isSearchActive = true} = props;
+    const {showAddButton: isAddButtonActive = true, isAdvSearchActive = true} = props;
+
+    const {user} = props;
 
 
-    const user = {}
-    user.firstName = "Eugeniy";
+    function ImagedPseudoButton({to, src, alt}) {
+        return <LinkButton to={to}
+                           Content={<img className={'index-block-img'}
+                                         src={src}
+                                         alt={alt}
+                           />}/>;
+    }
 
-    function ImagedPseudoButton(params) {
-        return <Link className={'index-nav-link'} to={params.to}>
+    function TextPseudoButton({to, text}) {
+        return <LinkButton to={to}
+                           Content={<div className={'index-block-div'}>{text}</div>}/>
+    }
+
+    function LinkButton({Content, to}) {
+        return <Link className={'link-wrapper'} to={to}>
             <div className={'index-block-container'}>
-                <img className={'index-block-img'}
-                     src={params.src}
-                     alt={params.alt}/>
+                {Content}
             </div>
         </Link>
     }
 
-    let onMouseEnter = () => setVisibleDropdownMenu(!visibleDropdownMenu);
+    let toggleDropdownMenu = () => setVisibleDropdownMenu(!visibleDropdownMenu);
+
+    let searchStyle = {opacity: isAdvSearchActive ? "100" : "0"};
+    var addButtonStyle = {opacity: isAddButtonActive ? "100" : "0"};
     return (
         <div className={'index-nav-panel-root'}>
+
             <div className={'index-inner'}>
 
-                {isSearchActive && <div className={'index-input-block-left'}>
+                <div className={'index-inner-brand-style index-inner-space'}>
+                    <TextPseudoButton to={PATHNAMES.MAIN} text={"Adservice"}/>
+                </div>
+
+
+                <div style={searchStyle} className={'index-input-block-left index-inner-space'}>
                     <SearchInput/>
                 </div>
-                }
 
-                <div className={'index-images-group-right'}>
-                    <div className={'index-chat-wrapper'}>
+                <div className={'index-group-right index-inner-space'}>
+                    <div className={'index-group-nav'}>
                         <ImagedPseudoButton to={"/profile/chats"}
                                             src={ChatIcon}
                                             alt={"profile chats"}
@@ -47,27 +64,24 @@ export default (props) => {
                     </div>
 
                     <div className={'index-user-nav index-nav-dropdown'}
-                         onMouseEnter={onMouseEnter}
-                         onMouseLeave={onMouseEnter}>
-                        <div className={'user-image-avatar'}>
-                            <ImagedPseudoButton to={PATHNAMES.PROFILE_ADVERTISEMENTS}
-                                                src={State.imgSourceUrl}
-                                                alt={"user image"}/>
-                        </div>
+                         onMouseEnter={toggleDropdownMenu}
+                         onMouseLeave={toggleDropdownMenu}>
+                        <ImagedPseudoButton to={PATHNAMES.PROFILE_ADVERTISEMENTS}
+                                            src={user && user.image && user.image.link}
+                                            alt={"user image"}/>
                         {visibleDropdownMenu && <DropdownMenuContainer/>}
                     </div>
 
-                    {isAddButtonActive
-                        && <div className={'index-add-button-wrapper'}>
-                            <ImagedPseudoButton to={PATHNAMES.CREATE_ADVERTISEMENT}
-                                                src={PlusIcon}
-                                                a={"add advertisement"}
-                            />
+                    <div className={'index-group-nav'}>
+                        <div style={addButtonStyle} className={"create-text-color-style"}>
+                            <TextPseudoButton to={PATHNAMES.CREATE_ADVERTISEMENT} text={"Create advertisement"}/>
                         </div>
-                    }
+                    </div>
 
                 </div>
             </div>
         </div>
     );
-}
+};
+
+export default NavigationalPanel;

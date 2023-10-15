@@ -15,60 +15,34 @@ import * as userApi from "../../api/userApi";
 import NavigationPanel from "../../components/IndexNavigationPanel/NavigationPanel";
 import SemiComponent from "../../components/SemiComponent/SemiComponent";
 import MyAdvertisementPreviewList from "../../components/AdvertisementPreview/MyAdvertisementPreviewList";
+import FooterPanel from "../../components/FooterPanel/FooterPanel";
 
 const MyChatsPage = ({state}) => {
 
-    const [loading, setLoading] = useState(true)
-    const [chatPreviews, setChatPreviews] = useState([])
-
+    const [userDetails, setUserDetails] = useState(null);
 
     useEffect(() => {
+        userApi.getUserDetails()
+            .then(userDetails => {
+                setUserDetails(userDetails);
+            })
+    }, [])
 
-        async function fetchData() {
-            const user = await userApi.getUserDetails();
-
-            const chats = await chatApi.getChats(user.id);
-            chats.content = chats.content
-                ? chats.content
-                : [];
-
-            if (chats.content.length !== 0) {
-                const messages = await chatMessageApi.getLastChatMessageByChatIds(chats.content.map(chat => chat.id));
-
-                const map = new Map();
-                messages.forEach(message => map.set(message.chatId, message));
-
-                chats.content.map(chat => {
-                    chat.lastMessage = map.get(chat.id)
-                    return chat;
-                })
-            }
-
-            setLoading(false);
-
-            setChatPreviews(chats.content)
-
-        }
-
-        fetchData();
-    }, []);
-
-    state = {}
-    state.loading = loading;
-    state.chatPreviews = chatPreviews;
-
+    if (!userDetails){
+        return <StubComponent/>;
+    }
     return (
         <SinglePageWrapper
-            header={NavigationPanel}
-            content={() => <IndexContainer
-                navbar={ProfileBar}
-                content={() =>
-                    <SemiComponent title={"My messages"}
-                                   content={ChatPreviewList}
-                                   {...state}/>
+            header={<NavigationPanel user={userDetails}/>}
+            content={<IndexContainer
+                navbar={<ProfileBar userDetails={userDetails}/>}
+                content={<SemiComponent title={"My messages"}
+                                              content={<ChatPreviewList/>}
+                                              {...state}/>
                 }
             />
             }
+            footer={<FooterPanel/>}
         />
     )
 }

@@ -6,7 +6,6 @@ import {useNavigate} from "react-router-dom";
 
 const ChatMessageList = ({state: messages}) => {
 
-    let navigate = useNavigate();
     const scrollBlockRef = useRef(null);
 
     function scrollToDownPosition() {

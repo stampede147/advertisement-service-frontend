@@ -9,39 +9,31 @@ export default (props) => {
 
     const {name, onChangeFieldValue, type} = props;
 
-    let defaultFormat = <input type={"text"}
+    let DefaultFormat = <input type={"text"}
                                name={name}
-                               className={"column-root-textarea"}
+                               className={"column-root-textarea column-root-input-style"}
                                id={name}
                                onChange={onChangeFieldValue}
                                defaultValue={""}/>;
 
     if (type === "price") {
-        defaultFormat = <>
-            <input onChange={onChangeFieldValue}
-                   type={"number"}
-                   name={name}
-                   id={name}
-                   className={"input-input-price input-price-format"}
-                   defaultValue={""}/>
+        return <>
+            {DefaultFormat}
             <span className={'input-price-after'}>₽</span>
         </>
-        return;
-
     }
 
     if (type === "description") {
-        defaultFormat = <textarea onChange={onChangeFieldValue}
-                                  name={name}
-                                  id={name}
-                                  className={'textarea-textarea-description'}
-                                  defaultValue={""}/>
+        return <textarea onChange={onChangeFieldValue}
+                         name={name}
+                         id={name}
+                         className={'textarea-textarea-description'}
+                         defaultValue={""}/>
 
-        return;
     }
 
     if (type === "imageUploader") {
-        defaultFormat =
+        DefaultFormat =
             <div className={'images-block-container'}>
                 <FormatWrapper Format={() => <input onChange={onChangeFieldValue}
                                                     type={'file'}
@@ -51,7 +43,8 @@ export default (props) => {
                                                     defaultValue={""}/>}/>
 
             </div>
+        return DefaultFormat;
     }
 
-    return defaultFormat;
+    return DefaultFormat;
 }

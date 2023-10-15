@@ -9,17 +9,18 @@ const SinglePageWrapper = ({
                                state
                            }) => {
 
+
     return (
         <div className='root__cc'>
             <div className='root-content__cc'>
                 <div className='header__cc'>
-                    <Header state={state}/>
+                    {Header}
                 </div>
                 <div className='content-container__cc'>
-                    <Content state={state}/>
+                    {Content}
                 </div>
-                <div className={'footer_cc'}>
-                    <Footer state={state}/>
+                <div className={'content-footer__cc'}>
+                    {Footer}
                 </div>
 
             </div>

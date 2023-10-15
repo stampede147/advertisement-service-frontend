@@ -18,6 +18,26 @@
     height: 100%;
 }
 
+.column-root-input-style {
+    font-family: inherit;
+    font-size: inherit;
+    text-align: inherit;
+    background-color: transparent;
+    color: inherit;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    flex-shrink: 1;
+    display: inline-flex;
+    align-self: stretch;
+    vertical-align: middle;
+    min-width: 0;
+}
+
 
 /*LeftLayoutLabel*/
 .column-label-span {

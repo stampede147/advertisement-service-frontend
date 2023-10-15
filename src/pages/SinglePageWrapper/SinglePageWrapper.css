@@ -11,21 +11,31 @@
 @media screen and (min-width: 1360px) {
     .root__cc {
         background: #F2F4F6;
-        min-height: 100vh;
     }
 
     .root-content__cc {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
         width: inherit;
     }
 
     .root-content__cc .header__cc {
+        background-color: white;
         width: 100%;
     }
 
     .root-content__cc .content-container__cc {
-        margin: auto;
-        width: 1340px;
+        flex-grow: 1;
+        height: auto;
+        width: 1250px;
         position: relative;
 
+        margin: 25px auto;
+    }
+
+    .content-footer_cc {
+        display: flex;
+        margin-top: auto;
     }
 }

@@ -10,37 +10,43 @@ import AdvertisementPage from "./pages/AdvertisementPage/AdvertisementPage";
 import PATHNAMES from "./constants/PATHNAMES";
 import EditAdvertisement from "./components/EditAdvertisement/EditAdvertisement";
 import SettingsPage from "./pages/SettingsPage/SettingsPage";
+import AddAdvertisementPage from "./pages/AddAdvertisementPage/AddAdvertisementPage";
+import MainPage from "./pages/MainPage/MainPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 function App() {
 
     return (
-        <div className="content">
-            <BrowserRouter>
-                <Routes>
+        <BrowserRouter>
+            <Routes>
 
-                    <Route path={PATHNAMES.EDIT_ADVERTISEMENT} element={<EditAdvertisement/>}/>
+                <Route path={PATHNAMES.MAIN} element={<MainPage/>}/>
 
-                    <Route path={'/profile/advertisements'} element={<MyAdvertisementsPage/>}/>
+                <Route path={PATHNAMES.SEARCH} element={<SearchPage/>}/>
 
-                    <Route path={'/profile/settings'} element={<SettingsPage/>}/>
+                {/*<Route path={PATHNAMES.EDIT_ADVERTISEMENT} element={<EditAdvertisement/>}/>*/}
 
-                    <Route path={'/advertisements/:advertisementId'} element={<AdvertisementPage/>}/>
+                <Route path={'/profile/advertisements'} element={<MyAdvertisementsPage/>}/>
 
-                    <Route path={'/profile/chats'} element={<MyChatsPage/>}/>
+                <Route path={'/profile/settings'} element={<SettingsPage/>}/>
 
-                    <Route path={'/profile/chats/:chatId'} element={<ChatPage/>}/>
+                <Route path={'/advertisements/:advertisementId'} element={<AdvertisementPage/>}/>
 
-                    <Route path={'/login'}
-                           element={<LoginPage/>}/>
+                <Route path={'/profile/chats'} element={<MyChatsPage/>}/>
 
-                    <Route path={'/registration'}
-                           element={<RegistrationPage/>}/>
+                <Route path={'/profile/chats/:chatId'} element={<ChatPage/>}/>
 
-                </Routes>
-            </BrowserRouter>
-        </div>
-    )
-        ;
+                <Route path={PATHNAMES.CREATE_ADVERTISEMENT} element={<AddAdvertisementPage/>}/>
+
+                <Route path={'/login'}
+                       element={<LoginPage/>}/>
+
+                <Route path={'/registration'}
+                       element={<RegistrationPage/>}/>
+
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 

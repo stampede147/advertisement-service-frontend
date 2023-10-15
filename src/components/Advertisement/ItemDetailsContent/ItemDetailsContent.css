@@ -1,6 +1,7 @@
 .item-content {
     position: relative;
 }
+
 .item-img {
     height: 100%;
     width: 100%;
@@ -17,13 +18,18 @@
     background-color: #ffffff;
     border-radius: 24px;
     padding: 24px;
-
+    overflow: hidden;
 }
 
 .item-details-content-title {
     margin-bottom: 8px;
 }
 
-.item-details-content-content{
+.item-details-content-content {
     text-align: justify;
+}
+
+.item-details-content-formatting {
+    word-break: break-all;
+
 }

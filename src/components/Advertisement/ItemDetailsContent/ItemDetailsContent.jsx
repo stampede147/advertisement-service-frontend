@@ -7,7 +7,11 @@ const ItemDetailsContent = (props) => {
     const advertisement = props.advertisement;
     return (
         <div className="item-content">
-            <img className='item-img' src={State.imgSourceUrl}/>
+            <img className='item-img' src={
+                advertisement.images.length === 0
+                ? null
+                : advertisement.images[0].link
+            }/>
         </div>
     );
 }

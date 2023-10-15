@@ -1,39 +1,38 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import React, {useRef} from "react";
 import LoginHeader from "./LoginHeader/LoginHeader";
 import LoginFormBody from "./LoginFormBody/LoginFormBody";
 import LoginFooter from "./LoginFooter/LoginFooter";
 import authenticationApi from "../../api/loginApi";
 import PATH_NAMES from "../../constants/PATHNAMES";
+import PATHNAMES from "../../constants/PATHNAMES";
+import * as userApi from "../../api/userApi";
 
 
 export default () => {
 
+    const navigate = useNavigate();
     const usernameRef = useRef();
     const passwordRef = useRef();
 
+
     async function onButtonClick() {
-        //if username or password are empty
-        if (!(usernameRef.current.value || passwordRef.current.value)) {
-            return;
-        }
+        let body = {
+            "username": usernameRef.current.value,
+            "password": passwordRef.current.value,
+        };
 
-        try {
-            const result = await authenticationApi({
-                "username": usernameRef.current.value,
-                "password": passwordRef.current.value,
+        authenticationApi(body)
+            .then(noResp => {
+                userApi.getUserDetails()
+                    .then(userDetails => {
+                        localStorage.setItem("USER_ID", userDetails.id);
+                    })
+
+                usernameRef.current.value = "";
+                passwordRef.current.value = "";
+                navigate(PATHNAMES.PROFILE_ADVERTISEMENTS)
             });
-
-            if (result) {
-                window.location.pathname = PATH_NAMES.PROFILE_CHATS;
-            }
-
-        } finally {
-            localStorage.setItem("username", usernameRef.current.value);
-            usernameRef.current.value = "";
-            passwordRef.current.value = "";
-        }
-
 
     }
 
@@ -46,6 +45,6 @@ export default () => {
                                onButtonClick={onButtonClick}/>
                 <LoginFooter/>
             </div>
-        </div>
-    )
+        </div>);
+
 }

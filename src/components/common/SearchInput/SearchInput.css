@@ -4,11 +4,12 @@
     background-color: #F2F1F0;
     border-radius: 12px;
     padding: 11px 10px 13px 16px;
-    box-sizing: content-box;
 
+    align-self: flex-end;
 }
 
 .index-search-input-inner {
+    width: 712px;
     display: flex;
     flex-direction: row;
     height: 20px;
@@ -32,4 +33,25 @@
 .index-search-right input {
     all: unset;
     width: 100%;
+}
+
+
+.index-search-button {
+    height: 100%;
+}
+
+.index-search-button button {
+    all: unset;
+}
+
+.index-search-button-style {
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 9px 18px;
+    background-color: white;
+}
+
+.index-search-button-compensation {
+    margin-top: 1px;
+    margin-right: -7px;
 }

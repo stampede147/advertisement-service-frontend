@@ -10,36 +10,45 @@ import stubComponent from "../StubComponent/StubComponent";
 import StubComponent from "../StubComponent/StubComponent";
 import ActionButton from "../common/ActionButton/ActionButton";
 import * as chatApi from "../../api/chatApi";
+import {useNavigate} from "react-router-dom";
+import PATHNAMES from "../../constants/PATHNAMES";
+import * as Path from "path";
 
 
-const Advertisement = ({state, ...props}) => {
+const Advertisement = ({advertisement, ...props}) => {
 
 
+    let navigate = useNavigate();
     const itemTitleHeaderRef = useRef(null);
     const itemPriceHeaderRef = useRef(null);
 
+
+    const {seller} = advertisement;
 
     useEffect(() => {
         itemPriceHeaderRef.current.style.height = itemTitleHeaderRef.current.offsetHeight + 'px';
     }, []);
 
 
-    if (props.loading) {
-        return <StubComponent/>
-    }
 
-    const advertisement = state.advertisement;
-    const user = state.user;
 
     const createChatAction = () => {
-        chatApi.createChat({
-                "advertisementId": advertisement.id,
-            }
-        );
+        let body = {
+            "advertisementId": advertisement.id,
+        };
+
+        chatApi.createChat(body)
+            .then(resp => {
+                let location = resp.headers.get("location");
+                let lastIndex = location.lastIndexOf("/");
+                let createdChatId = location.substring(lastIndex+1);
+                console.log(createdChatId)
+                navigate(PATHNAMES.PROFILE_CHAT_TO + createdChatId )
+            });
     }
     const SendMessageButton = () => {
         return (
-            true
+            advertisement.seller.id !== localStorage.getItem("USER_ID")
                 ? <div className={"send-message-button-wrapper"}>
                     <div className={'send-message-button-bcolor'}>
                         <ActionButton onClick={() => createChatAction()} text={"send message"}/>
@@ -48,24 +57,23 @@ const Advertisement = ({state, ...props}) => {
                 : <StubComponent/>);
     }
 
-    const  Block = (params) => {
+    const ParameterBlock = (params) => {
         return (
             <div className={'item-details-content-root'}>
                 <div className={'item-details-content-title'}>
                     <h3>{params.title}</h3>
                 </div>
-                <div className={'item-details-content-content'}>
+                <div className={'item-details-content-content item-details-content-formatting'}>
                     <span>{params.content}</span>
                 </div>
             </div>
         );
     }
 
-    return (
-        <div className='advertisement-content-root'>
+    return <div className='advertisement-content-root'>
 
             <div className={'advertisement-content-line-breadcrumb'}>
-                Personal items > Shoes
+                {advertisement.category && advertisement.category.format}
             </div>
             <div className={"item-inner"}>
                 <div className='item-left'>
@@ -73,7 +81,7 @@ const Advertisement = ({state, ...props}) => {
                                 advertisement={advertisement}
                                 header={ItemTitle}/>
                     <ItemDetailsContent advertisement={advertisement}/>
-                    <Block title={"Description"} content={advertisement.description}/>
+                    <ParameterBlock title={"Description"} content={advertisement.description}/>
                 </div>
 
                 <div className='item-right'>
@@ -81,14 +89,13 @@ const Advertisement = ({state, ...props}) => {
                                 advertisement={advertisement}
                                 header={ItemPrice}/>
                     <ItemAuthorContent
-                        authorImage={State.imgSourceUrl}
-                        authorName={advertisement.seller.firstName}
+                        authorImage={seller.image && seller.image.link}
+                        authorName={seller.firstName}
                     />
                     <SendMessageButton/>
                 </div>
             </div>
-        </div>
-    )
+        </div>;
 }
 
 export default Advertisement;
